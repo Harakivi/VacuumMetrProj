@@ -352,6 +352,9 @@
                     <state>$PROJ_DIR$\CMSIS</state>
                     <state>$PROJ_DIR$\libs</state>
                     <state>$PROJ_DIR$</state>
+                    <state>$PROJ_DIR$\Utilities\FreeRTOS\Source\include</state>
+                    <state>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3</state>
+                    <state>$PROJ_DIR$\Tasks</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -617,7 +620,8 @@
                 </option>
                 <option>
                     <name>AUserIncludes</name>
-                    <state></state>
+                    <state>$PROJ_DIR$\libs</state>
+                    <state>$PROJ_DIR$</state>
                 </option>
                 <option>
                     <name>AExtraOptionsCheckV2</name>
@@ -766,11 +770,11 @@
                 </option>
                 <option>
                     <name>IlinkIcfOverride</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\linker\ST\stm32f103x8.icf</state>
+                    <state>$PROJ_DIR$\libs\VacuumMetrProj.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -2101,21 +2105,96 @@
         </file>
     </group>
     <group>
-        <name>libs</name>
+        <name>FreeRTOS</name>
+        <group>
+            <name>portable</name>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_1.c</name>
+                <excluded>
+                    <configuration>Debug</configuration>
+                </excluded>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_2.c</name>
+                <excluded>
+                    <configuration>Debug</configuration>
+                </excluded>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+                <excluded>
+                    <configuration>Debug</configuration>
+                </excluded>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_5.c</name>
+                <excluded>
+                    <configuration>Debug</configuration>
+                </excluded>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\port.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portasm.s</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portmacro.h</name>
+            </file>
+        </group>
         <file>
-            <name>$PROJ_DIR$\libs\delay.c</name>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\croutine.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\libs\lcd5110.c</name>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\list.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\libs\stm32f1xx_it.c</name>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\queue.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\tasks.c</name>
         </file>
     </group>
-    <file>
-        <name>$PROJ_DIR$\BoardConfig.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\main.c</name>
-    </file>
+    <group>
+        <name>User</name>
+        <group>
+            <name>libs</name>
+            <file>
+                <name>$PROJ_DIR$\libs\ADC.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\Buttons.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\lcd5110.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\stm32f1xx_it.c</name>
+            </file>
+        </group>
+        <group>
+            <name>RTOS</name>
+            <file>
+                <name>$PROJ_DIR$\libs\FreeRTOSConfig.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\TaskPriority.h</name>
+            </file>
+        </group>
+        <group>
+            <name>Tasks</name>
+            <file>
+                <name>$PROJ_DIR$\Tasks\LCD_Task.c</name>
+            </file>
+        </group>
+        <file>
+            <name>$PROJ_DIR$\BoardConfig.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+        </file>
+    </group>
 </project>

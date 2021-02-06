@@ -1,7 +1,7 @@
 #include "main.h"
 #include "lcd5110.h"
 
-uint8_t pcd8544_buffer[84 * 48 / 8] = {
+uint8_t bender[84 * 48 / 8] = {
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xD0, 0x10, 0xF0, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -81,32 +81,61 @@ void LCDInit()
   RST_HIGH;
   lcd5110_setBias(0x04);
   lcd5110_setContrast(94);
-
   // normal mode
   lcd5110_command(PCD8544_FUNCTIONSET);
-
   // Set display to Normal
   lcd5110_command(PCD8544_DISPLAYCONTROL | PCD8544_DISPLAYNORMAL);
-  lcd5110_display(pcd8544_buffer);
-  delay_ms(1000);
+  //Очищаем мусор в памяти дисплея
+  VBUF_Send_DMA(bender);
 }
 
 void lcd5110_command(int data)
 {
+  while(!((GPIOB->IDR & GPIO_IDR_IDR4)>> 3U)){}
   DC_LOW;
   CS_LOW;
-  SPI2->DR = data;
-  while((SPI2->SR & SPI_SR_BSY) > 0){}
+  SPI1->DR = data;
+  while((SPI1->SR & SPI_SR_BSY) > 0){}
   CS_HIGH;
 }
 
 void lcd5110_data(uint8_t data)
 {
+  while(!((GPIOB->IDR & GPIO_IDR_IDR4)>> 3U)){}
   DC_HIGH;
   CS_LOW;
-  SPI2->DR = data;
-  while((SPI2->SR & SPI_SR_BSY) > 0){}
+  SPI1->DR = data;
+  while((SPI1->SR & SPI_SR_BSY) > 0){}
   CS_HIGH;
+}
+
+void VBUF_Send_DMA(uint8_t* _VBUF)
+{
+  while(!((GPIOB->IDR & GPIO_IDR_IDR4)>> 3U)){}
+  //Ставим указатель на начало экрана
+  lcd5110_SetPos(0, 0);
+  //Переключаем на lcd DATA
+  DC_HIGH;
+  CS_LOW;
+  SPI1->CR2 |= SPI_CR2_TXDMAEN;
+  RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+  DMA1_Channel3->CCR &= ~DMA_CCR_EN;
+  DMA1_Channel3->CPAR = (uint32_t)(&SPI1->DR);
+  DMA1_Channel3->CMAR = (uint32_t)_VBUF;
+  DMA1_Channel3->CCR = 
+    0x0 << DMA_CCR_MEM2MEM_Pos //0: Memory to memory mode disabled
+    | 0x00 << DMA_CCR_PL_Pos //00: Low
+    | 0x00 << DMA_CCR_MSIZE_Pos //00: 8-bits
+    | 0x00 << DMA_CCR_PSIZE_Pos //00: 8-bits
+    | 0x1 << DMA_CCR_MINC_Pos //0: Memory increment mode disabled
+    | 0x0 << DMA_CCR_PINC_Pos //0: Peripheral increment mode disabled
+    | 0x0 << DMA_CCR_CIRC_Pos //0: Circular mode disabled
+    | 0x1 << DMA_CCR_DIR_Pos //1: Write to peripheral
+    | 0x1 << DMA_CCR_TCIE_Pos //1: Transfer complete interrupt enabled
+    | 0x1 << DMA_CCR_TEIE_Pos;//1: Transfer error interrupt enabled
+  DMA1_Channel3->CNDTR = 84 * 48 / 8; //Number of data to transfer
+  NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+  DMA1_Channel3->CCR |= DMA_CCR_EN; //1: Channel enabled
 }
 
 void lcd5110_setContrast(int val) 
@@ -115,7 +144,7 @@ void lcd5110_setContrast(int val)
     val = 0x7f;
   }
   lcd5110_command(PCD8544_FUNCTIONSET | PCD8544_EXTENDEDINSTRUCTION );
-  lcd5110_command( PCD8544_SETVOP | val);
+  lcd5110_command(PCD8544_SETVOP | val);
   lcd5110_command(PCD8544_FUNCTIONSET);
 
  }
@@ -131,15 +160,14 @@ void lcd5110_setBias(int val)
   lcd5110_command(PCD8544_FUNCTIONSET);
 }
 
-void lcd5110_display(uint8_t* disp)
+void VBUF_Send(uint8_t* _VBUF)
 {
-  //lcd5110_Clear();
   lcd5110_SetPos(0,0);
   for(uint8_t p = 0; p < 6; p++)
   {
     for(uint16_t col = 0; col <= 83; col++)
     {
-      lcd5110_data(disp[(84*p) + col]);
+      lcd5110_data(_VBUF[(84*p) + col]);
     }
   }
 }
@@ -156,6 +184,36 @@ void lcd5110_Clear()
   }
 }
 
+void lcd5110_Clear_DMA()
+{
+  while(!((GPIOB->IDR & GPIO_IDR_IDR4)>> 3U)){}
+  static uint8_t zero = 0x00; 
+  //Ставим указатель на начало экрана
+  lcd5110_SetPos(0, 0);
+  //Переключаем на lcd DATA
+  DC_HIGH;
+  CS_LOW;
+  SPI1->CR2 |= SPI_CR2_TXDMAEN;
+  RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+  DMA1_Channel3->CCR &= ~DMA_CCR_EN;
+  DMA1_Channel3->CPAR = (uint32_t)(&SPI1->DR);
+  DMA1_Channel3->CMAR = (uint32_t)&zero;
+  DMA1_Channel3->CCR = 
+    0x0 << DMA_CCR_MEM2MEM_Pos //0: Memory to memory mode disabled
+    | 0x00 << DMA_CCR_PL_Pos //00: Low
+    | 0x00 << DMA_CCR_MSIZE_Pos //00: 8-bits
+    | 0x00 << DMA_CCR_PSIZE_Pos //00: 8-bits
+    | 0x0 << DMA_CCR_MINC_Pos //0: Memory increment mode disabled
+    | 0x0 << DMA_CCR_PINC_Pos //0: Peripheral increment mode disabled
+    | 0x0 << DMA_CCR_CIRC_Pos //0: Circular mode disabled
+    | 0x1 << DMA_CCR_DIR_Pos //1: Write to peripheral
+    | 0x1 << DMA_CCR_TCIE_Pos //1: Transfer complete interrupt enabled
+    | 0x1 << DMA_CCR_TEIE_Pos;//1: Transfer error interrupt enabled
+  DMA1_Channel3->CNDTR = 84 * 48 / 8; //Number of data to transfer
+  NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+  DMA1_Channel3->CCR |= DMA_CCR_EN; //1: Channel enabled
+}
+
 void lcd5110_SetPos(uint8_t xPos, uint8_t yPos)
 {
   lcd5110_command(PCD8544_SETYADDR | yPos);
@@ -165,31 +223,33 @@ void lcd5110_SetPos(uint8_t xPos, uint8_t yPos)
 void gpioInit(){
   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;// GPIOA clock enable
   RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;// GPIOB clock enable
+  RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;// AFIO clock enable
   GPIOB->CRL |= GPIO_CRL_MODE1_0 | GPIO_CRL_MODE1_1 |// D/C MODE CONFIG 11: Maximum output speed 50 MHz
-                GPIO_CRL_MODE2_0 | GPIO_CRL_MODE2_1 ;// RST MODE CONFIG 11: Maximum output speed 50 MHz               
-  GPIOB->CRH |= GPIO_CRH_MODE15_0 | GPIO_CRH_MODE15_1 |// MOSI MODE CONFIG 11: Maximum output speed 50 MHz
-                GPIO_CRH_MODE12_0 | GPIO_CRH_MODE12_1 |// CHIP SELECT MODE CONFIG 11: Maximum output speed 50 MHz
-                GPIO_CRH_MODE13_0 | GPIO_CRH_MODE13_1;// CLK MODE CONFIG 11: Maximum output speed 50 MHz
+                GPIO_CRL_MODE2_0 | GPIO_CRL_MODE2_1 |// RST MODE CONFIG 11: Maximum output speed 50 MHz 
+                GPIO_CRL_MODE3_0 | GPIO_CRL_MODE3_1 |// CLK MODE CONFIG 11: Maximum output speed 50 MHz
+                GPIO_CRL_MODE4_0 | GPIO_CRL_MODE4_1 |// CHIP SELECT MODE CONFIG 11: Maximum output speed 50 MHz
+                GPIO_CRL_MODE5_0 | GPIO_CRL_MODE5_1 ;// MOSI MODE CONFIG 11: Maximum output speed 50 MHz
   GPIOB->CRL &= ~(GPIO_CRL_CNF1_0 | GPIO_CRL_CNF1_1);// D/C CNF CONFIG 00: GPIO Push-pull
   GPIOB->ODR |= GPIO_ODR_ODR1;// D/C SET TO HIGH
   GPIOB->CRL &= ~(GPIO_CRL_CNF2_0 | GPIO_CRL_CNF2_1);// RST CNF CONFIG 00: GPIO Push-pull
   GPIOB->ODR |= GPIO_ODR_ODR2;//RST SET TO HIGH
-  GPIOB->CRH &= ~(GPIO_CRH_CNF12_0 | GPIO_CRH_CNF12_1);// CHIP SELECT CNF CONFIG 00: GPIO Push-pull
+  GPIOB->CRL &= ~(GPIO_CRL_CNF4_0 | GPIO_CRL_CNF4_1);// CHIP SELECT CNF CONFIG 00: GPIO Push-pull
   GPIOB->ODR |= GPIO_ODR_ODR12;// CHIP SELECT SET TO LOW
-  GPIOB->CRH &= ~GPIO_CRH_CNF15_0;//
-  GPIOB->CRH |= GPIO_CRH_CNF15_1;// MOSI CNF CONFIG 10: AF Push-pull
-  GPIOB->CRH &= ~GPIO_CRH_CNF13_0;//
-  GPIOB->CRH |= GPIO_CRH_CNF13_1;// CLK CNF CONFIG 10: AF Push-pull
+  AFIO->MAPR |= AFIO_MAPR_SPI1_REMAP;
+  GPIOB->CRL &= ~GPIO_CRL_CNF5_0;//
+  GPIOB->CRL |= GPIO_CRL_CNF5_1;// MOSI CNF CONFIG 10: AF Push-pull
+  GPIOB->CRL &= ~GPIO_CRL_CNF3_0;//
+  GPIOB->CRL |= GPIO_CRL_CNF3_1;// CLK CNF CONFIG 10: AF Push-pull
 }
 
 void SPI2Init(){
-  RCC->APB1ENR |= RCC_APB1ENR_SPI2EN ;// SPI2 clock enable
-  SPI2->CR1 = 1 << SPI_CR1_BIDIMODE_Pos
+  RCC->APB2ENR |= RCC_APB2ENR_SPI1EN ;// SPI2 clock enable
+  SPI1->CR1 = 1 << SPI_CR1_BIDIMODE_Pos
             | 1 << SPI_CR1_BIDIOE_Pos
             | 0 << SPI_CR1_DFF_Pos
             | 0 << SPI_CR1_RXONLY_Pos
             | 0 << SPI_CR1_LSBFIRST_Pos
-          | 100 << SPI_CR1_BR_Pos// 011: fPCLK/16 72/16=4.5Mhz
+          | 000 << SPI_CR1_BR_Pos// 000: fPCLK/2 8/2=4Mhz
             | 1 << SPI_CR1_SSM_Pos | 1 << SPI_CR1_SSI_Pos
             | 1 << SPI_CR1_CPOL_Pos
             | 1 << SPI_CR1_CPHA_Pos
