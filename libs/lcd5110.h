@@ -1,6 +1,15 @@
 #ifndef _LCD5110_
 #define _LCD5110_
 //------------------------------------------------
+#define DC_HIGH LCD_DC_PORT->ODR |= LCD_DC_PIN /// DATA/COMMAND SET
+#define DC_LOW LCD_DC_PORT->ODR &= ~LCD_DC_PIN /// DATA/COMMAND RESET
+#define RST_HIGH LCD_RST_PORT->ODR |= GPIO_ODR_ODR2 /// RST SET
+#define RST_LOW LCD_RST_PORT->ODR &= ~GPIO_ODR_ODR2 /// RST RESET
+#define CS_HIGH LCD_CS_PORT->ODR |= GPIO_ODR_ODR4 /// CHIP SELECT SET
+#define CS_LOW LCD_CS_PORT->ODR &= ~GPIO_ODR_ODR4 /// CHIP SELECT RESET
+//------------------------------------------------
+#define BRIGHT TIM3->CCR3///< Brightness
+//------------------------------------------------
 #define BLACK 1 ///< Black pixel
 #define WHITE 0 ///< White pixel
 //------------------------------------------------
@@ -28,13 +37,15 @@
 void LCDInit();
 void lcd5110_command(int data);
 void lcd5110_data(uint8_t data);
+void VBUF_Send_DMA(uint8_t* _VBUF);
 void lcd5110_setBias(int val);
 void lcd5110_setContrast(int val);
-void lcd5110_display(uint8_t* disp);
+void VBUF_Send(uint8_t* _VBUF);
 void lcd5110_SetPos(uint8_t xPos, uint8_t yPos);
 void lcd5110_Clear(void);
-void gpioInit();
-void SPI2Init();
-void bltInit();
+void lcd5110_Clear_DMA(void);
+void gpioInit(void);
+void SPI2Init(void);
+void bltInit(void);
 //------------------------------------------------
 #endif /* _LCD5110_ */

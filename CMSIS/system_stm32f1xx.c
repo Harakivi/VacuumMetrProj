@@ -135,8 +135,8 @@
 *******************************************************************************/
 #if defined(STM32F100xB) ||defined(STM32F100xE)
   uint32_t SystemCoreClock         = 24000000U;        /*!< System Clock Frequency (Core Clock) */
-#else /*!< HSI Selected as System Clock source */
-  uint32_t SystemCoreClock         = 72000000U;        /*!< System Clock Frequency (Core Clock) */
+#else /*!< HSE Selected as System Clock source */
+  uint32_t SystemCoreClock         = 8000000U;        /*!< System Clock Frequency (Core Clock) */
 #endif
 
 const uint8_t AHBPrescTable[16U] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
@@ -225,32 +225,30 @@ void SystemInit (void)
 #else
   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH. */
 #endif
-  //Инициализация тактирования ядра
-   FLASH->ACR |= FLASH_ACR_LATENCY_1;//
-  FLASH->ACR &= ~(FLASH_ACR_LATENCY_0 | FLASH_ACR_LATENCY_2);//010 Two wait states, if 48 MHz < SYSCLK = 72 MHz
+  //Инициализация тактирования ядра (изначально запускаем тактирование на частоте 8 МГц, чтобы потребление было наименьшим)
   RCC->CR |= RCC_CR_HSEON; //1: HSE ON
-  while((RCC->CR & RCC_CR_HSERDY) < 1){} // Wait HSE Ready
-  RCC->CFGR |= RCC_CFGR_PLLSRC; // 1: HSE oscillator clock selected as PLL input clock
-  RCC->CFGR &= ~RCC_CFGR_PLLXTPRE; //0: HSE clock not divided
-  RCC->CFGR &= ~RCC_CFGR_PLLMULL_3;//
-  RCC->CFGR |= RCC_CFGR_PLLMULL_2;//
-  RCC->CFGR |= RCC_CFGR_PLLMULL_1;//
-  RCC->CFGR |= RCC_CFGR_PLLMULL_0;// PLLMUL 0111: PLL input clock x 9 = 72Mhz
-  RCC->CR |= RCC_CR_PLLON; //1: PLL ON
-  while((RCC->CR & RCC_CR_PLLRDY) < 1){} //Wait PLL Ready
-  RCC->CFGR &= ~RCC_CFGR_SW_0;//
-  RCC->CFGR |= RCC_CFGR_SW_1;// SW 10: PLL selected as system clock
-  while((RCC->CFGR & RCC_CFGR_SWS) != 8){}
+  uint16_t timeout = 0;
+  //Ждём пока HSE будет готов
+  while((RCC->CR & RCC_CR_HSERDY) < 1 && timeout < 1000){timeout++;} // Wait HSE Ready
+  //Если вышли из цикла не по таймауту, то переключаемся на HSE
+  if(timeout < 1000)
+  {
+    timeout = 0;//обнуление таймаута
+    FLASH->ACR &= ~(FLASH_ACR_LATENCY_2 | FLASH_ACR_LATENCY_1 | FLASH_ACR_LATENCY_0);//000 Zero wait state, if 0 < SYSCLK≤ 24 MHz
+    RCC->CFGR &= ~RCC_CFGR_SW_1;//
+    RCC->CFGR |= RCC_CFGR_SW_0;// SW 01: HSE selected as system clock
+    //Ждём переключения на HSE
+    while((RCC->CFGR & (RCC_CFGR_SWS_0 | RCC_CFGR_SWS_1)) != 4 && timeout < 1000){timeout++;}
+  }
+  //Иначе просто продолжаем на внутреннем генераторе
   RCC->CFGR &= ~RCC_CFGR_HPRE_3;//HPRE 0xxx: SYSCLK not divided
-  RCC->CFGR |= RCC_CFGR_PPRE1_2;//
-  RCC->CFGR &= ~(RCC_CFGR_PPRE1_1 | RCC_CFGR_PPRE1_0);//PPRE1 100: HCLK divided by 2
-  RCC->CFGR |= RCC_CFGR_PPRE2_1; // PPRE2 0xx: HCLK not divided
-  RCC->APB1ENR |= RCC_APB1ENR_PWREN | RCC_APB1ENR_BKPEN; //1: Backup interface clock enabled //1: Power interface clock enable
-  //Разрешаем отладку по SWD
+  RCC->CFGR &= ~RCC_CFGR_PPRE1_2;//PPRE1 0xx: HCLK not divided
+  RCC->CFGR &= ~RCC_CFGR_PPRE2_2; //PPRE2 0xx: HCLK not divided
+  //RCC->APB1ENR |= RCC_APB1ENR_PWREN | RCC_APB1ENR_BKPEN; //1: Backup interface clock enabled //1: Power interface clock enable
+  //Разрешаем отладку только через SWD
+  RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;// AFIO clock enable
   AFIO->MAPR &= ~(AFIO_MAPR_SWJ_CFG_0 | AFIO_MAPR_SWJ_CFG_2);//
   AFIO->MAPR |= AFIO_MAPR_SWJ_CFG_1; // MAPR 010: JTAG-DP Disabled and SW-DP Enabled
-  //Обновляем значение текущей частоты тактирования ядра
-  SystemCoreClockUpdate();
 }
 
 /**
