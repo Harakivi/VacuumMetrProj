@@ -1,13 +1,13 @@
 #include "main.h"
 
-uint8_t GetKeys()
+uint8_t GetButtons()
 {
   uint8_t pressedButtons = 0;
-  pressedButtons |=  UP_BTN;
-  pressedButtons |= 0x1 << ENTER_BTN; 
-  pressedButtons |= 0x2 << DOWN_BTN;
-  pressedButtons |= 0x3 << LEFT_BTN;
-  pressedButtons |= 0x4 << RIGHT_BTN;
+  pressedButtons |=  UP_BTN_CHK;
+  pressedButtons |=  ENTER_BTN_CHK << 0x1; 
+  pressedButtons |=  DOWN_BTN_CHK << 0x2;
+  pressedButtons |=  LEFT_BTN_CHK << 0x3;
+  pressedButtons |=  RIGHT_BTN_CHK << 0x4;
   return pressedButtons;
 }
 

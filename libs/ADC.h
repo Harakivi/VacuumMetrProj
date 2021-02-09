@@ -5,7 +5,7 @@
 #define CHAN_COUNT      5 //Количество каналов АЦП для считывания
 
 //-----------------Структура содержащая усредненные значения напряжения с АЦП---------------------
-typedef struct VDC_Struct{
+typedef struct {
   uint16_t PDE1_VDC;
   uint16_t PDE2_VDC;
   uint16_t PDE3_VDC;
