@@ -1,5 +1,8 @@
 #include "main.h"
 
+
+extern uint8_t bender[84 * 48 / 8];
+
 void DISP_Init()
 {
   gpioInit();
@@ -163,7 +166,7 @@ void gpioInit(){
   GPIOB->CRL &= ~(GPIO_CRL_CNF2_0 | GPIO_CRL_CNF2_1);// RST CNF CONFIG 00: GPIO Push-pull
   GPIOB->ODR |= GPIO_ODR_ODR2;//RST SET TO HIGH
   GPIOB->CRL &= ~(GPIO_CRL_CNF4_0 | GPIO_CRL_CNF4_1);// CHIP SELECT CNF CONFIG 00: GPIO Push-pull
-  GPIOB->ODR |= GPIO_ODR_ODR12;// CHIP SELECT SET TO LOW
+  GPIOB->ODR |= GPIO_ODR_ODR4;// CHIP SELECT SET TO LOW
   AFIO->MAPR |= AFIO_MAPR_SPI1_REMAP;
   GPIOB->CRL &= ~GPIO_CRL_CNF5_0;//
   GPIOB->CRL |= GPIO_CRL_CNF5_1;// MOSI CNF CONFIG 10: AF Push-pull

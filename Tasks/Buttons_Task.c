@@ -10,7 +10,7 @@ xSemaphoreHandle xButtonPressed = NULL;
 void Buttons_Task_init(void)
 {
   //Инициализируем пины GPIO к которым подключены кнопки
-  initButt();
+  //initButt();
   
   //Создаём семафор для обновления дисплея
   vSemaphoreCreateBinary( xButtonPressed );  

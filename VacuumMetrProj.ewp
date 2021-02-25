@@ -2178,6 +2178,9 @@
                 <name>$PROJ_DIR$\libs\Buttons.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\libs\Configuration.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\libs\DISP_Buff.c</name>
             </file>
             <file>
@@ -2196,10 +2199,7 @@
                 <name>$PROJ_DIR$\Tasks\Buttons_Task.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Tasks\DISP_Task.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\libs\METER_Task.c</name>
+                <name>$PROJ_DIR$\Tasks\METER_Task.c</name>
             </file>
         </group>
         <file>

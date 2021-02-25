@@ -1,7 +1,7 @@
 #include "main.h"
 #include <string.h>
 
-static const uint8_t ASCII[][5] =
+const uint8_t ASCII[][5] =
 {
  {0x00, 0x00, 0x00, 0x00, 0x00} // 20  
 ,{0x00, 0x00, 0x5f, 0x00, 0x00} // 21 !
@@ -172,6 +172,13 @@ uint8_t VBUF[84 * 48 / 8] =
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 };
+
+//Передать видео буфер в дисплей
+void DISP_Update()
+{
+  DISP_Send_DMA(VBUF);
+}
+
 //Очистить весь буфер
 void VBUF_Clear()
 {
@@ -185,59 +192,85 @@ void VBUF_Clear()
 //  }
 }
 
+
+
 //Нарисовать линию с определенной высотой и длинной
-void VBUF_Draw_Line(uint8_t xBegin, uint8_t yBegin, uint8_t height, uint8_t length)
+void VBUF_Draw_Line(uint8_t xBegin, uint8_t yBegin, int8_t height, uint8_t length)
 {
   //Проверяем входные данные, чтобы не выйти за границы дисплея
   if(xBegin > DISP_X_SIZE || yBegin > DISP_Y_SIZE)return;
   
-  for(uint8_t yCurr = yBegin; yCurr < yBegin + height; yCurr ++)
+  for(uint8_t yCurr = height > 0 ? yBegin - height : yBegin  ; yCurr < (height > 0 ? yBegin  : yBegin - height)  ; yCurr ++)
   {
     if(yCurr > DISP_Y_SIZE)break;
     for(uint8_t xCurr = xBegin; xCurr < xBegin + length; xCurr++)
     {
       if(xCurr > DISP_X_SIZE)break;
-      VBUF[((yCurr/8) * 84) + xCurr] |= 1 << (yCurr % 8);
+      VBUF[((yCurr/8) * 84) + xCurr] |= 1 << (yCurr & 8 - 1);
     }
   }
 }
 
 //Очистить линию с определенной высотой и длинной
-void VBUF_Clear_Line(uint8_t xBegin, uint8_t yBegin, uint8_t height, uint8_t length)
+void VBUF_Clear_Line(uint8_t xBegin, uint8_t yBegin, int8_t height, uint8_t length)
 {
   //Проверяем входные данные, чтобы не выйти за границы дисплея
   if(xBegin > DISP_X_SIZE || yBegin > DISP_Y_SIZE)return;
   
-  for(uint8_t yCurr = yBegin; yCurr < yBegin + height; yCurr ++)
+  for(uint8_t yCurr = height > 0 ? yBegin - height : yBegin  ; yCurr < (height > 0 ? yBegin  : yBegin - height)  ; yCurr ++)
   {
     if(yCurr > DISP_Y_SIZE)break;
     for(uint8_t xCurr = xBegin; xCurr < xBegin + length; xCurr++)
     {
       if(xCurr > DISP_X_SIZE)break;
-      VBUF[((yCurr/8) * 84) + xCurr] &= ~(1 << (yCurr % 8));
+      VBUF[((yCurr/8) * 84) + xCurr] &= ~(1 << (yCurr & 8 - 1));
     }
   }
 }
 
 //Инвертировать линию с определенной высотой и длинной
-void VBUF_Invert_Line(uint8_t xBegin, uint8_t yBegin, uint8_t height, uint8_t length)
+void VBUF_Invert_Line(uint8_t xBegin, uint8_t yBegin, int8_t height, uint8_t length)
 {
   //Проверяем входные данные, чтобы не выйти за границы дисплея
   if(xBegin > DISP_X_SIZE || yBegin > DISP_Y_SIZE)return;
   
-  for(uint8_t yCurr = yBegin; yCurr < yBegin + height; yCurr ++)
+  for(uint8_t yCurr = height > 0 ? yBegin - height : yBegin  ; yCurr < (height > 0 ? yBegin  : yBegin - height)  ; yCurr ++)
   {
     if(yCurr > DISP_Y_SIZE)break;
     for(uint8_t xCurr = xBegin; xCurr < xBegin + length; xCurr++)
     {
       if(xCurr > DISP_X_SIZE)break;
-      if(VBUF[((yCurr/8) * 84) + xCurr] & (1 << (yCurr % 8)))
+      if(VBUF[((yCurr/8) * 84) + xCurr] & (1 << (yCurr & 8 - 1)))
       {
-        VBUF[((yCurr/8) * 84) + xCurr] &= ~(1 << (yCurr % 8));
+        VBUF[((yCurr/8) * 84) + xCurr] &= ~(1 << (yCurr & 8 - 1));
       }
       else
       {
-        VBUF[((yCurr/8) * 84) + xCurr] |= 1 << (yCurr % 8);
+        VBUF[((yCurr/8) * 84) + xCurr] |= 1 << (yCurr & 8 - 1);
+      }
+    }
+  }
+}
+
+//Отрисовка изображения по определенным координатам дисплея
+void VBUF_Draw_Image(uint8_t xBegin, uint8_t yBegin, char characters)
+{
+  //Проверяем входные данные, чтобы не выйти за границы дисплея
+  if(xBegin > DISP_X_SIZE || yBegin > DISP_Y_SIZE)return;
+  
+  for(uint8_t yCurr = yBegin; yCurr < yBegin + 8; yCurr ++)
+  {
+    if(yCurr > DISP_Y_SIZE)break;
+    for(uint8_t xCurr = xBegin; xCurr < xBegin + 5; xCurr++)
+    {
+      if(xCurr > DISP_X_SIZE)break;
+      if(ASCII[characters - 0x20][xCurr - xBegin] & (1 << ((yCurr - yBegin) & 8 - 1)))
+      {
+        VBUF[((yCurr/8) * 84) + xCurr] |= 1 << (yCurr & 8 - 1);
+      }
+      else
+      {
+        VBUF[((yCurr/8) * 84) + xCurr] &= ~(1 << (yCurr & 8 - 1));
       }
     }
   }
@@ -255,21 +288,20 @@ void VBUF_Write_Char(uint8_t xBegin, uint8_t yBegin, char characters)
     for(uint8_t xCurr = xBegin; xCurr < xBegin + 5; xCurr++)
     {
       if(xCurr > DISP_X_SIZE)break;
-      if(ASCII[characters - 0x20][xCurr - xBegin] & (1 << ((yCurr - yBegin) % 8)))
+      if(ASCII[characters - 0x20][xCurr - xBegin] & (1 << ((yCurr - yBegin) & 8 - 1)))
       {
-        VBUF[((yCurr/8) * 84) + xCurr] |= 1 << (yCurr % 8);
+        VBUF[((yCurr/8) * 84) + xCurr] |= 1 << (yCurr & 8 - 1);
       }
       else
       {
-        VBUF[((yCurr/8) * 84) + xCurr] &= ~(1 << (yCurr % 8));
+        VBUF[((yCurr/8) * 84) + xCurr] &= ~(1 << (yCurr & 8 - 1));
       }
       if(xCurr == xBegin + 4 && xCurr + 1 <= DISP_X_SIZE)
       {
-        VBUF[((yCurr/8) * 84) + xCurr + 1] &= ~(1 << (yCurr % 8));
+        VBUF[((yCurr/8) * 84) + xCurr + 1] &= ~(1 << (yCurr & 8 - 1));
       }
     }
   }
-  
 }
 
 //Запись строки по определенным координатам дисплея

@@ -1,9 +1,9 @@
-"C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\libs\METER_Task.c"
+"C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks\METER_Task.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -I
-C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\libs
+C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks
 -I
 C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\CMSIS
 -I
