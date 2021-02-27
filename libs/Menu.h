@@ -12,15 +12,15 @@
 
 //Button Offsets
 #define BTN_MIN_OFFSET             0
-#define BTN_MAX_OFFSET             1
-
+#define BTN_MAX_OFFSET             2
 
 //Menu Positions
 #define MENU_METER_POS            0
 #define MENU_BRIGHT_POS           1
 #define MENU_CALIBRATE_POS        2
-#define MENU_RETURN_POS           3
-#define MENU_TURNOFF_POS          4
+#define MENU_GAME1_POS            3
+#define MENU_GAME2_POS            4
+#define MENU_TURNOFF_POS          5
 
 
 

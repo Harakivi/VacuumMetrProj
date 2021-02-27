@@ -1,6 +1,13 @@
 #include "main.h"
 
+//width 11 / height 32
+extern  uint8_t chel_1 [];
+//width 11 / height 32
+extern  uint8_t chel_2 [];
+//width 23 / height 32
+extern uint8_t chel_smile[];
 
+//Бендер ¯ \ _ (ツ) _ / ¯ 
 extern uint8_t bender[84 * 48 / 8];
 
 void DISP_Init()
@@ -19,6 +26,56 @@ void DISP_Init()
   DISP_command(PCD8544_DISPLAYCONTROL | PCD8544_DISPLAYNORMAL);
   //Очищаем мусор в памяти дисплея
   DISP_Clear_DMA();
+  uint8_t pos = 84;
+  while(pos != 0)
+  {
+    if(pos > 84)
+    {
+      pos = 84;
+    }
+    pos -= 2;
+    VBUF_Clear();
+    VBUF_Draw_Image(pos, 0, 11, 32, chel_1);
+    VBUF_Write_String(10, 40, "by Harakivi");
+    DISP_Update();
+    uint32_t timeout = 200000;
+    while(timeout)
+    {
+      timeout--;
+    }
+    
+    if(pos == 42)
+    {
+      VBUF_Clear();
+      VBUF_Draw_Image(pos - 2, 0, 23, 32, chel_smile);
+      VBUF_Write_String(10, 40, "by Harakivi");
+      DISP_Update();
+      uint32_t timeout = 4000000;
+      while(timeout)
+      {
+        timeout--;
+      }
+    }
+    pos -= 2;
+    VBUF_Clear();
+    VBUF_Draw_Image(pos, 0, 11, 32, chel_2);
+    VBUF_Write_String(10, 40, "by Harakivi");
+    DISP_Update();
+    timeout = 200000;
+    while(timeout)
+    {
+      timeout--;
+    }
+  }
+  VBUF_Clear();
+  VBUF_Write_String(3, 10, "HARAKIVI Prod");
+  DISP_Update();
+  //Висим несколько секунд, чтобы отобразить лого
+  uint32_t timeoutLOGO = 5000000;
+  while(timeoutLOGO)
+  {
+    timeoutLOGO--;
+  }
 }
 
 void DISP_command(int data)

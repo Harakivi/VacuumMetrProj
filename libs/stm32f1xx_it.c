@@ -45,7 +45,7 @@ void TIM4_IRQHandler()
       tempPointer[i] = ((((int16_t)tempADCval[i] * 3300) / 4096) - 1630) - (flagCalib == 1 ? 0 :((int16_t*)Config)[i * 2]);
     }
     tempADCval[CHAN_COUNT - 1] /= ADC_BUFFSIZE;
-    SensorVoltageStruct.BATT_VDC = ((tempADCval[CHAN_COUNT - 1] * 3300) / 4096) * 5286 / 1000;
+    SensorVoltageStruct.BATT_VDC = ((tempADCval[CHAN_COUNT - 1] * 3300) / 4096) * 5305 / 1000;
     if(SensorVoltageStruct.BATT_VDC != 0 && SensorVoltageStruct.BATT_VDC < 5000)
     {
       enterStandBy();

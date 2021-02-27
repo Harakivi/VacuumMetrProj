@@ -6,16 +6,18 @@ BTN_Struct btnArray[7] = { 0 };
 
 extern VDC_Struct SensorVoltageStruct;
 extern Config_Struct* Config;
-Config_Struct tempConfig;
+extern Config_Struct tempConfig;
 
-TaskHandle_t xSettingsHandle = NULL;
-extern TaskHandle_t  xMeterHandle ;
+extern TaskHandle_t xMeterHandle;
+extern TaskHandle_t xLASTLEVELMENUHandle;
 
 uint8_t yBtnPosArr[] = {MENU_Y_BTN_POS1, MENU_Y_BTN_POS2, MENU_Y_BTN_POS3, MENU_Y_BTN_POS4};
 uint8_t xBtnPosArr[] = {MENU_X_BTN_POS1, MENU_X_BTN_POS2, MENU_X_BTN_POS3, MENU_X_BTN_POS4};
 
-extern TaskHandle_t xMeterHandle;
-TaskHandle_t xSettingsHandle;
+//size: 5x8
+extern uint8_t ArrowUP[];   // Стрелка вверх
+//size: 5x8
+extern uint8_t ArrowDOWN[];   // Стрелка вниз
 
 //Функция инициализации кнопки
 BTN_Struct menuButtInit(char *characters)
@@ -41,11 +43,12 @@ void invertCurrentButton(int8_t relBtnOffset)
 //Внутри функции можно добавлять/удалять кнопки
 void menuButtArrayInit(void)
 {  
-  btnArray[0] = menuButtInit("Meter");
-  btnArray[1] = menuButtInit("Brightness");
-  btnArray[2] = menuButtInit("Calibrate");
-  btnArray[3] = menuButtInit("Return");
-  btnArray[4] = menuButtInit("Turn off");
+  btnArray[MENU_METER_POS] = menuButtInit("Meter");
+  btnArray[MENU_BRIGHT_POS] = menuButtInit("Brightness");
+  btnArray[MENU_CALIBRATE_POS] = menuButtInit("Calibrate");
+  btnArray[MENU_GAME1_POS] = menuButtInit("Game1");
+  btnArray[MENU_GAME2_POS] = menuButtInit("Game2");
+  btnArray[MENU_TURNOFF_POS] = menuButtInit("Turn off");
 }
 
 
@@ -101,6 +104,11 @@ void menuBtnProc(uint8_t btn)
     case MENU_LEVEL:
       switch(menuStruct.menuPosition + menuStruct.menuOffset)
       {
+      case MENU_METER_POS:
+        menuStruct.menuPosition = 0;
+        menuStruct.menuDepth--;
+        menuVBUFDraw();
+        break;
       case MENU_BRIGHT_POS:
         menuStruct.menuDepth++;
         menuVBUFDraw();
@@ -108,11 +116,6 @@ void menuBtnProc(uint8_t btn)
       case MENU_CALIBRATE_POS:
         tempConfig = *Config;
         menuStruct.menuDepth++;
-        menuVBUFDraw();
-        break;
-      case MENU_RETURN_POS:
-        menuStruct.menuPosition = 0;
-        menuStruct.menuDepth--;
         menuVBUFDraw();
         break;
       case MENU_TURNOFF_POS:
@@ -185,7 +188,7 @@ void menuVBUFDraw()
     break;
   case MENU_LEVEL:
     vTaskSuspend(xMeterHandle);
-    vTaskSuspend(xSettingsHandle);
+    vTaskSuspend(xLASTLEVELMENUHandle);
     VBUF_Clear();
     for(int i = menuStruct.menuOffset; i <= BTN_LAST_POS + menuStruct.menuOffset; i++)
     {
@@ -193,74 +196,17 @@ void menuVBUFDraw()
     }
     if(menuStruct.menuOffset != BTN_MIN_OFFSET)
     {
-      VBUF_Write_String(70,2,"v");
+      VBUF_Draw_Image(79,0,5,8,ArrowUP);//Стрелка вверх
+    }
+    if(menuStruct.menuOffset != BTN_MAX_OFFSET)
+    {
+      VBUF_Draw_Image(79,40,5,8,ArrowDOWN);//Стрелка вниз
     }
     invertCurrentButton(0);
     DISP_Update();
     break;
   case SETTINGS_LEVEL:
-    vTaskResume(xSettingsHandle);
+    vTaskResume(xLASTLEVELMENUHandle);
     break;
-  }
-}
-
-void MenuDISP_Task_init(void)
-{
-  //Инициализация массива кнопок
-  menuButtArrayInit();
-  //Создание задачи обновления дисплея в меню настроек
-  xTaskCreate(vSettingsRefrash_Task, "SettingsRefrash", BUTTONS_STACK_SIZE, NULL, BUTTONS_TASK_PRIORITY, &xSettingsHandle);
-  //После создания задачи сразу же останавливаем её
-  vTaskSuspend(xSettingsHandle);
-}
-
-void vSettingsRefrash_Task (void *pvParameters)
-{
-  //Ожидается что pvParameters будет равен 1
-  configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
-  
-  char string[14] = {0};
-  
-  for (;;)
-  {
-    VBUF_Clear();
-    switch(menuStruct.menuPosition + menuStruct.menuOffset)
-    {
-    case MENU_BRIGHT_POS:
-      {
-        static double battVolt;
-        static uint32_t averVolt;
-        static uint8_t countReads;
-        averVolt += SensorVoltageStruct.BATT_VDC;
-        if(countReads == 10)
-        {
-          averVolt /= countReads + 1;
-          countReads = 0;
-        }
-        if(!countReads++)
-        {
-          battVolt = averVolt / 1000.0;
-        }
-        VBUF_Write_String(2, 2, "Batt:");
-        sprintf(string, "%4.2f", battVolt);
-        VBUF_Write_String(31,2,string);
-        VBUF_Write_String(2, 14, "Bright:");
-        sprintf(string, "%u", TIM3->CCR3);
-        VBUF_Write_String(43,14, string);
-        break;
-      }
-    case MENU_CALIBRATE_POS:
-      sprintf(string, "%i", tempConfig.BIAS_PDE1);
-      VBUF_Write_String(27,11,string);
-      sprintf(string, "%i", tempConfig.BIAS_PDE2);
-      VBUF_Write_String(27,20,string);
-      sprintf(string, "%i", tempConfig.BIAS_PDE3);
-      VBUF_Write_String(27,29,string);
-      sprintf(string, "%i", tempConfig.BIAS_PDE4);
-      VBUF_Write_String(27,38,string);
-      break;
-    }
-    DISP_Update();
-    vTaskDelay(100);
   }
 }

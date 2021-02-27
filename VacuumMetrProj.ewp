@@ -2122,12 +2122,12 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
                 <excluded>
                     <configuration>Debug</configuration>
                 </excluded>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_5.c</name>
@@ -2197,6 +2197,9 @@
             <name>Tasks</name>
             <file>
                 <name>$PROJ_DIR$\Tasks\Buttons_Task.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\Tasks\METER_Task.c</name>

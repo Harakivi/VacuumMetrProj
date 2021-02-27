@@ -1,9 +1,6 @@
 #include "main.h"
 #include "BoardConfig.h"
 
-//Моё лого(пока пусть будет бендер)=)
-extern uint8_t bender[84 * 48 / 8];
-
 //Обьявление функций
 //void SysTick_Init(void);//НЕАКТУАЛЬНО ПРИ РАБОТЕ FREERTOS
   
@@ -14,14 +11,7 @@ void initAll()
   //SysTick_Init();//НЕАКТУАЛЬНО ПРИ РАБОТЕ FREERTOS
   //Запускаем непрерырвную конвертацию АЦП и запись значений в буфер
   DISP_Init();
-  DISP_Send_DMA(bender);
   DMA_ADCInit();
-  //Висим несколько секунд, чтобы отобразить лого
-  uint32_t timeoutLOGO = 5000000;
-  while(timeoutLOGO)
-  {
-    timeoutLOGO--;
-  }
   //Если ENTER еще не отжат висим, пока не отожмут
   while(ENTER_BTN_CHK);
 }
@@ -100,12 +90,6 @@ uint16_t ReadVoltageOnMainBatt()
     timeoutRead--;
   }
   uint16_t _voltage = ((ADC1->DR * 3300) / 4096) * 5286 / 1000;
-//  RCC->APB2RSTR |= RCC_APB2RSTR_IOPARST;
-//  RCC->APB2RSTR |= RCC_APB2RSTR_ADC1RST;
-//  RCC->APB2ENR &= ~RCC_APB2ENR_ADC1EN;
-//  RCC->APB2ENR &= ~RCC_APB2ENR_IOPAEN;
-//  RCC->APB2RSTR &= ~RCC_APB2RSTR_IOPARST;
-//  RCC->APB2RSTR &= ~RCC_APB2RSTR_ADC1RST;
   return _voltage;
 }
 
@@ -116,10 +100,17 @@ void StandByCheck()
     //Чтобы ENTER работал отключаем режим WKUP для работы PA0 в обычном режиме GPIO
   WKUP_PIN_DISABLE;
   enableFirstStepMainBatt(1);
+  //Измеряем напряжение на батарее
   uint16_t _Voltage = ReadVoltageOnMainBatt();
+  //Если оно меньше допустимого, то пробуем измерить ещё раз
   if(_Voltage < MIN_VOLT_TO_START)
   {
-    //enterStandBy();
+    _Voltage = ReadVoltageOnMainBatt();
+    //Если снова меньше допустимого засыпаем
+    if(_Voltage < MIN_VOLT_TO_START)
+    {
+      enterStandBy();
+    }
   }
   enableSecondStepMainBatt(1);
   //Инициализируем пины GPIO к которым подключены кнопки, чтобы отслеживать нажатие кнопки ENTER

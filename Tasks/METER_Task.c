@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 
 extern VDC_Struct SensorVoltageStruct;
 
@@ -8,7 +8,7 @@ TaskHandle_t  xMeterHandle = NULL;
 //Инициализация задачи
 void METER_Task_init(void)
 {
-  xTaskCreate(vMETER_Task, "METER", DISP_STACK_SIZE, NULL, DISP_TASK_PRIORITY, &xMeterHandle);
+  xTaskCreate(vMETER_Task, "METER", METER_STACK_SIZE, NULL, METER_TASK_PRIORITY, &xMeterHandle);
 }
 
 //Задача обновления дислпея

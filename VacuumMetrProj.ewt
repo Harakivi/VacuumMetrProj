@@ -2479,6 +2479,9 @@
                 <name>$PROJ_DIR$\Tasks\Buttons_Task.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\Tasks\METER_Task.c</name>
             </file>
         </group>

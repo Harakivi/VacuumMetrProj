@@ -3,6 +3,7 @@
 //-------------------Глобальные дейфайны--------------------------
 //-------------------Инклюды--------------------------
 #include "Buttons.h"
+#include <stdio.h>
 
 void METER_Task_init(void);
 void vMETER_Task(void *pvParameters);
