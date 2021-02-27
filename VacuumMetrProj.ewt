@@ -2467,9 +2467,6 @@
                 <name>$PROJ_DIR$\libs\lcd5110.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\libs\Menu.c</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\libs\stm32f1xx_it.c</name>
             </file>
         </group>
@@ -2480,6 +2477,9 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Tasks\Menu_Task.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\Tasks\METER_Task.c</name>

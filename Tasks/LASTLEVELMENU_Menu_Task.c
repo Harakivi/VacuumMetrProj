@@ -11,8 +11,6 @@ extern VDC_Struct SensorVoltageStruct;
 
 void LASTLEVELMENU_Menu_Task_init(void)
 {
-  //Инициализация массива кнопок
-  menuButtArrayInit();
   //Создание задачи обновления дисплея в меню настроек
   xTaskCreate(vLASTLEVELMENU_Menu_Task, "Settings_Menu", LASTLEVELMENU_STACK_SIZE, NULL, LASTLEVELMENU_TASK_PRIORITY, &xLASTLEVELMENUHandle);
   //После создания задачи сразу же останавливаем её
