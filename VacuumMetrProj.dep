@@ -1,358 +1,258 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>3435016153</fileChecksum>
+    <fileChecksum>115614567</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\CMSIS\system_stm32f1xx.h</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_1.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portmacro.h</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\queue.c</file>
-            <file>$PROJ_DIR$\CMSIS\system_stm32f1xx.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\list.c</file>
-            <file>$PROJ_DIR$\libs\TaskPriority.h</file>
-            <file>$PROJ_DIR$\CMSIS\core_cm3.h</file>
-            <file>$PROJ_DIR$\libs\ADC.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</file>
-            <file>$PROJ_DIR$\CMSIS\startup_stm32f103xb.s</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</file>
-            <file>$PROJ_DIR$\CMSIS\stm32f1xx.h</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\port.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\croutine.c</file>
-            <file>$PROJ_DIR$\CMSIS\core_cmFunc.h</file>
-            <file>$PROJ_DIR$\libs\FreeRTOSConfig.h</file>
-            <file>$PROJ_DIR$\libs\Buttons.c</file>
-            <file>$PROJ_DIR$\CMSIS\core_cmInstr.h</file>
-            <file>$PROJ_DIR$\libs\Configuration.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portasm.s</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\tasks.c</file>
-            <file>$PROJ_DIR$\CMSIS\stm32f103xb.h</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_2.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_5.c</file>
-            <file>$PROJ_DIR$\Tasks\LCD_Task.h</file>
-            <file>$PROJ_DIR$\libs\stm32f1xx_it.h</file>
-            <file>$PROJ_DIR$\Tasks\DISP_Task.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\stm32f1xx_it.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\DISP_Task.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\sensorDataTask.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\lcd5110.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\system_stm32f1xx.o</file>
-            <file>$PROJ_DIR$\main.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Menu.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\Buttons_Task.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\event_groups.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\VacuumMetrProj.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\stm32f1xx_it.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\Buttons_Task.__cstat.et</file>
             <file>$PROJ_DIR$\libs\Menu.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\stm32f1xx_it.o</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\portable.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\system_stm32f1xx.pbi</file>
-            <file>$PROJ_DIR$\libs\METER_Task.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\queue.__cstat.et</file>
-            <file>$PROJ_DIR$\libs\Buttons.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd5110.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\DISP_Task.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
             <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\FreeRTOS.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\stm32f1xx_it.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\sensorDataTask.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\event_groups.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Buttons_Task.__cstat.et</file>
+            <file>$PROJ_DIR$\libs\stm32f1xx_it.h</file>
+            <file>$PROJ_DIR$\main.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_stm32f1xx.pbi</file>
+            <file>$PROJ_DIR$\libs\Buttons.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\queue.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Menu.pbi</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\portable.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Buttons_Task.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$PROJ_DIR$\libs\METER_Task.h</file>
             <file>$PROJ_DIR$\Debug\Obj\BoardConfig.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\lcd5110.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\stm32f1xx_it.o</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Tasks\DISP_Task.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\stm32f1xx_it.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd5110.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\VacuumMetrProj.pbd</file>
             <file>$PROJ_DIR$\libs\delay.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_stm32f1xx.o</file>
             <file>$PROJ_DIR$\Debug\Obj\LCD_Task.o</file>
             <file>$PROJ_DIR$\Debug\Obj\heap_5.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\croutine.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\port.pbi</file>
-            <file>$PROJ_DIR$\libs\ADC.h</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\stream_buffer.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\stack_macros.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\event_groups.pbi</file>
-            <file>$PROJ_DIR$\libs\METER_Task.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\port.__cstat.et</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\mpu_wrappers.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\portasm.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\startup_stm32f103xb.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\croutine.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\BoardConfig.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\METER_Task.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\event_groups.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
-            <file>$PROJ_DIR$\Tasks\Buttons_Task.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\ADC.__cstat.et</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\queue.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_3.__cstat.et</file>
-            <file>$PROJ_DIR$\Tasks\DISP_Task.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
-            <file>$PROJ_DIR$\Tasks\METER_Task.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\system_stm32f1xx.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\sensorDataTask.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\tasks.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\list.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\Menu_Task.o</file>
-            <file>$PROJ_DIR$\Tasks\Menu_Task.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Menu_Task.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\Menu_Task.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Menu_Task.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\stream_buffer.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_3.o</file>
-            <file>$PROJ_DIR$\libs\VacuumMetrProj.icf</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_3.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\queue.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\queue.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\DISP_Task.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\ADC.o</file>
-            <file>$PROJ_DIR$\libs\delay.h</file>
-            <file>$PROJ_DIR$\libs\lcd5110.h</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\METER_Task.pbi</file>
-            <file>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Menu.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\tasks.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\libs\Menu.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Menu_Task.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\delay.o</file>
-            <file>$PROJ_DIR$\Tasks\LCD_Task.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\Buttons.pbi</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\croutine.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\timers.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\task.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Buttons.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\list.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_2.pbi</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\deprecated_definitions.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_1.pbi</file>
-            <file>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</file>
-            <file>$PROJ_DIR$\libs\lcd5110.c</file>
-            <file>$PROJ_DIR$\Tasks\Buttons_Task.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\ADC.pbi</file>
-            <file>$PROJ_DIR$\BoardConfig.c</file>
+            <file>$PROJ_DIR$\CMSIS\core_cm3.h</file>
+            <file>$PROJ_DIR$\CMSIS\core_cmFunc.h</file>
+            <file>$PROJ_DIR$\CMSIS\core_cmInstr.h</file>
+            <file>$PROJ_DIR$\CMSIS\startup_stm32f103xb.s</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\queue.c</file>
             <file>$PROJ_DIR$\Tasks\Menu_Task.c</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
-            <file>$PROJ_DIR$\libs\Configuration.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_5.o</file>
-            <file>$PROJ_DIR$\libs\stm32f1xx_it.c</file>
-            <file>$PROJ_DIR$\Tasks\SETTINGS_Menu_Task.c</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\timers.h</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\projdefs.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Buttons_Task.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\croutine.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\DISP_Task.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\stream_buffer.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\LCD_Task.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\Buttons.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\list.__cstat.et</file>
-            <file>$PROJ_DIR$\libs\sensorDataTask.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\port.o</file>
-            <file>$PROJ_DIR$\libs\DISP_Buff.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Menu.o</file>
-            <file>$PROJ_DIR$\libs\DISP_Buff.c</file>
             <file>$PROJ_DIR$\Tasks\METER_Task.c</file>
+            <file>$PROJ_DIR$\BoardConfig.c</file>
+            <file>$PROJ_DIR$\CMSIS\stm32f103xb.h</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Tasks\LCD_Task.h</file>
+            <file>$PROJ_DIR$\libs\lcd5110.c</file>
+            <file>$PROJ_DIR$\CMSIS\system_stm32f1xx.c</file>
+            <file>$PROJ_DIR$\libs\TaskPriority.h</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_1.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\port.c</file>
+            <file>$PROJ_DIR$\CMSIS\stm32f1xx.h</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portmacro.h</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\croutine.c</file>
+            <file>$PROJ_DIR$\libs\stm32f1xx_it.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</file>
+            <file>$PROJ_DIR$\libs\Buttons.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\tasks.c</file>
+            <file>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_2.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\list.c</file>
+            <file>$PROJ_DIR$\libs\FreeRTOSConfig.h</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portasm.s</file>
+            <file>$PROJ_DIR$\libs\Configuration.c</file>
+            <file>$PROJ_DIR$\libs\DISP_Buff.c</file>
+            <file>$PROJ_DIR$\libs\ADC.c</file>
+            <file>$PROJ_DIR$\Tasks\Buttons_Task.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_5.c</file>
+            <file>$PROJ_DIR$\CMSIS\system_stm32f1xx.h</file>
+            <file>$PROJ_DIR$\libs\sensorDataTask.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\lcd5110.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_2.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Menu.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Buttons_Task.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_5.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+            <file>$PROJ_DIR$\Tasks\SETTINGS_Menu_Task.c</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\projdefs.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Buttons.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Buttons.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\list.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+            <file>$PROJ_DIR$\libs\Configuration.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\port.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\ADC.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\croutine.o</file>
+            <file>$PROJ_DIR$\libs\DISP_Buff.h</file>
             <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\list.h</file>
             <file>$PROJ_DIR$\Debug\Obj\heap_4.pbi</file>
             <file>$TOOLKIT_DIR$\inc\c\iar_intrinsics_common.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\list.o</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\timers.h</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\deprecated_definitions.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\DISP_Task.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\stream_buffer.o</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
             <file>$PROJ_DIR$\Debug\Obj\SETTINGS_Menu_Task.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\lcd5110.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\DISP_Buff.o</file>
-            <file>$PROJ_DIR$\Debug\Exe\VacuumMetrProj.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\METER_Task.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\timers.pbi</file>
-            <file>$PROJ_DIR$\Tasks\SETTINGS_Menu_Task.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_1.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_2.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\tasks.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\DISP_Buff.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\timers.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\delay.pbi</file>
-            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\semphr.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_4.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\List\VacuumMetrProj.map</file>
-            <file>$PROJ_DIR$\BoardConfig.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Configuration.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\DISP_Buff.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\BoardConfig.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\Configuration.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\heap_4.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\SETTINGS_Menu_Task.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_1.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\LCD_Task.pbi</file>
             <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\timers.pbi</file>
+            <file>$PROJ_DIR$\Debug\List\VacuumMetrProj.map</file>
             <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
             <file>$PROJ_DIR$\Debug\Obj\SETTINGS_Menu_Task.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\DISP_Buff.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\BoardConfig.__cstat.et</file>
+            <file>$PROJ_DIR$\Tasks\SETTINGS_Menu_Task.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_2.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
             <file>$PROJ_DIR$\Debug\Obj\Configuration.o</file>
+            <file>$PROJ_DIR$\Debug\Exe\VacuumMetrProj.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\delay.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\DISP_Buff.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\DISP_Buff.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\timers.o</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\semphr.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_4.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_1.o</file>
+            <file>$PROJ_DIR$\BoardConfig.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\tasks.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Configuration.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Configuration.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\METER_Task.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_4.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\SETTINGS_Menu_Task.__cstat.et</file>
+            <file>$PROJ_DIR$\libs\ADC.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\port.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\ADC.__cstat.et</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\stream_buffer.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+            <file>$PROJ_DIR$\Tasks\DISP_Task.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\event_groups.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\BoardConfig.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
+            <file>$PROJ_DIR$\Tasks\Buttons_Task.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_3.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\croutine.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\METER_Task.o</file>
+            <file>$PROJ_DIR$\Tasks\METER_Task.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_stm32f1xx.__cstat.et</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\mpu_wrappers.h</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\event_groups.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\sensorDataTask.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\tasks.o</file>
+            <file>$PROJ_DIR$\libs\METER_Task.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_stm32f103xb.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\port.pbi</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\stack_macros.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\portasm.o</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\queue.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\list.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Menu_Task.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\croutine.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Menu_Task.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_3.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Menu_Task.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Menu_Task.pbi</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\croutine.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Tasks\Menu_Task.h</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\timers.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\heap_3.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\delay.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Menu.__cstat.et</file>
+            <file>$PROJ_DIR$\Utilities\FreeRTOS\Source\include\task.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\queue.pbi</file>
+            <file>$PROJ_DIR$\Tasks\LCD_Task.c</file>
+            <file>$PROJ_DIR$\libs\lcd5110.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\queue.o</file>
+            <file>$PROJ_DIR$\libs\delay.h</file>
+            <file>$PROJ_DIR$\libs\Menu.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\libs\VacuumMetrProj.icf</file>
+            <file>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\stream_buffer.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Menu_Task.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\tasks.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Buttons.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\ADC.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\DISP_Task.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\METER_Task.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Tasks\LASTLEVELMENU_Task.c</file>
+            <file>$PROJ_DIR$\Tasks\LASTLEVELMENU_Task.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Task.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\LASTLEVELMENU_Task.pbi</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 161 174</file>
+                    <file> 109 99</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_1.c</name>
+            <name>$PROJ_DIR$\libs\Menu.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
+                    <file> 69</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
                     <file> 166</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 125</file>
+                    <file> 15</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 173 134 13 140 150 100 176 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
                     <name>BICOMP</name>
-                    <file> 184 112 53 133 157 71 75 73</file>
+                    <file> 92 44 185 140 170 114 128 48 84 47 124 173 4 39 31 13 142 167 150 9 117 83 79 134 176 65 33 95 97 138 74 86 10 32 174 22 100 78 58 16 89 72 152</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\queue.c</name>
+            <name>$PROJ_DIR$\libs\delay.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 97</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 48</file>
+                    <file> 165</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 98</file>
+                    <file> 110</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 75 112 157 53 133 71 184 73 47 81 50 122 107 16 140 44 124 2 134 82 156 65 119 154 78</file>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 172 170 117 124 13 4 78 100 58 74 16 89 48 72 86 142 167 84 114 152</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 44 184 73 119 133 122 157 156 71 112 16 2 65 47 50 78 53 81 107 140 124 134 82 75 154</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\CMSIS\system_stm32f1xx.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 34</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 84</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 45</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 12 22 7 107 112 157 53 133 71 18 183 82 15 0</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 107 22 7 157 53 0 18 183 12 15 112 133 71 82</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\list.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 121</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 147</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 87</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 75 112 157 53 133 71 184 73 50 122 107 16 140 44 124 2 134 82 156 65 154</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 140 133 124 73 50 157 71 112 107 134 154 184 53 122 16 44 82 75 2 65 156</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\ADC.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 100</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 77</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 129</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 76 26 0 107 150 119 71 2 154 175 135 105 49 65 12 6 59 102 89 83 50 172 22 7 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 94</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 79</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 96</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 75 112 157 53 133 71 184 73 50 122 107 16 140 44 124 2 134 82 156 65 119 154</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 133 73 140 157 50 71 112 82 119 184 53 107 124 134 75 122 16 44 2 65 156 154</file>
+                    <file> 9 124 185 92 22 170 39 31 172 47 117 13 65 33 97 10 32 174 95 128 138</file>
                 </tool>
             </inputs>
         </file>
@@ -361,170 +261,20 @@
             <outputs>
                 <tool>
                     <name>AARM</name>
-                    <file> 67</file>
+                    <file> 147</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\queue.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 181</file>
+                    <file> 171</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 173</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 155</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 75 112 157 53 133 71 184 73 50 122 107 16 140 44 124 2 134 82 156 65 119 154</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 112 73 82 50 157 133 140 119 184 53 71 107 124 134 75 122 16 44 2 65 156 154</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\port.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 149</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 64</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 58</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 134 82 157 53 133 71 156 50 122 112 184 107 16 140 44 124 2 65 119 154</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 156 71 124 119 157 16 112 134 50 82 53 133 122 44 184 107 140 2 65 154</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\croutine.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 142</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 57</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 68</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 50 122 112 157 53 133 71 184 107 16 140 44 124 2 134 82 156 65 119 154 116</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 107 133 140 157 71 112 82 119 122 16 44 184 53 124 134 50 116 2 65 156 154</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\Buttons.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 120</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 146</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 115</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 83 6 107 102 172 71 2 154 12 59 89 50 22 7 49 65 119 26 175 150 135 76 105 0 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\Configuration.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 186</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 179</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 176</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 50 59 107 12 89 22 7 71 2 154 6 102 83 172 49 65 119 26 175 150 135 76 105 0 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portasm.s</name>
-            <outputs>
-                <tool>
-                    <name>AARM</name>
-                    <file> 66</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>AARM</name>
-                    <file> 16</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\tasks.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 86</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 108</file>
+                    <file> 14</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -534,296 +284,61 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 75 112 157 53 133 71 184 73 47 81 50 122 107 16 140 44 124 2 134 82 156 65 119 154 139 61</file>
+                    <file> 129 174 92 22 95 128 100 133 18 137 4 78 185 58 74 16 89 48 72 138 86 142 167 84 152</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 184 154 157 112 119 53 140 61 81 107 156 47 50 139 73 133 71 122 16 44 2 65 75 124 134 82</file>
+                    <file> 16 100 133 167 95 78 92 86 128 174 58 48 142 18 4 152 22 137 185 74 89 72 138 129 84</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_2.c</name>
+            <name>$PROJ_DIR$\Tasks\Menu_Task.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 167</file>
+                    <file> 154</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 123</file>
+                    <file> 156</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
                     <name>BICOMP</name>
-                    <file> 184 112 53 133 157 71 75 73</file>
+                    <file> 44 185 140 170 114 174 48 84 47 124 162 4 39 31 22 13 142 167 150 9 117 83 79 134 65 32 92 97 100 74 86 10 33 95 128 138 78 58 16 89 72 152</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_5.c</name>
+            <name>$PROJ_DIR$\Tasks\METER_Task.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 136</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 56</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 112 184 53 75 73 133 71</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\Menu.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 151</file>
+                    <file> 139</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 106</file>
+                    <file> 121</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 36</file>
+                    <file> 184</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 110 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 157 6 107 83 102 172 71 2 154 12 59 110 50 22 7 49 65 119 69 26 175 150 135 76 105 0 18 133 183 82 140 156 35 15 112 53 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\delay.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 113</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 171</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 101 102 175 59 49 50 122 184 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 26 59 107 157 53 102 22 7 101 12 175 49 0 18 183 35 15 112 133 71 82</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\stream_buffer.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 144</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 93</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 112 133 184 47 157 71 81 107 53</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\METER_Task.c</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 162</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 104</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\event_groups.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 38</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 62</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 184 112 53 133 157 71 75 73</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Tasks\DISP_Task.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 99</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 29</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 143</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 135 110 76 49 27 102 46 50 122 184 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 0 12 76 107 183 59 119 157 122 2 154 6 135 46 15 112 44 184 65 26 175 150 110 27 50 172 22 7 53 102 49 16 156 35 18 133 71 82 140 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Tasks\LCD_Task.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 55</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 145</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 102 175 59 49 25 50 122 184 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 102 25 82 122 157 2 154 12 59 119 0 18 133 183 44 184 65 26 175 49 50 172 22 7 107 71 16 112 156 35 15 53 140 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\timers.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 170</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 164</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 184 112 53 133 157 71 75 73</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 92</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 90</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 111</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 102 172 107 6 83 71 2 154 12 59 89 50 22 7 49 65 119 26 175 150 135 76 105 0 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\lcd5110.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 159</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 52</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 33</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Tasks\Buttons_Task.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 37</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 41</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 141</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 175 105 107 135 71 2 154 26 150 76 119 0 49 65 12 6 59 102 89 83 50 172 22 7 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
+                    <file> 92 124 4 185 47 162 39 44 170 140 114 65 138 86 167 9 117 83 79 134 188 31 33 174 22 97 13 150 74 48 142 84 10 32 95 128 100 78 58 16 89 72 152</file>
                 </tool>
             </inputs>
         </file>
@@ -832,11 +347,492 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 51</file>
+                    <file> 20</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 178</file>
+                    <file> 104</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 132</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 92 162 39 47 31 185 124 4 128 48 84 44 170 140 114 13 142 167 117 9 83 79 134 188 65 33 95 97 138 74 86 10 32 174 22 150 100 78 58 16 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 161</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 107</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 92 114 170 185 44 140 128 48 84 47 124 162 4 39 31 13 142 167 9 117 83 79 134 188 65 33 95 97 138 74 86 10 32 174 22 150 100 78 58 16 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\libs\lcd5110.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 67</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 1</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\system_stm32f1xx.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 28</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 141</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 12</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 47 39 31 185 174 92 22 95 128 33 97 138 32 65</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 185 39 31 92 22 65 33 97 47 32 174 95 128 138</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_1.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 116</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 94</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 100 174 22 95 92 128 129 133</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\port.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 80</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 125</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 148</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 72 138 92 22 95 128 86 4 78 174 100 185 58 74 16 89 48 142 167 84</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 86 128 89 167 92 58 174 72 4 138 22 95 78 16 100 185 74 48 142 84</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\croutine.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 82</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 155</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 136</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 4 78 174 92 22 95 128 100 185 58 74 16 89 48 72 138 86 142 167 84 160</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 185 95 74 92 128 174 138 167 78 58 16 100 22 89 72 4 160 48 142 86 84</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\libs\stm32f1xx_it.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 5</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 83 167 185 9 134 65 174 48 84 117 79 22 13 142 47 44 124 170 162 140 4 114 39 31 32 92 97 150 100 74 86 10 33 95 128 138 78 58 16 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 122</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 115</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 85</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 129 174 92 22 95 128 100 133 4 78 185 58 74 16 89 48 72 138 86 142 167 84</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 174 133 138 4 92 95 74 167 100 22 128 185 89 72 129 78 58 16 48 142 86 84</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\libs\Buttons.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 76</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 75</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 181</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 140 44 185 170 114 174 48 84 47 124 162 4 39 31 22 13 142 167 9 117 83 79 134 65 32 92 97 150 100 74 86 10 33 95 128 138 78 58 16 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\tasks.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 145</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 180</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 118</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 129 174 92 22 95 128 100 133 18 137 4 78 185 58 74 16 89 48 72 138 86 142 167 84 88 149</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 100 84 92 174 167 22 74 149 137 185 86 18 4 88 133 95 128 78 58 16 48 142 129 89 72 138</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 158</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 179</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 159</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 176 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 170 114 185 44 140 174 48 84 47 124 162 4 39 31 22 13 142 167 9 117 83 79 134 65 32 92 97 150 100 74 86 10 33 95 128 138 78 58 16 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_2.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 106</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 68</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 100 174 22 95 92 128 129 133</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 164</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 135</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 157</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 129 174 92 22 95 128 100 133 4 78 185 58 74 16 89 48 72 138 86 142 167 84</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 95 133 74 92 4 128 174 138 167 100 22 185 89 72 129 78 58 16 48 142 86 84</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\list.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 87</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 77</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 153</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 129 174 92 22 95 128 100 133 4 78 185 58 74 16 89 48 72 138 86 142 84</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 74 95 89 133 4 92 128 174 185 72 84 100 22 78 58 16 138 129 48 142 86</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3\portasm.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 151</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 58</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\libs\Configuration.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 108</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 120</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 119</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 4 124 185 47 162 39 31 174 48 84 44 170 140 114 22 13 142 167 9 117 83 79 134 65 32 92 97 150 100 74 86 10 33 95 128 138 78 58 16 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\libs\DISP_Buff.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 111</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 112</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 103</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152 18 137</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 162 100 72 39 92 47 31 16 124 4 128 44 170 140 114 185 78 89 18 9 117 83 79 134 167 65 33 95 97 138 13 58 174 152 137 10 32 22 150 74 48 142 86 84</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\libs\ADC.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 182</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 126</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 81</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 134 9 65 185 83 167 174 48 84 117 79 22 13 142 47 44 124 170 162 140 4 114 39 31 32 92 97 150 100 74 86 10 33 95 128 138 78 58 16 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Tasks\Buttons_Task.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 8</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -846,111 +842,30 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 157 89 22 12 7 107 59 50 71 2 154 6 102 83 172 49 65 119 175 26 150 135 76 105 0 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
+                    <file> 117 185 79 174 48 84 9 83 134 167 65 22 13 142 47 44 124 170 162 140 4 114 39 31 32 92 97 150 100 74 86 10 33 95 128 138 78 58 16 89 72 152</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Tasks\Menu_Task.c</name>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_5.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 88</file>
+                    <file> 71</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 91</file>
+                    <file> 30</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
                     <name>BICOMP</name>
-                    <file> 157 6 107 83 102 172 71 2 154 12 59 89 50 22 7 49 65 119 69 26 175 150 135 76 105 0 18 133 183 82 140 156 35 15 112 53 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 117</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 180</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 31</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 172 102 107 6 83 71 2 154 12 59 89 50 22 7 49 65 119 26 175 150 135 76 105 0 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\libs\stm32f1xx_it.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 43</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 28</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 40</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 150 119 107 26 76 0 71 2 154 175 135 105 49 65 12 6 59 102 89 83 50 172 22 7 18 133 183 82 140 156 35 15 112 53 69 184 122 16 44 124 134 78</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Tasks\SETTINGS_Menu_Task.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 158</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 182</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 185</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 110 76 49 83 69 184 165 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
+                    <file> 92 174 100 22 129 133 95 128</file>
                 </tool>
             </inputs>
         </file>
@@ -959,71 +874,40 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 30</file>
+                    <file> 6</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 85</file>
+                    <file> 144</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 12 50 157 59 22 7 107 183 122 2 154 6 76 172 15 112 102 44 184 65 119 26 175 150 27 0 53 16 156 35 18 133 71 82 49 140 124 134 78</file>
+                    <file> 47 4 92 124 39 31 185 97 78 48 84 44 134 114 32 174 170 16 100 142 167 9 117 83 23 65 22 58 86 10 33 95 128 138 13 74 89 72 152</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\libs\DISP_Buff.c</name>
+            <name>$PROJ_DIR$\Tasks\SETTINGS_Menu_Task.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 160</file>
+                    <file> 93</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 169</file>
+                    <file> 123</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 177</file>
+                    <file> 101</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78 47 81</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 89 184 134 22 157 12 7 44 59 50 107 183 6 102 83 172 15 112 69 122 124 47 26 175 150 135 76 105 119 0 53 49 16 82 78 81 35 18 133 71 140 2 65 156 154</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Tasks\METER_Task.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 72</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 162</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 104</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 35 12 22 7 107 112 157 53 133 71 18 183 82 15 0 26 6 175 59 150 102 135 89 76 49 83 69 184 105 50 122 16 140 44 124 2 134 156 65 119 154 172 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 157 59 50 107 12 89 22 6 102 83 172 0 82 156 119 26 175 150 135 76 105 7 18 112 53 183 49 69 140 2 65 154 35 15 133 71 184 122 16 44 124 134 78</file>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 173 134 13 140 150 100 105 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
                 </tool>
             </inputs>
         </file>
@@ -1032,13 +916,156 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 174</file>
+                    <file> 99</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 95 100 51 120 37 186 142 160 181 92 159 121 117 88 72 149 66 97 67 43 34 86 109 163 103 32</file>
+                    <file> 175 182 20 76 17 108 82 111 122 189 67 87 161 154 139 80 151 171 147 21 28 145 186 102 177 3</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\stream_buffer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 91</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 178</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 174 95 100 18 92 128 137 185 22</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Tasks\DISP_Task.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 183</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 2</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 90</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 79 173 134 13 23 170 19 4 78 100 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 65 47 134 185 97 124 167 92 78 48 84 44 79 19 32 174 16 100 142 9 117 83 173 23 4 114 39 31 22 170 13 58 86 10 33 95 128 138 74 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\event_groups.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 131</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 100 174 22 95 92 128 129 133</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\libs\METER_Task.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 121</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 184</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\timers.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 113</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 98</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 100 174 22 95 92 128 129 133</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Tasks\LCD_Task.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 29</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 96</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 170 117 124 13 41 4 78 100 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 170 41 138 78 92 48 84 47 124 167 65 33 95 97 16 100 142 9 117 13 4 114 39 31 185 128 58 174 86 10 32 22 74 89 72 152</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Tasks\LASTLEVELMENU_Task.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 189</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 190</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10 47 39 31 185 174 92 22 95 128 33 97 138 32 65 9 44 117 124 83 170 79 162 134 13 140 150 100 188 4 78 58 74 16 89 48 72 86 142 167 84 114 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 92 170 114 185 44 140 128 48 84 47 124 162 4 39 31 13 142 167 9 117 83 79 134 188 65 33 95 97 138 74 86 10 32 174 22 150 100 78 58 16 89 72 152</file>
                 </tool>
             </inputs>
         </file>
@@ -1047,15 +1074,15 @@
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</name>
-            <tool>C-STAT</tool>
-        </forcedrebuild>
-        <forcedrebuild>
             <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_2.c</name>
+            <tool>C-STAT</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Utilities\FreeRTOS\Source\portable\MemMang\heap_3.c</name>
             <tool>C-STAT</tool>
         </forcedrebuild>
         <forcedrebuild>

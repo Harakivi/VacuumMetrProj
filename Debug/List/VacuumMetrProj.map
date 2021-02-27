@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.32.3.193/W32 for ARM                  27/Feb/2021  14:07:25
+# IAR ELF Linker V8.32.3.193/W32 for ARM                  27/Feb/2021  16:07:52
 # Copyright 2007-2019 IAR Systems AB.
 #
 #    Output file  =  
@@ -8,7 +8,7 @@
 #    Map file     =  
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\List\VacuumMetrProj.map
 #    Command line =  
-#        -f C:\Users\Harak\AppData\Local\Temp\EWECB7.tmp
+#        -f C:\Users\Harak\AppData\Local\Temp\EW32C4.tmp
 #        (C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\ADC.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\BoardConfig.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\Buttons.o
@@ -17,7 +17,7 @@
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\croutine.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\DISP_Buff.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\heap_4.o
-#        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\LASTLEVELMENU_Menu_Task.o
+#        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\LASTLEVELMENU_Task.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\lcd5110.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\list.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\main.o
@@ -119,7 +119,7 @@ initialize by copy { rw };
   .text              ro code   0x800'2e10   0x194  Buttons_Task.o [1]
   .text              ro code   0x800'2fa4   0x404  Menu_Task.o [1]
   .text              ro code   0x800'33a8   0x204  METER_Task.o [1]
-  .text              ro code   0x800'35ac   0x174  LASTLEVELMENU_Menu_Task.o [1]
+  .text              ro code   0x800'35ac   0x174  LASTLEVELMENU_Task.o [1]
   .text              ro code   0x800'3720   0x548  lcd5110.o [1]
   .text              ro code   0x800'3c68   0x1e0  ADC.o [1]
   .text              ro code   0x800'3e48   0x118  Buttons.o [1]
@@ -145,7 +145,7 @@ initialize by copy { rw };
   .text              ro code   0x800'516c    0x18  startup_stm32f103xb.o [1]
   Initializer bytes  const     0x800'5184    0x14  <for P2-1>
   .rodata            const     0x800'5198    0x10  Buttons_Task.o [1]
-  .rodata            const     0x800'51a8    0x10  LASTLEVELMENU_Menu_Task.o [1]
+  .rodata            const     0x800'51a8    0x10  LASTLEVELMENU_Task.o [1]
   .rodata            const     0x800'51b8    0x10  lcd5110.o [1]
   .rodata            const     0x800'51c8     0xc  lcd5110.o [1]
   .rodata            const     0x800'51d4     0xc  Menu_Task.o [1]
@@ -154,9 +154,9 @@ initialize by copy { rw };
   .text              ro code   0x800'51f8     0xc  cstartup_M.o [4]
   .rodata            const     0x800'5204     0x8  DISP_Buff.o [1]
   .rodata            const     0x800'520c     0x8  DISP_Buff.o [1]
-  .rodata            const     0x800'5214     0x8  LASTLEVELMENU_Menu_Task.o [1]
-  .rodata            const     0x800'521c     0x8  LASTLEVELMENU_Menu_Task.o [1]
-  .rodata            const     0x800'5224     0x8  LASTLEVELMENU_Menu_Task.o [1]
+  .rodata            const     0x800'5214     0x8  LASTLEVELMENU_Task.o [1]
+  .rodata            const     0x800'521c     0x8  LASTLEVELMENU_Task.o [1]
+  .rodata            const     0x800'5224     0x8  LASTLEVELMENU_Task.o [1]
   .rodata            const     0x800'522c     0x8  Menu_Task.o [1]
   .rodata            const     0x800'5234     0x8  Menu_Task.o [1]
   .rodata            const     0x800'523c     0x8  Menu_Task.o [1]
@@ -235,10 +235,10 @@ initialize by copy { rw };
   .bss               zero     0x2000'2b7c    0x14  tasks.o [1]
   .bss               zero     0x2000'2b90    0x14  tasks.o [1]
   .bss               zero     0x2000'2ba4    0x14  tasks.o [1]
-  .bss               zero     0x2000'2bb8    0x10  LASTLEVELMENU_Menu_Task.o [1]
+  .bss               zero     0x2000'2bb8    0x10  LASTLEVELMENU_Task.o [1]
   .bss               zero     0x2000'2bc8     0xc  ADC.o [1]
   .bss               zero     0x2000'2bd4     0x8  heap_4.o [1]
-  .bss               zero     0x2000'2be0     0x8  LASTLEVELMENU_Menu_Task.o [1]
+  .bss               zero     0x2000'2be0     0x8  LASTLEVELMENU_Task.o [1]
   .bss               zero     0x2000'2be8     0x4  Buttons_Task.o [1]
   .bss               zero     0x2000'2bec     0x4  Buttons_Task.o [1]
   .bss               zero     0x2000'2bf0     0x4  heap_4.o [1]
@@ -247,8 +247,8 @@ initialize by copy { rw };
   .bss               zero     0x2000'2bfc     0x4  heap_4.o [1]
   .bss               zero     0x2000'2c00     0x4  heap_4.o [1]
   .bss               zero     0x2000'2c04     0x4  heap_4.o [1]
-  .bss               zero     0x2000'2c08     0x4  LASTLEVELMENU_Menu_Task.o [1]
-  .bss               zero     0x2000'2c0c     0x4  LASTLEVELMENU_Menu_Task.o [1]
+  .bss               zero     0x2000'2c08     0x4  LASTLEVELMENU_Task.o [1]
+  .bss               zero     0x2000'2c0c     0x4  LASTLEVELMENU_Task.o [1]
   .bss               zero     0x2000'2c10     0x4  Menu_Task.o [1]
   .bss               zero     0x2000'2c14     0x4  METER_Task.o [1]
   .bss               zero     0x2000'2c18     0x4  tasks.o [1]
@@ -268,7 +268,7 @@ initialize by copy { rw };
   .bss               zero     0x2000'2c50     0x4  tasks.o [1]
   .bss               zero     0x2000'2c54     0x4  xfail_s.o [2]
   .bss               zero     0x2000'2c58     0x1  Configuration.o [1]
-  .bss               zero     0x2000'2c59     0x1  LASTLEVELMENU_Menu_Task.o [1]
+  .bss               zero     0x2000'2c59     0x1  LASTLEVELMENU_Task.o [1]
   .bss               zero     0x2000'2c5a     0x1  lcd5110.o [1]
                             - 0x2000'2c5b  0x2c47
 
@@ -308,91 +308,91 @@ Copy (__iar_copy_init3)
 *** MODULE SUMMARY
 ***
 
-    Module                     ro code  ro data  rw data
-    ------                     -------  -------  -------
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
 command line/config:
-    ----------------------------------------------------
+    ------------------------------------------------
     Total:
 
 C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj: [1]
-    ADC.o                          480                92
-    BoardConfig.o                  592
-    Buttons.o                      280        5
-    Buttons_Task.o                 404       16        8
-    Configuration.o                332        4        5
-    DISP_Buff.o                  1 240      676      504
-    LASTLEVELMENU_Menu_Task.o      372       40       33
-    METER_Task.o                   516        8        4
-    Menu_Task.o                  1 028       76      120
-    heap_4.o                       568        4   10 272
-    lcd5110.o                    1 352       28        1
-    list.o                         154
-    main.o                          32
-    port.o                         228        4        4
-    portasm.o                      136
-    queue.o                      1 544
-    startup_stm32f103xb.o          448
-    stm32f1xx_it.o                 304
-    system_stm32f1xx.o             244
-    tasks.o                      2 836       12      304
-    ----------------------------------------------------
-    Total:                      13 090      873   11 347
+    ADC.o                      480                92
+    BoardConfig.o              592
+    Buttons.o                  280        5
+    Buttons_Task.o             404       16        8
+    Configuration.o            332        4        5
+    DISP_Buff.o              1 240      676      504
+    LASTLEVELMENU_Task.o       372       40       33
+    METER_Task.o               516        8        4
+    Menu_Task.o              1 028       76      120
+    heap_4.o                   568        4   10 272
+    lcd5110.o                1 352       28        1
+    list.o                     154
+    main.o                      32
+    port.o                     228        4        4
+    portasm.o                  136
+    queue.o                  1 544
+    startup_stm32f103xb.o      448
+    stm32f1xx_it.o             304
+    system_stm32f1xx.o         244
+    tasks.o                  2 836       12      304
+    ------------------------------------------------
+    Total:                  13 090      873   11 347
 
 dl7M_tln.a: [2]
-    abort.o                          6
-    exit.o                           4
-    low_level_init.o                 4
-    sprintf.o                       64
-    xfail_s.o                       64                 4
-    xprintffull_nomb.o           3 570
-    xsprout.o                       10
-    ----------------------------------------------------
-    Total:                       3 722                 4
+    abort.o                      6
+    exit.o                       4
+    low_level_init.o             4
+    sprintf.o                   64
+    xfail_s.o                   64                 4
+    xprintffull_nomb.o       3 570
+    xsprout.o                   10
+    ------------------------------------------------
+    Total:                   3 722                 4
 
 m7M_tl.a: [3]
-    DblAdd.o                       362
-    DblCmpGe.o                      46
-    DblCmpLe.o                      46
-    DblDiv.o                       582
-    DblMul.o                       418
-    DblSub.o                       226
-    DblToS32.o                      58
-    DblToU32.o                      40
-    S32ToDbl.o                      34
-    U32ToDbl.o                      26
-    frexp.o                        112
-    ldexp.o                        314
-    ----------------------------------------------------
-    Total:                       2 264
+    DblAdd.o                   362
+    DblCmpGe.o                  46
+    DblCmpLe.o                  46
+    DblDiv.o                   582
+    DblMul.o                   418
+    DblSub.o                   226
+    DblToS32.o                  58
+    DblToU32.o                  40
+    S32ToDbl.o                  34
+    U32ToDbl.o                  26
+    frexp.o                    112
+    ldexp.o                    314
+    ------------------------------------------------
+    Total:                   2 264
 
 rt7M_tl.a: [4]
-    ABImemclr4.o                     6
-    ABImemcpy.o                    166
-    ABImemset.o                    102
-    ABImemset48.o                   50
-    I64DivMod.o                    560
-    I64DivZer.o                      2
-    cexit.o                         10
-    cmain.o                         30
-    copy_init3.o                    44
-    cstartup_M.o                    12
-    data_init.o                     40
-    memchr.o                        88
-    strchr.o                        22
-    strlen.o                        54
-    zero_init3.o                    58
-    ----------------------------------------------------
-    Total:                       1 244
+    ABImemclr4.o                 6
+    ABImemcpy.o                166
+    ABImemset.o                102
+    ABImemset48.o               50
+    I64DivMod.o                560
+    I64DivZer.o                  2
+    cexit.o                     10
+    cmain.o                     30
+    copy_init3.o                44
+    cstartup_M.o                12
+    data_init.o                 40
+    memchr.o                    88
+    strchr.o                    22
+    strlen.o                    54
+    zero_init3.o                58
+    ------------------------------------------------
+    Total:                   1 244
 
 shb_l.a: [5]
-    exit.o                          20
-    ----------------------------------------------------
-    Total:                          20
+    exit.o                      20
+    ------------------------------------------------
+    Total:                      20
 
-    Gaps                            25        2        4
-    Linker created                           36    8 192
---------------------------------------------------------
-    Grand Total:                20 365      911   19 547
+    Gaps                        25        2        4
+    Linker created                       36    8 192
+----------------------------------------------------
+    Grand Total:            20 365      911   19 547
 
 
 *******************************************************************************
@@ -431,8 +431,8 @@ DMA_ADCInit              0x800'3d4f    0x38  Code  Gb  ADC.o [1]
 DOWN_BTN                 0x800'13da     0x1  Data  Gb  Buttons.o [1]
 ENTER_BTN                0x800'0faf     0x1  Data  Gb  Buttons.o [1]
 GetButtons               0x800'3e49    0x50  Code  Gb  Buttons.o [1]
-LASTLEVELMENU_Menu_Task_init
-                         0x800'35ad    0x22  Code  Gb  LASTLEVELMENU_Menu_Task.o [1]
+LASTLEVELMENU_Task_init
+                         0x800'35ad    0x22  Code  Gb  LASTLEVELMENU_Task.o [1]
 LEFT_BTN                 0x800'13db     0x1  Data  Gb  Buttons.o [1]
 LoadInt                  0x800'029b    0x7a  Code  Lc  xprintffull_nomb.o [2]
 METER_Task_init          0x800'33a9    0x1a  Code  Gb  METER_Task.o [1]
@@ -584,7 +584,7 @@ sec_hand                0x2000'2c54     0x4  Data  Lc  xfail_s.o [2]
 sprintf                  0x800'4b95    0x40  Code  Gb  sprintf.o [2]
 strchr                   0x800'0f19          Code  Gb  strchr.o [4]
 strlen                   0x800'0f79          Code  Gb  strlen.o [4]
-tempConfig              0x2000'2bb8    0x10  Data  Gb  LASTLEVELMENU_Menu_Task.o [1]
+tempConfig              0x2000'2bb8    0x10  Data  Gb  LASTLEVELMENU_Task.o [1]
 ucHeap                  0x2000'0014  0x2800  Data  Lc  heap_4.o [1]
 uxCriticalNesting       0x2000'000c     0x4  Data  Lc  port.o [1]
 uxCurrentNumberOfTasks  0x2000'2c28     0x4  Data  Lc  tasks.o [1]
@@ -598,14 +598,13 @@ uxTopUsedPriority       0x2000'0010     0x4  Data  Gb  tasks.o [1]
 vApplicationIdleHook     0x800'2b35     0x2  Code  Gb  main.o [1]
 vApplicationTickHook     0x800'2b37     0x2  Code  Gb  main.o [1]
 vBUTTONSCheck_Task       0x800'2e59   0x12a  Code  Gb  Buttons_Task.o [1]
-vLASTLEVELMENU_Menu_Task
-                         0x800'35d1   0x114  Code  Gb  LASTLEVELMENU_Menu_Task.o [1]
-vLASTLEVELMENU_Menu_Task{2}{3}{4}{5}{6}::averVolt
-                        0x2000'2c0c     0x4  Data  Lc  LASTLEVELMENU_Menu_Task.o [1]
-vLASTLEVELMENU_Menu_Task{2}{3}{4}{5}{6}::battVolt
-                        0x2000'2be0     0x8  Data  Lc  LASTLEVELMENU_Menu_Task.o [1]
-vLASTLEVELMENU_Menu_Task{2}{3}{4}{5}{6}::countReads
-                        0x2000'2c59     0x1  Data  Lc  LASTLEVELMENU_Menu_Task.o [1]
+vLASTLEVELMENU_Task      0x800'35d1   0x114  Code  Gb  LASTLEVELMENU_Task.o [1]
+vLASTLEVELMENU_Task{2}{3}{4}{5}{6}::averVolt
+                        0x2000'2c0c     0x4  Data  Lc  LASTLEVELMENU_Task.o [1]
+vLASTLEVELMENU_Task{2}{3}{4}{5}{6}::battVolt
+                        0x2000'2be0     0x8  Data  Lc  LASTLEVELMENU_Task.o [1]
+vLASTLEVELMENU_Task{2}{3}{4}{5}{6}::countReads
+                        0x2000'2c59     0x1  Data  Lc  LASTLEVELMENU_Task.o [1]
 vListInitialise          0x800'299b    0x1e  Code  Gb  list.o [1]
 vListInitialiseItem      0x800'29b9     0x6  Code  Gb  list.o [1]
 vListInsert              0x800'29d7    0x36  Code  Gb  list.o [1]
@@ -637,7 +636,7 @@ xDelayedTaskList2       0x2000'2b68    0x14  Data  Lc  tasks.o [1]
 xFreeBytesRemaining     0x2000'2bf4     0x4  Data  Lc  heap_4.o [1]
 xHeapStructSize          0x800'525c     0x4  Data  Lc  heap_4.o [1]
 xIdleTaskHandle         0x2000'2c4c     0x4  Data  Lc  tasks.o [1]
-xLASTLEVELMENUHandle    0x2000'2c08     0x4  Data  Gb  LASTLEVELMENU_Menu_Task.o [1]
+xLASTLEVELMENUHandle    0x2000'2c08     0x4  Data  Gb  LASTLEVELMENU_Task.o [1]
 xMeterHandle            0x2000'2c14     0x4  Data  Gb  METER_Task.o [1]
 xMinimumEverFreeBytesRemaining
                         0x2000'2bf8     0x4  Data  Lc  heap_4.o [1]
