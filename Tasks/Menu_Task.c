@@ -13,6 +13,12 @@ extern TaskHandle_t xLASTLEVELMENUHandle;
 extern xSemaphoreHandle xBtnPresSem;
 extern QueueHandle_t xBtnPresQueue;
 
+extern uint8_t UP_BTN;
+extern uint8_t ENTER_BTN;
+extern uint8_t DOWN_BTN;
+extern uint8_t LEFT_BTN;
+extern uint8_t RIGHT_BTN;
+
 uint8_t yBtnPosArr[] = {MENU_Y_BTN_POS1, MENU_Y_BTN_POS2, MENU_Y_BTN_POS3, MENU_Y_BTN_POS4};
 uint8_t xBtnPosArr[] = {MENU_X_BTN_POS1, MENU_X_BTN_POS2, MENU_X_BTN_POS3, MENU_X_BTN_POS4};
 
@@ -75,7 +81,7 @@ void vMENU_Task(void *pvParameters)
     xQueueReceive( xBtnPresQueue, &btn, ( TickType_t ) 10 );
     switch(btn)
     {
-    case UP_BTN:
+    case UP_BTN_CASE:
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
@@ -110,7 +116,7 @@ void vMENU_Task(void *pvParameters)
         break;
       }
       break;
-    case ENTER_BTN:
+    case ENTER_BTN_CASE:
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
@@ -158,7 +164,7 @@ void vMENU_Task(void *pvParameters)
         }   
       }
       break;
-    case DOWN_BTN:
+    case DOWN_BTN_CASE:
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
@@ -189,9 +195,9 @@ void vMENU_Task(void *pvParameters)
         break;
       }
       break;
-    case LEFT_BTN:
+    case LEFT_BTN_CASE:
       break;
-    case RIGHT_BTN:
+    case RIGHT_BTN_CASE:
       break;
     }
   }
