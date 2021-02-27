@@ -11,6 +11,12 @@ C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\libs
 -I
 C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj
 -I
+C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Utilities\FreeRTOS\Source\include
+-I
+C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3
+-I
+C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks
+-I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\arm\inc\c
@@ -20,6 +26,12 @@ C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\CMSIS
 C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\libs
 -I
 C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj
+-I
+C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Utilities\FreeRTOS\Source\include
+-I
+C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Utilities\FreeRTOS\Source\portable\IAR\ARM_CM3
+-I
+C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

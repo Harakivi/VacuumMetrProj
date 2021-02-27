@@ -3,7 +3,11 @@
 
 extern VDC_Struct SensorVoltageStruct;
 
+extern Config_Struct* Config;
+
 extern uint16_t ADCBuff[ADC_BUFFSIZE * CHAN_COUNT]; // Массив значений с АЦП. Данные с 4х каналов идут последовательно.
+
+extern uint8_t flagCalib;
 
 
 void DMA1_Channel3_IRQHandler()
@@ -25,7 +29,7 @@ void TIM4_IRQHandler()
   {
     //DMA1_Channel1->CCR &= ~DMA_CCR_EN; //Останавливаем запись новых значений в буфер на время расчёта
     uint8_t buffPos = 0;
-    uint16_t* tempPointer = (uint16_t*) &SensorVoltageStruct;
+    int16_t* tempPointer = (int16_t*) &SensorVoltageStruct;
     uint32_t tempADCval[CHAN_COUNT] = {0};
     for(int i = 0; i < ADC_BUFFSIZE * CHAN_COUNT; i++)
     {
@@ -35,12 +39,17 @@ void TIM4_IRQHandler()
         buffPos++;
       }
     }
-    for(int i = 0; i < CHAN_COUNT; i++)
+    for(int i = 0; i < CHAN_COUNT - 1; i++)
     {
       tempADCval[i] /= ADC_BUFFSIZE;
-      tempPointer[i] = (tempADCval[i] * 3300) / 4096;
+      tempPointer[i] = ((((int16_t)tempADCval[i] * 3300) / 4096) - 1630) - (flagCalib == 1 ? 0 :((int16_t*)Config)[i * 2]);
     }
-    SensorVoltageStruct.BATT_VDC *= 5.612;
+    tempADCval[CHAN_COUNT - 1] /= ADC_BUFFSIZE;
+    SensorVoltageStruct.BATT_VDC = ((tempADCval[CHAN_COUNT - 1] * 3300) / 4096) * 5305 / 1000;
+    if(SensorVoltageStruct.BATT_VDC != 0 && SensorVoltageStruct.BATT_VDC < 5000)
+    {
+      enterStandBy();
+    }
     //DMA1_Channel1->CCR |= DMA_CCR_EN; //Повторно запускаем запись
     TIM4->SR &= ~TIM_SR_UIF;
   }

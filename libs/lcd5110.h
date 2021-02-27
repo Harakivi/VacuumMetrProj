@@ -34,16 +34,16 @@
 #define PCD8544_SETBIAS 0x10          ///< Extended instruction set - Set bias system
 #define PCD8544_SETVOP 0x80           ///< Extended instruction set - Write Vop to register
 //------------------------------------------------
-void LCDInit();
-void lcd5110_command(int data);
-void lcd5110_data(uint8_t data);
-void VBUF_Send_DMA(uint8_t* _VBUF);
-void lcd5110_setBias(int val);
-void lcd5110_setContrast(int val);
-void VBUF_Send(uint8_t* _VBUF);
-void lcd5110_SetPos(uint8_t xPos, uint8_t yPos);
-void lcd5110_Clear(void);
-void lcd5110_Clear_DMA(void);
+void DISP_Init();
+void DISP_command(int data);
+void DISP_data(uint8_t data);
+void DISP_Send_DMA(uint8_t* _VBUF);
+void DISP_setBias(int val);
+void DISP_setContrast(int val);
+void DISP_Send(uint8_t* _VBUF);
+void DISP_SetPos(uint8_t xPos, uint8_t yPos);
+void DISP_Clear(void);
+void DISP_Clear_DMA(void);
 void gpioInit(void);
 void SPI2Init(void);
 void bltInit(void);

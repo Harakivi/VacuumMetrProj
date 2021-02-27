@@ -2441,22 +2441,7 @@
     <group>
         <name>User</name>
         <group>
-            <name>libs</name>
-            <file>
-                <name>$PROJ_DIR$\libs\ADC.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\libs\Buttons.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\libs\lcd5110.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\libs\stm32f1xx_it.c</name>
-            </file>
-        </group>
-        <group>
-            <name>RTOS</name>
+            <name>FreeRTOS</name>
             <file>
                 <name>$PROJ_DIR$\libs\FreeRTOSConfig.h</name>
             </file>
@@ -2465,9 +2450,39 @@
             </file>
         </group>
         <group>
+            <name>libs</name>
+            <file>
+                <name>$PROJ_DIR$\libs\ADC.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\Buttons.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\Configuration.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\DISP_Buff.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\lcd5110.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\Menu.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\libs\stm32f1xx_it.c</name>
+            </file>
+        </group>
+        <group>
             <name>Tasks</name>
             <file>
-                <name>$PROJ_DIR$\Tasks\LCD_Task.c</name>
+                <name>$PROJ_DIR$\Tasks\Buttons_Task.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Tasks\LASTLEVELMENU_Menu_Task.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Tasks\METER_Task.c</name>
             </file>
         </group>
         <file>

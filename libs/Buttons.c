@@ -1,13 +1,13 @@
 #include "main.h"
 
-uint8_t GetKeys()
+uint8_t GetButtons()
 {
   uint8_t pressedButtons = 0;
-  pressedButtons |=  UP_BTN;
-  pressedButtons |= 0x1 << ENTER_BTN; 
-  pressedButtons |= 0x2 << DOWN_BTN;
-  pressedButtons |= 0x3 << LEFT_BTN;
-  pressedButtons |= 0x4 << RIGHT_BTN;
+  pressedButtons |=  UP_BTN_CHK;
+  pressedButtons |=  ENTER_BTN_CHK << 0x1; 
+  pressedButtons |=  DOWN_BTN_CHK << 0x2;
+  pressedButtons |=  LEFT_BTN_CHK << 0x3;
+  pressedButtons |=  RIGHT_BTN_CHK << 0x4;
   return pressedButtons;
 }
 
@@ -22,10 +22,10 @@ void initButt()
   GPIOA->ODR |= GPIO_ODR_ODR9;
 
   //Инициализация кнопки ENTER
-  GPIOA->CRH &= ~(GPIO_CRH_MODE10_0 | GPIO_CRH_MODE10_1);
-  GPIOA->CRH &= ~GPIO_CRH_CNF10_0;
-  GPIOA->CRH |= GPIO_CRH_CNF10_1;
-  GPIOA->ODR |= GPIO_ODR_ODR10;
+  GPIOA->CRL &= ~(GPIO_CRL_MODE0_0 | GPIO_CRL_MODE0_1);
+  GPIOA->CRL &= ~GPIO_CRL_CNF0_0;
+  GPIOA->CRL |= GPIO_CRL_CNF0_1;
+  GPIOA->ODR &= ~GPIO_ODR_ODR0;
   
   //Инициализация кнопки DOWN
   GPIOA->CRH &= ~(GPIO_CRH_MODE11_0 | GPIO_CRH_MODE11_1);

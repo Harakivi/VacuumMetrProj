@@ -1,12 +1,20 @@
 #ifndef _BUTTONS_H_
 #define _BUTTONS_H_
 /*---------------------Buttons Defines------------------*/
-#define UP_BTN !((GPIOA->IDR & GPIO_IDR_IDR9)>> 8U)
-#define ENTER_BTN !((GPIOA->IDR & GPIO_IDR_IDR10)>> 9U)
-#define DOWN_BTN !((GPIOA->IDR & GPIO_IDR_IDR11)>> 10U)
-#define LEFT_BTN !((GPIOA->IDR & GPIO_IDR_IDR12)>> 11U)
-#define RIGHT_BTN !((GPIOA->IDR & GPIO_IDR_IDR15)>> 14U)
+#define UP_BTN          1
+#define ENTER_BTN       1 << 1
+#define DOWN_BTN        1 << 2
+#define LEFT_BTN        1 << 3
+#define RIGHT_BTN       1 << 4
 
+#define UP_BTN_CHK !((GPIOA->IDR & GPIO_IDR_IDR9)>> 8U)
+#define ENTER_BTN_CHK (GPIOA->IDR & GPIO_IDR_IDR0)
+#define DOWN_BTN_CHK !((GPIOA->IDR & GPIO_IDR_IDR11)>> 10U)
+#define LEFT_BTN_CHK !((GPIOA->IDR & GPIO_IDR_IDR12)>> 11U)
+#define RIGHT_BTN_CHK !((GPIOA->IDR & GPIO_IDR_IDR15)>> 14U)
+
+uint8_t GetButtons(void);
 void initButt(void);
+
 
 #endif /* _BUTTONS_H_ */
