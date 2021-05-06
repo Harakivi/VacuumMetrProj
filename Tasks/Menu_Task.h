@@ -1,30 +1,34 @@
 #ifndef _MENU_TASK_H_
 #define _MENU_TASK_H_
-/*---------------------MENU Defines------------------*/
-//Depth
+/*---------------------Depth Defines------------------*/
 #define TOP_LEVEL                 0
 #define MENU_LEVEL                1
-#define SETTINGS_LEVEL            2
-
-//Button Posistions
+#define LAST_LEVEL                2
+/*----------------Menu max values Defines--------------*/
 #define BTN_FIRST_POS             0
 #define BTN_LAST_POS              3
-
-//Button Offsets
-#define BTN_MIN_OFFSET             0
-#define BTN_MAX_OFFSET             2
-
-//Menu Positions
+#define BTN_MIN_OFFSET            0
+#define BTN_MAX_OFFSET            2
+/*----------------Menu Positions Defines--------------*/
 #define MENU_METER_POS            0
 #define MENU_BRIGHT_POS           1
 #define MENU_CALIBRATE_POS        2
 #define MENU_GAME1_POS            3
 #define MENU_GAME2_POS            4
 #define MENU_TURNOFF_POS          5
-
-
-
-//Позиции и размеры кнопок в меню
+/*----------------LastLevel Positions Defines--------------*/
+#define BIAS_CALIB                0
+#define AMPF_CALIB                1
+#define CALIB_FIRST_PAGE          0
+#define CALIB_SECOND_PAGE         1
+#define CALIB_THIRD_PAGE          2
+#define CALIB_BTN_PAGE            3
+/*----------------LastLevel max values Defines--------------*/
+#define CALIB_MIN_OFFSET          0
+#define CALIB_MAX_OFFSET          3
+#define CALIB_MIN_POS             0
+#define CALIB_MAX_POS             1
+/*----------------Позиции кнопок в меню--------------*/
 #define MENU_Y_BTN_POS1                2
 #define MENU_Y_BTN_POS2                14
 #define MENU_Y_BTN_POS3                26
@@ -34,13 +38,13 @@
 #define MENU_X_BTN_POS2                2
 #define MENU_X_BTN_POS3                2
 #define MENU_X_BTN_POS4                2
-
-
-
+/*----------------Описание структур--------------*/
 typedef struct {
   uint8_t menuDepth;
   uint8_t menuPosition;
   uint8_t menuOffset;
+  uint8_t lastLevelPosition;
+  uint8_t lastLevelOffset;
 }MENU_Struct;
 
 typedef struct {
@@ -48,6 +52,8 @@ typedef struct {
   char Text[14];
 }BTN_Struct;
 
+/*----------------Определение функций--------------*/
+BTN_Struct ButtCreate(char *characters);
 void menuVBUFDraw(void);
 void menuButtArrayInit(void);
 void Menu_Task_init(void);

@@ -3,13 +3,7 @@
 extern uint8_t bender[84 * 48 / 8];
 extern uint8_t VBUF[84 * 48 / 8];
 
-extern uint8_t UP_BTN;
-extern uint8_t ENTER_BTN;
-extern uint8_t DOWN_BTN;
-extern uint8_t LEFT_BTN;
-extern uint8_t RIGHT_BTN;
-
-//Бинарный семафор нажатой кнопки
+//Счётный семафор нажатой кнопки
 xSemaphoreHandle xBtnPresSem = NULL;
 
 //Очередь нажатых кнопок 
@@ -31,14 +25,19 @@ void Buttons_Task_init(void)
   //Проверяем создался ли семафор
   if(xBtnPresSem != NULL && xBtnPresQueue != NULL)
   {
-    //Создание задачи обновления дисплея
+    //Создание задачи отслеживания нажатий кнопок
     xTaskCreate(vBUTTONSCheck_Task, "ButtonsCheck", BUTTONS_STACK_SIZE, NULL, BUTTONS_TASK_PRIORITY, NULL);
   }
 }
 
-//Задача обновления дислпея
+//Задача отслеживания нажатий кнопок
 void vBUTTONSCheck_Task (void *pvParameters)
 {
+  static const uint8_t UP_BTN = 1;
+  static const uint8_t ENTER_BTN = 1 << 1;
+  static const uint8_t DOWN_BTN = 1 << 2;
+  static const uint8_t LEFT_BTN = 1 << 3;
+  static const uint8_t RIGHT_BTN = 1 << 4;
   //Ожидается что pvParameters будет равен 1
   configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   for (;;)

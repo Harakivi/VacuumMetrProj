@@ -1,7 +1,10 @@
 #ifndef _MAIN_
 #define _MAIN_
 //-------------------Глобальные дейфайны--------------------------
-
+typedef enum{
+  FALSE,
+  TRUE
+}BOOL;
 //------------------------------------------------
 #include "stm32f1xx.h"
 #include "stm32f1xx_it.h"
@@ -16,10 +19,18 @@
 #include "METER_Task.h"
 #include "LASTLEVELMENU_Task.h"
 
+/* -= Игры =- */
+#include "Snake.h"
+#include "Tetris.h"
+
 /* -= Обязательно сначала иклюдим CMSIS, а потом FreeRTOS =- */
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
+
+
+
+
 
 
 

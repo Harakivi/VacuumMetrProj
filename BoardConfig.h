@@ -1,7 +1,7 @@
 #ifndef _BOARDCONFIG_
 #define _BOARDCONFIG_
 /*---------------------Common Defines------------------*/
-#define MIN_VOLT_TO_START       6000
+#define MIN_VOLT_ON_BATTERY      5000 //5000
 /*---------------------LCD5110 PINS Defines------------------*/
 #define LCD_DC_PORT     GPIOB           // DATA/COMMAND GPIO PORT
 #define LCD_DC_PIN      GPIO_ODR_ODR1   // DATA/COMMAND GPIO PIN

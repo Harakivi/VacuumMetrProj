@@ -13,7 +13,7 @@ int main()
   vTaskStartScheduler();
   while(1)
   {
-    //Сюда попадать не должны
+    //Ненужно, не дойдём.
   }
 }
 

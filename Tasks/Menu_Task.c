@@ -4,10 +4,12 @@
 MENU_Struct menuStruct = { 0 };
 BTN_Struct btnArray[7] = { 0 };
 
+extern FILT_Struct FILT;
 extern VDC_Struct SensorVoltageStruct;
 extern Config_Struct* Config;
 extern Config_Struct tempConfig;
 
+TaskHandle_t xMenuHandle = NULL;
 extern TaskHandle_t xMeterHandle;
 extern TaskHandle_t xLASTLEVELMENUHandle;
 extern xSemaphoreHandle xBtnPresSem;
@@ -28,7 +30,7 @@ extern uint8_t ArrowUP[];   // Стрелка вверх
 extern uint8_t ArrowDOWN[];   // Стрелка вниз
 
 //Функция инициализации кнопки
-BTN_Struct menuButtInit(char *characters)
+BTN_Struct ButtCreate(char *characters)
 {
   BTN_Struct _button = { 0 };
   
@@ -43,7 +45,7 @@ BTN_Struct menuButtInit(char *characters)
 }
 
 //Инвертирует кнопку относительно текущего положения в меню
-void invertCurrentButton(int8_t relBtnOffset)
+void invertMenuCurrentButton(int8_t relBtnOffset)
 {
   VBUF_Invert_Line(xBtnPosArr[menuStruct.menuPosition + relBtnOffset] - 1, yBtnPosArr[menuStruct.menuPosition + relBtnOffset] - 1, - 9, btnArray[menuStruct.menuPosition + menuStruct.menuOffset + relBtnOffset].pixelCount + 1);
 }
@@ -51,12 +53,12 @@ void invertCurrentButton(int8_t relBtnOffset)
 //Внутри функции можно добавлять/удалять кнопки
 void menuButtArrayInit(void)
 {  
-  btnArray[MENU_METER_POS] = menuButtInit("Meter");
-  btnArray[MENU_BRIGHT_POS] = menuButtInit("Brightness");
-  btnArray[MENU_CALIBRATE_POS] = menuButtInit("Calibrate");
-  btnArray[MENU_GAME1_POS] = menuButtInit("Game1");
-  btnArray[MENU_GAME2_POS] = menuButtInit("Game2");
-  btnArray[MENU_TURNOFF_POS] = menuButtInit("Turn off");
+  btnArray[MENU_METER_POS] = ButtCreate("Meter");
+  btnArray[MENU_BRIGHT_POS] = ButtCreate("Brightness");
+  btnArray[MENU_CALIBRATE_POS] = ButtCreate("Calibrate");
+  btnArray[MENU_GAME1_POS] = ButtCreate("Snake");
+  btnArray[MENU_GAME2_POS] = ButtCreate("Tetris");
+  btnArray[MENU_TURNOFF_POS] = ButtCreate("Turn off");
 }
 
 void Menu_Task_init(void)
@@ -64,7 +66,7 @@ void Menu_Task_init(void)
   //Инициализация массива кнопок
   menuButtArrayInit();
   //Создание задачи отрисовки меню
-  xTaskCreate(vMENU_Task, "Menu", MENU_STACK_SIZE, NULL, MENU_TASK_PRIORITY, NULL);
+  xTaskCreate(vMENU_Task, "Menu", MENU_STACK_SIZE, NULL, MENU_TASK_PRIORITY, &xMenuHandle);
 }
 
 
@@ -77,40 +79,48 @@ void vMENU_Task(void *pvParameters)
   for(;;)
   {
     xSemaphoreTake( xBtnPresSem, portMAX_DELAY );
-    //Обработка нажатой кнопки в меню
-    xQueueReceive( xBtnPresQueue, &btn, ( TickType_t ) 10 );
-    switch(btn)
+    //Вытягиваем кнопку из очереди
+    if(xQueueReceive( xBtnPresQueue, &btn, ( TickType_t ) 10 ) == pdPASS)
     {
-    case UP_BTN_CASE:
-      switch(menuStruct.menuDepth)
+      //Обработка нажатой кнопки в меню
+      switch(btn)
       {
-      case TOP_LEVEL:
-        break;
-      case MENU_LEVEL:
+      case UP_BTN_CASE:
+        switch(menuStruct.menuDepth)
+        {
+        case TOP_LEVEL:
+          if(FILT.SizeFilt <= 240)
+          {
+            FILT.SizeFilt += 10;
+          } 
+          break;
+        case MENU_LEVEL:
         if(menuStruct.menuPosition != BTN_FIRST_POS)
         {
           menuStruct.menuPosition--;
-          invertCurrentButton(1);
-          invertCurrentButton(0);
-          DISP_Update();
         }else if( menuStruct.menuOffset != BTN_MIN_OFFSET)
         {
           menuStruct.menuOffset--;
-          menuVBUFDraw();
         }    
         break;
-      case SETTINGS_LEVEL:
+      case LAST_LEVEL:
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
         case MENU_BRIGHT_POS:
-          if(TIM3->CCR3 < 4000)
+          if(BRIGHT <= 90)
           {
-            TIM3->CCR3 += 500;
+            BRIGHT += 10;
           }
           break;
         case MENU_CALIBRATE_POS:
-          tempConfig = biasCalibrate();
-          menuVBUFDraw();
+          if(menuStruct.lastLevelOffset > CALIB_MIN_OFFSET && menuStruct.lastLevelPosition == CALIB_MIN_POS)
+          {
+            menuStruct.lastLevelOffset--;
+          }
+          else if(menuStruct.lastLevelOffset == CALIB_MAX_OFFSET && menuStruct.lastLevelPosition > CALIB_MIN_POS)
+          {
+            menuStruct.lastLevelPosition--;
+          }
           break;
         }
         break;
@@ -122,25 +132,32 @@ void vMENU_Task(void *pvParameters)
       case TOP_LEVEL:
         menuStruct.menuPosition = 0;
         menuStruct.menuOffset = 0;
+        menuStruct.lastLevelPosition = 0;
+        menuStruct.lastLevelOffset = 0;
         menuStruct.menuDepth++;
-        menuVBUFDraw();
         break;
       case MENU_LEVEL:
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
         case MENU_METER_POS:
           menuStruct.menuPosition = 0;
+          menuStruct.menuOffset = 0;
+          menuStruct.lastLevelPosition = 0;
+          menuStruct.lastLevelOffset = 0;
           menuStruct.menuDepth--;
-          menuVBUFDraw();
           break;
         case MENU_BRIGHT_POS:
+          menuStruct.menuDepth++; 
+          break;
+        case MENU_GAME1_POS:
           menuStruct.menuDepth++;
-          menuVBUFDraw();
-          break;     
+          break;
+        case MENU_GAME2_POS:
+          menuStruct.menuDepth++;
+          break;
         case MENU_CALIBRATE_POS:
           tempConfig = *Config;
           menuStruct.menuDepth++;
-          menuVBUFDraw();
           break;
         case MENU_TURNOFF_POS:
           DISP_Clear();
@@ -148,47 +165,54 @@ void vMENU_Task(void *pvParameters)
           break;   
         }   
         break;
-      case SETTINGS_LEVEL:      
+      case LAST_LEVEL:
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
-        case MENU_BRIGHT_POS:
-          menuStruct.menuPosition = 0;
-          menuStruct.menuDepth--;
-          menuVBUFDraw();    
-          break;    
         case MENU_CALIBRATE_POS:
-          SaveCongig(&tempConfig);
-          menuStruct.menuDepth--;
-          menuVBUFDraw();
+          if(menuStruct.lastLevelOffset == CALIB_BTN_PAGE && menuStruct.lastLevelPosition == BIAS_CALIB)
+          {
+            tempConfig = biasCalibrate();
+          }
           break;
-        }   
+        }
+        break;
       }
       break;
     case DOWN_BTN_CASE:
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
+        if(FILT.SizeFilt >= 10)
+          {
+            FILT.SizeFilt -= 10;
+          } 
         break;
       case MENU_LEVEL:
         if(menuStruct.menuPosition != BTN_LAST_POS)
         {
           menuStruct.menuPosition++;
-          invertCurrentButton(-1);
-          invertCurrentButton(0);
-          DISP_Update();
         }else if( menuStruct.menuOffset != BTN_MAX_OFFSET)
         {
           menuStruct.menuOffset++;
-          menuVBUFDraw();
         }
         break;
-      case SETTINGS_LEVEL:
+      case LAST_LEVEL:
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
         case MENU_BRIGHT_POS:
-          if(TIM3->CCR3 > 0)
+          if(BRIGHT >= 10)
           {
-            TIM3->CCR3 -= 500;
+            BRIGHT -= 10;
+          }
+          break;
+        case MENU_CALIBRATE_POS:
+          if(menuStruct.lastLevelOffset < CALIB_MAX_OFFSET && menuStruct.lastLevelPosition == CALIB_MIN_POS)
+          {
+            menuStruct.lastLevelOffset++;
+          }
+          else if(menuStruct.lastLevelOffset == CALIB_MAX_OFFSET && menuStruct.lastLevelPosition < CALIB_MAX_POS)
+          {
+            menuStruct.lastLevelPosition++;
           }
           break;
         }    
@@ -196,10 +220,53 @@ void vMENU_Task(void *pvParameters)
       }
       break;
     case LEFT_BTN_CASE:
+      switch(menuStruct.menuDepth)
+      {
+      case LAST_LEVEL:
+        switch(menuStruct.menuPosition + menuStruct.menuOffset)
+        {
+        case MENU_BRIGHT_POS:
+          if(Config->Bright > 100)
+          {
+            BRIGHT = 100;
+          }else{ BRIGHT = Config->Bright;}
+          menuStruct.menuDepth--;
+          menuVBUFDraw();    
+          break;    
+        case MENU_CALIBRATE_POS:
+          menuStruct.lastLevelPosition = 0;
+          menuStruct.lastLevelOffset = 0;
+          menuStruct.menuDepth--;
+          break;
+        }
+      }
       break;
     case RIGHT_BTN_CASE:
+      switch(menuStruct.menuDepth)
+      {
+      case LAST_LEVEL:
+        switch(menuStruct.menuPosition + menuStruct.menuOffset)
+        {
+        case MENU_BRIGHT_POS:
+          if(BRIGHT > 100)
+          {
+            SaveBright(100);
+          }else{SaveBright(BRIGHT);}
+          menuStruct.menuDepth--;   
+          break;    
+        case MENU_CALIBRATE_POS:
+          SaveCongig(&tempConfig);
+          menuStruct.lastLevelPosition = 0;
+          menuStruct.lastLevelOffset = 0;
+          menuStruct.menuDepth--;
+          break;
+        }
+      }
       break;
     }
+    }
+    
+    menuVBUFDraw();
   }
 }
 
@@ -227,10 +294,10 @@ void menuVBUFDraw()
     {
       VBUF_Draw_Image(79,40,5,8,ArrowDOWN);//Стрелка вниз
     }
-    invertCurrentButton(0);
+    invertMenuCurrentButton(0);
     DISP_Update();
     break;
-  case SETTINGS_LEVEL:
+  case LAST_LEVEL:
     vTaskResume(xLASTLEVELMENUHandle);
     break;
   }

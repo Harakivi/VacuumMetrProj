@@ -2450,6 +2450,15 @@
             </file>
         </group>
         <group>
+            <name>Games</name>
+            <file>
+                <name>$PROJ_DIR$\Games\Snake.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Games\Tetris.c</name>
+            </file>
+        </group>
+        <group>
             <name>libs</name>
             <file>
                 <name>$PROJ_DIR$\libs\ADC.c</name>

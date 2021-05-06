@@ -13,9 +13,11 @@ typedef struct {
   uint16_t AMPF_PDE3;
   int16_t BIAS_PDE4;
   uint16_t AMPF_PDE4;
+  uint16_t Bright;
 }Config_Struct;
 
 uint8_t SaveCongig(Config_Struct* _Config);
+uint8_t SaveBright(uint16_t _Bright);
 Config_Struct biasCalibrate(void);
 
 #endif /* _CONFIGURATION_H_ */

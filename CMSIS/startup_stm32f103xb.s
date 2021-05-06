@@ -142,7 +142,7 @@ __vector_table
         PUBWEAK Reset_Handler
         SECTION .text:CODE:REORDER:NOROOT(2)
 Reset_Handler
-        LDR     R0, =StandByCheck
+        LDR     R0, =StandByCheck // Проверка состояния батареи и засыпание 
         BLX     R0
         LDR     R0, =SystemInit
         BLX     R0

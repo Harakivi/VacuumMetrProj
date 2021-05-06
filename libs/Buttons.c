@@ -1,10 +1,6 @@
 #include "main.h"
 
-const uint8_t UP_BTN = 1;
-const uint8_t ENTER_BTN = 1 << 1;
-const uint8_t DOWN_BTN = 1 << 2;
-const uint8_t LEFT_BTN = 1 << 3;
-const uint8_t RIGHT_BTN = 1 << 4;
+
 
 uint8_t GetButtons()
 {
