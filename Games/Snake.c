@@ -188,7 +188,7 @@ void vSnake_Start(void)
 void vDrawSnake_Task (void *pvParameters)
 {
   //Ожидается что pvParameters будет равен 1
-  configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
+  //configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   
   SNAKE_Struct *SNAKE = (SNAKE_Struct*)pvParameters;
   Apple_Struct *APPLE = (Apple_Struct*)(SNAKE + 1);
@@ -218,7 +218,7 @@ void vDrawSnake_Task (void *pvParameters)
 void vBtnSnake_Task (void *pvParameters)
 {
   //Ожидается что pvParameters будет равен 1
-  configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
+  //configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   
   SNAKE_Struct *SNAKE = (SNAKE_Struct*)pvParameters;
   Apple_Struct *APPLE = (Apple_Struct*)(SNAKE + 1);

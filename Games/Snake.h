@@ -18,7 +18,7 @@ typedef enum{
 
 #define SNAKE_GAME_TASK_PRIORITY             (tskIDLE_PRIORITY + 3)
 #define SNAKE_DRAW_STACK_SIZE                (512)
-#define SNAKE_BTN_STACK_SIZE                 (512)
+#define SNAKE_BTN_STACK_SIZE                 (256)
 
 
 /*---------------------Описание структур------------------*/

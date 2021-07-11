@@ -15,5 +15,6 @@ void VBUF_Invert_Line(uint8_t xBegin, uint8_t yBegin, int8_t height, uint8_t len
 void VBUF_Draw_Image(int16_t xBegin, int16_t yBegin, int16_t length, int16_t Height, uint8_t *Image);
 void VBUF_Write_Char(uint8_t xBegin, uint8_t yBegin, char characters);
 void VBUF_Write_String(uint8_t xBegin, uint8_t yBegin, char *characters);
+void VBUF_Write_String_Right(uint8_t xBegin, uint8_t yBegin, char *characters);
 
 #endif /* _DISP_BUFF_H_ */

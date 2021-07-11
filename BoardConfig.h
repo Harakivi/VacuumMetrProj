@@ -1,7 +1,12 @@
 #ifndef _BOARDCONFIG_
 #define _BOARDCONFIG_
 /*---------------------Common Defines------------------*/
+#define SOFTWARE_VERSION        "V0.1"
+
 #define MIN_VOLT_ON_BATTERY      5000 //5000
+
+#define CHECK_BATT_VOLT   FALSE //Проверка напряжения на батарее
+
 /*---------------------LCD5110 PINS Defines------------------*/
 #define LCD_DC_PORT     GPIOB           // DATA/COMMAND GPIO PORT
 #define LCD_DC_PIN      GPIO_ODR_ODR1   // DATA/COMMAND GPIO PIN

@@ -54,7 +54,7 @@ void disp_LOGO()
   }
   VBUF_Clear();
   VBUF_Write_String(16, 10, "CarbSynch");
-  VBUF_Write_String(40, 20, "V0.02");
+  VBUF_Write_String(40, 20, SOFTWARE_VERSION);
   VBUF_Write_String(20, 40, "by Harakivi");
   DISP_Update();
   //Висим несколько секунд, чтобы отобразить лого
@@ -168,8 +168,8 @@ void enableFirstStepMainBatt(uint8_t _PWR)
   GPIOA->CRH &= ~GPIO_CRH_CNF10_1;
   if(_PWR)
   {
-    GPIOA->ODR |= GPIO_ODR_ODR10;
-  }else {GPIOA->ODR &= ~GPIO_ODR_ODR10;}
+    GPIOA->ODR &= ~GPIO_ODR_ODR10;
+  }else {GPIOA->ODR |= GPIO_ODR_ODR10;}
   
 }
 
@@ -203,7 +203,7 @@ uint16_t ReadVoltageOnMainBatt()
   ADC1->CR2 |= ADC_CR2_ADON;
   uint16_t prevVoltage = 0;
   uint16_t currVolt = 100;
-  uint16_t timeoToRead = 100;
+  uint16_t timeoToRead = 10;
   while(currVolt - prevVoltage > 10 && timeoToRead)
   {
     ADC1->CR2 |= ADC_CR2_SWSTART;
@@ -234,7 +234,7 @@ void StandByCheck()
   //Измеряем напряжение на батарее
   uint16_t _Voltage = ReadVoltageOnMainBatt();
   //Если оно меньше допустимого
-  if(_Voltage < MIN_VOLT_ON_BATTERY)
+  if(_Voltage < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
   {
     //То засыпаем
     enterStandBy();

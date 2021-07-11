@@ -410,12 +410,28 @@ void VBUF_Write_Char(uint8_t xBegin, uint8_t yBegin, char characters)
   }
 }
 
-//Запись строки по определенным координатам дисплея
+//Запись строки по определенным координатам дисплея слева на право
 void VBUF_Write_String(uint8_t xBegin, uint8_t yBegin, char *characters)
 {
   while(*characters)
   {
     VBUF_Write_Char(xBegin, yBegin,*characters++);
     xBegin += 6;
+  }
+}
+
+//Запись строки по определенным координатам дисплея справа на лево
+void VBUF_Write_String_Right(uint8_t xBegin, uint8_t yBegin, char *characters)
+{
+  uint8_t smb_cnt = 0;
+  while(*characters)
+  {
+    smb_cnt++;
+    characters++;
+  }
+  while(smb_cnt--)
+  {
+    VBUF_Write_Char(xBegin, yBegin,*--characters);
+    xBegin -= 6;
   }
 }

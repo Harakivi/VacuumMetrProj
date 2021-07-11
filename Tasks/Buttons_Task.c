@@ -3,8 +3,11 @@
 extern uint8_t bender[84 * 48 / 8];
 extern uint8_t VBUF[84 * 48 / 8];
 
+
 //Счётный семафор нажатой кнопки
 xSemaphoreHandle xBtnPresSem = NULL;
+
+UBaseType_t taskStack;
 
 //Очередь нажатых кнопок 
 QueueHandle_t xBtnPresQueue = NULL;
@@ -42,6 +45,7 @@ void vBUTTONSCheck_Task (void *pvParameters)
   configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   for (;;)
   {
+    taskStack = uxTaskGetStackHighWaterMark(NULL);
     uint16_t pressedTime = 0;
     switch(GetButtons())
     {

@@ -13,6 +13,7 @@ extern xSemaphoreHandle xBtnPresSem;
 extern TaskHandle_t xMenuHandle;
 extern MENU_Struct menuStruct;
 extern VDC_Struct SensorVoltageStruct;
+extern FILT_Struct FILT;
 
 //size: 5x8
 extern uint8_t ArrowUP[];   // Стрелка вверх
@@ -54,6 +55,16 @@ void vLASTLEVELMENU_Task (void *pvParameters)
     VBUF_Clear();
     switch(menuStruct.menuPosition + menuStruct.menuOffset)
     {
+    case MENU_METER_SETS_POS:
+      {
+        VBUF_Write_String(2, 2, "Meter:");
+        VBUF_Write_String(37, 2, FILT.Dig_CNT ? "3Digs" : "2Digs");
+        VBUF_Write_String(0,39, "<Back");
+        VBUF_Write_String(55,39, "Save>");
+        DISP_Update();
+        vTaskDelay(100);
+        break;
+      }
     case MENU_BRIGHT_POS:
       {
         static double battVolt;
@@ -117,6 +128,9 @@ void vLASTLEVELMENU_Task (void *pvParameters)
         VBUF_Write_String(2, 14, "Ampf4:");
         sprintf(string, "%i", tempConfig.AMPF_PDE4);
         VBUF_Write_String(37,14,string);
+        VBUF_Write_String(2, 26, "Flag:");
+        sprintf(string, "%X", tempConfig.CalibComplete);
+        VBUF_Write_String(37,26,string);
         VBUF_Draw_Image(79,0,5,8,ArrowUP);//Стрелка вверх
         VBUF_Draw_Image(79,30,5,8,ArrowDOWN);//Стрелка вниз
       }
@@ -154,6 +168,7 @@ void vLASTLEVELMENU_Task (void *pvParameters)
       vTaskResume(xMenuHandle);
       xSemaphoreGive( xBtnPresSem);
       vTaskDelay(100);
+      break;
     case MENU_GAME2_POS:
       vTaskSuspend(xMenuHandle);
       vTetris_Start();
@@ -166,6 +181,7 @@ void vLASTLEVELMENU_Task (void *pvParameters)
       vTaskResume(xMenuHandle);
       xSemaphoreGive( xBtnPresSem);
       vTaskDelay(100);
+      break;
     }
   }
 }

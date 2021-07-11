@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 MENU_Struct menuStruct = { 0 };
-BTN_Struct btnArray[7] = { 0 };
+BTN_Struct btnArray[MENU_BTN_CNT] = { 0 };
 
 extern FILT_Struct FILT;
 extern VDC_Struct SensorVoltageStruct;
@@ -54,6 +54,7 @@ void invertMenuCurrentButton(int8_t relBtnOffset)
 void menuButtArrayInit(void)
 {  
   btnArray[MENU_METER_POS] = ButtCreate("Meter");
+  btnArray[MENU_METER_SETS_POS] = ButtCreate("Meter Sets");
   btnArray[MENU_BRIGHT_POS] = ButtCreate("Brightness");
   btnArray[MENU_CALIBRATE_POS] = ButtCreate("Calibrate");
   btnArray[MENU_GAME1_POS] = ButtCreate("Snake");
@@ -89,9 +90,9 @@ void vMENU_Task(void *pvParameters)
         switch(menuStruct.menuDepth)
         {
         case TOP_LEVEL:
-          if(FILT.SizeFilt <= 240)
+          if(FILT.FILT_Delay < MAX_FILT_DELAY)
           {
-            FILT.SizeFilt += 10;
+            FILT.FILT_Delay += 10;
           } 
           break;
         case MENU_LEVEL:
@@ -145,6 +146,10 @@ void vMENU_Task(void *pvParameters)
           menuStruct.lastLevelPosition = 0;
           menuStruct.lastLevelOffset = 0;
           menuStruct.menuDepth--;
+          METER_Task_init();
+          break;
+        case MENU_METER_SETS_POS:
+          menuStruct.menuDepth++; 
           break;
         case MENU_BRIGHT_POS:
           menuStruct.menuDepth++; 
@@ -173,6 +178,13 @@ void vMENU_Task(void *pvParameters)
           {
             tempConfig = biasCalibrate();
           }
+          if(menuStruct.lastLevelOffset == CALIB_BTN_PAGE && menuStruct.lastLevelPosition == AMPF_CALIB)
+          {
+            tempConfig = ampfCalibrate();
+          }
+          break;
+        case MENU_METER_SETS_POS:
+          FILT.Dig_CNT == THREE_DIGITS ? (FILT.Dig_CNT = TWO_DIGITS) : (FILT.Dig_CNT = THREE_DIGITS);
           break;
         }
         break;
@@ -182,9 +194,9 @@ void vMENU_Task(void *pvParameters)
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
-        if(FILT.SizeFilt >= 10)
+        if(FILT.FILT_Delay >= 10)
           {
-            FILT.SizeFilt -= 10;
+            FILT.FILT_Delay -= 10;
           } 
         break;
       case MENU_LEVEL:
@@ -238,6 +250,9 @@ void vMENU_Task(void *pvParameters)
           menuStruct.lastLevelOffset = 0;
           menuStruct.menuDepth--;
           break;
+        case MENU_METER_SETS_POS:
+          menuStruct.menuDepth--;
+          break;
         }
       }
       break;
@@ -260,12 +275,14 @@ void vMENU_Task(void *pvParameters)
           menuStruct.lastLevelOffset = 0;
           menuStruct.menuDepth--;
           break;
+        case MENU_METER_SETS_POS:
+          menuStruct.menuDepth--;
+          break;
         }
       }
       break;
     }
     }
-    
     menuVBUFDraw();
   }
 }
@@ -276,10 +293,11 @@ void menuVBUFDraw()
   {
   case TOP_LEVEL: 
     VBUF_Clear();
-    vTaskResume(xMeterHandle);
+    //vTaskResume(xMeterHandle);
     break;
   case MENU_LEVEL:
-    vTaskSuspend(xMeterHandle);
+    //vTaskSuspend(xMeterHandle);
+    METER_Task_Deinit();
     vTaskSuspend(xLASTLEVELMENUHandle);
     VBUF_Clear();
     for(int i = menuStruct.menuOffset; i <= BTN_LAST_POS + menuStruct.menuOffset; i++)
