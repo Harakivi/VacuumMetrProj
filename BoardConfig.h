@@ -3,7 +3,7 @@
 /*---------------------Common Defines------------------*/
 #define SOFTWARE_VERSION        "V0.1"
 
-#define MIN_VOLT_ON_BATTERY      5000 //5000
+#define MIN_VOLT_ON_BATTERY      5000 // 5.000 Вольт
 
 #define CHECK_BATT_VOLT   FALSE //Проверка напряжения на батарее
 
