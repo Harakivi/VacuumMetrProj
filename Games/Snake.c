@@ -33,6 +33,7 @@ void Snake_Init(uint8_t _count, uint16_t _Speed, SNAKE_Struct *SNAKE, Apple_Stru
   SNAKE->head = headCell;
   SNAKE->tail = headCell;
   SNAKE->moveDir = SNAKE_RIGHT_DIR;
+  SNAKE->nextMoveDir = SNAKE_RIGHT_DIR;
   SNAKE->length++;
   SNAKE->Speed = _Speed;
   currCell = headCell;
@@ -75,7 +76,7 @@ void Snake_Move(SNAKE_Struct *SNAKE, Apple_Struct *APPLE)
   SNAKE->head->prevCell = newHead;
   SNAKE->head = newHead;
   SNAKE->tail = newTail;
-  switch(SNAKE->moveDir)
+  switch(SNAKE->nextMoveDir)
   {
   case SNAKE_RIGHT_DIR:
     if(SNAKE->head->nextCell->xPos != MAX_X)
@@ -106,6 +107,7 @@ void Snake_Move(SNAKE_Struct *SNAKE, Apple_Struct *APPLE)
     SNAKE->head->xPos = SNAKE->head->nextCell->xPos;
     break;
   }
+  SNAKE->moveDir = SNAKE->nextMoveDir;
   CELL_Struct *currCell = SNAKE->head->nextCell;
   while(currCell != NULL)
   {
@@ -130,7 +132,7 @@ void Snake_Move(SNAKE_Struct *SNAKE, Apple_Struct *APPLE)
     SNAKE->tail = apple;
     SNAKE->length++;
     APPLE->xPos = rand() % MAX_X;
-    while( APPLE->xPos < MIN_X || APPLE->xPos > MAX_X)
+    while( APPLE->xPos < MIN_X || APPLE->xPos > MAX_X )
     {
       APPLE->xPos = rand() % MAX_X;
     }
@@ -236,25 +238,25 @@ void vBtnSnake_Task (void *pvParameters)
       case UP_BTN_CASE:
         if(SNAKE->moveDir == SNAKE_LEFT_DIR || SNAKE->moveDir == SNAKE_RIGHT_DIR)
         {
-          SNAKE->moveDir = SNAKE_UP_DIR;
+          SNAKE->nextMoveDir = SNAKE_UP_DIR;
         }
         break;
       case DOWN_BTN_CASE:
         if(SNAKE->moveDir == SNAKE_LEFT_DIR || SNAKE->moveDir == SNAKE_RIGHT_DIR)
         {
-          SNAKE->moveDir = SNAKE_DOWN_DIR;
+          SNAKE->nextMoveDir = SNAKE_DOWN_DIR;
         }
         break;
       case LEFT_BTN_CASE:
         if(SNAKE->moveDir == SNAKE_UP_DIR || SNAKE->moveDir == SNAKE_DOWN_DIR)
         {
-          SNAKE->moveDir = SNAKE_LEFT_DIR;
+          SNAKE->nextMoveDir = SNAKE_LEFT_DIR;
         }
         break;
       case RIGHT_BTN_CASE:
         if(SNAKE->moveDir == SNAKE_UP_DIR || SNAKE->moveDir == SNAKE_DOWN_DIR)
         {
-          SNAKE->moveDir = SNAKE_RIGHT_DIR;
+          SNAKE->nextMoveDir = SNAKE_RIGHT_DIR;
         }
         break;
       case ENTER_BTN_CASE:

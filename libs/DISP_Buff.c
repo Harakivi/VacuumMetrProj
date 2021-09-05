@@ -303,7 +303,7 @@ void VBUF_Draw_Pixel(uint8_t x, uint8_t y, uint8_t pixel)
 {
   //Проверяем входные данные, чтобы не выйти за границы дисплея
   if(x > DISP_X_SIZE || y > DISP_Y_SIZE)return;
-  if(pixel)
+  if(!pixel)
   {
     VBUF[((y/8) * 84) + x] &= ~(1 << (y & 8 - 1));
   }

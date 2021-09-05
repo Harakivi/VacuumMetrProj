@@ -8,7 +8,7 @@
 #define CS_HIGH LCD_CS_PORT->ODR |= GPIO_ODR_ODR4 /// CHIP SELECT SET
 #define CS_LOW LCD_CS_PORT->ODR &= ~GPIO_ODR_ODR4 /// CHIP SELECT RESET
 //------------------------------------------------
-#define BRIGHT  TIM3->CCR3//< Brightness
+#define DISPLAYBRIGHT  TIM3->CCR3//< Brightness
 //------------------------------------------------
 #define BLACK 1 ///< Black pixel
 #define WHITE 0 ///< White pixel

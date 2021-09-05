@@ -2968,6 +2968,9 @@
             <name>$PROJ_DIR$\BoardConfig.c</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\build_number\build.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\main.c</name>
         </file>
     </group>

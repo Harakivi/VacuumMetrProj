@@ -1,5 +1,6 @@
 #include "main.h"
 
+extern Config_Struct* Config;
 extern uint8_t bender[84 * 48 / 8];
 extern uint8_t VBUF[84 * 48 / 8];
 
@@ -41,6 +42,7 @@ void vBUTTONSCheck_Task (void *pvParameters)
   static const uint8_t DOWN_BTN = 1 << 2;
   static const uint8_t LEFT_BTN = 1 << 3;
   static const uint8_t RIGHT_BTN = 1 << 4;
+  TickType_t lastBtnClkTime = xTaskGetTickCount();
   //Ожидается что pvParameters будет равен 1
   configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   for (;;)
@@ -55,6 +57,11 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&UP_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -64,6 +71,12 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
+      DISPLAYBRIGHT = Config->Bright;
       xQueueSend( xBtnPresQueue, ( void * )&ENTER_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -73,6 +86,12 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
+      DISPLAYBRIGHT = Config->Bright;  
       xQueueSend( xBtnPresQueue, ( void * )&DOWN_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -82,6 +101,12 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);      
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
+      DISPLAYBRIGHT = Config->Bright;  
       xQueueSend( xBtnPresQueue, ( void * )&LEFT_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -91,9 +116,23 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
+      DISPLAYBRIGHT = Config->Bright;
       xQueueSend( xBtnPresQueue, ( void * )&RIGHT_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
+    }
+    if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+    {
+      DISPLAYBRIGHT = 0;
+    }
+    if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONSTANDBY)
+    {
+      enterStandBy();
     }
     vTaskDelay(50);
   }

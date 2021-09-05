@@ -7,6 +7,7 @@ typedef enum{
 }BOOL;
 
 //------------------------------------------------
+#include "build.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_it.h"
 #include "TaskPriority.h"

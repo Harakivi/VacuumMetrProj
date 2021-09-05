@@ -22,9 +22,18 @@ define block HEAP      with alignment = 8, size = __ICFEDIT_size_heap__     { };
 
 initialize by copy { readwrite };
 do not initialize  { section .noinit };
-
 place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
 
-place in ROM_region   { readonly };
+define block ROM_CONTENT with fixed order
+{
+    readonly section _version,	    // Версия прошивки 
+    readonly,
+};
+
+// Запрещаем линкеру выкидывать секцию
+keep { section _version };
+
+
+place in ROM_region { block ROM_CONTENT };
 place in RAM_region   { readwrite,
                         block CSTACK, block HEAP };

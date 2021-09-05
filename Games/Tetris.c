@@ -143,7 +143,7 @@ void Tetris_Draw(TETRIS_Struct *TETRIS)
   {
     for(int j = 0; j < FIELD_LENGTH; j++)
     {
-      uint8_t pixel = TETRIS->Field[i][j];
+      uint8_t pixel = TETRIS->Field[FIELD_HEIGHT - i - 1][j];
       VBUF_Draw_Pixel((TETRIS_DISP_MIN_X + (j * 2)), TETRIS_DISP_MAX_Y - (i * 2), pixel);
       VBUF_Draw_Pixel((TETRIS_DISP_MIN_X + (j * 2)) + 1, TETRIS_DISP_MAX_Y - (i * 2), pixel);
       VBUF_Draw_Pixel((TETRIS_DISP_MIN_X + (j * 2)), TETRIS_DISP_MAX_Y - (i * 2) - 1, pixel);
@@ -177,17 +177,43 @@ void Tetris_Move(TETRIS_Struct *TETRIS)
       TETRIS->Field[TETRIS->currBlock.yPosArr[1]][TETRIS->currBlock.xPosArr[1]] = TRUE;
       TETRIS->Field[TETRIS->currBlock.yPosArr[2]][TETRIS->currBlock.xPosArr[2]] = TRUE;
       TETRIS->Field[TETRIS->currBlock.yPosArr[3]][TETRIS->currBlock.xPosArr[3]] = TRUE;
-      TETRIS->Field_Level++;
+      uint8_t ymin = FIELD_HEIGHT;
+      uint8_t ymax = 0;
+      for(int j = 0; j < 4; j++)
+      {
+        if(TETRIS->currBlock.yPosArr[j] < ymin)
+        {
+          ymin = TETRIS->currBlock.yPosArr[j];
+        }
+        if(TETRIS->currBlock.yPosArr[j] > ymax)
+        {
+          ymax = TETRIS->currBlock.yPosArr[j];
+        }
+      }
+        TETRIS->Field_Level += (ymax - ymin) + 1;
       TETRIS->currBlock.BlockType = NONBLOCK;
       return;
     }
-    else if(TETRIS->currBlock.yPosArr[i] == FIELD_HEIGHT)
+    else if(TETRIS->currBlock.yPosArr[i] == FIELD_HEIGHT - 1)
     {
       TETRIS->Field[TETRIS->currBlock.yPosArr[0]][TETRIS->currBlock.xPosArr[0]] = TRUE;
       TETRIS->Field[TETRIS->currBlock.yPosArr[1]][TETRIS->currBlock.xPosArr[1]] = TRUE;
       TETRIS->Field[TETRIS->currBlock.yPosArr[2]][TETRIS->currBlock.xPosArr[2]] = TRUE;
       TETRIS->Field[TETRIS->currBlock.yPosArr[3]][TETRIS->currBlock.xPosArr[3]] = TRUE;
-      TETRIS->Field_Level++;
+      uint8_t ymin = FIELD_HEIGHT;
+      uint8_t ymax = 0;
+      for(int j = 0; j < 4; j++)
+      {
+        if(TETRIS->currBlock.yPosArr[j] < ymin)
+        {
+          ymin = TETRIS->currBlock.yPosArr[j];
+        }
+        if(TETRIS->currBlock.yPosArr[j] > ymax)
+        {
+          ymax = TETRIS->currBlock.yPosArr[j];
+        }
+      }
+      TETRIS->Field_Level += (ymax - ymin) + 1;
       TETRIS->currBlock.BlockType = NONBLOCK;
       return;
     }
@@ -204,6 +230,7 @@ void vDrawTetris_Task (void *pvParameters)
   configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   
   TETRIS_Struct *TETRIS = (TETRIS_Struct*)pvParameters;;
+  TETRIS->Speed = 0xff;
   
   for(;;)
   {
@@ -238,18 +265,52 @@ void vDrawTetris_Task (void *pvParameters)
     if(!TETRIS->GameOver)
     {
       Tetris_Move(TETRIS);
+      if(TETRIS->Field_Level >= FIELD_HEIGHT)
+      {
+        TETRIS->GameOver = TRUE;
+      }
     }
-//    {
-//      VBUF_Clear();
-//      VBUF_Write_String(15, 20, "Game Over");
-//      DISP_Update();
-//      vTaskDelay(SNAKE->Speed);
-//      
-//    }
+    else{
+      VBUF_Clear();
+      VBUF_Write_String(15, 20, "Game Over");
+      DISP_Update();
+      vTaskDelay(TETRIS->Speed);
+      
+    }
     VBUF_Clear();
     Tetris_Draw(TETRIS);
     DISP_Update();
-    vTaskDelay(100);
+    vTaskDelay(TETRIS->Speed);
+  }
+}
+
+void TetrisShiftLeft(TETRIS_Struct *TETRIS)
+{
+  for(int i = 0; i < 4; i++)
+  {
+    if(TETRIS->currBlock.xPosArr[i] == 0)
+    {
+      return;
+    }
+  }
+  for(int i = 0; i < 4; i++)
+  {
+    TETRIS->currBlock.xPosArr[i] = TETRIS->currBlock.xPosArr[i] - 1;
+  }
+}
+
+void TetrisShiftRight(TETRIS_Struct *TETRIS)
+{
+  for(int i = 0; i < 4; i++)
+  {
+    if(TETRIS->currBlock.xPosArr[i] >= FIELD_LENGTH - 1)
+    {
+      return;
+    }
+  }
+  for(int i = 0; i < 4; i++)
+  {
+    TETRIS->currBlock.xPosArr[i] = TETRIS->currBlock.xPosArr[i] + 1;
   }
 }
 
@@ -270,30 +331,16 @@ void vBtnTetris_Task (void *pvParameters)
       //Обработка нажатой кнопки в игре
       switch(btn)
       {
-//      case UP_BTN_CASE:
-//        if(SNAKE->moveDir == SNAKE_LEFT_DIR || SNAKE->moveDir == SNAKE_RIGHT_DIR)
-//        {
-//          SNAKE->moveDir = SNAKE_UP_DIR;
-//        }
-//        break;
-//      case DOWN_BTN_CASE:
-//        if(SNAKE->moveDir == SNAKE_LEFT_DIR || SNAKE->moveDir == SNAKE_RIGHT_DIR)
-//        {
-//          SNAKE->moveDir = SNAKE_DOWN_DIR;
-//        }
-//        break;
-//      case LEFT_BTN_CASE:
-//        if(SNAKE->moveDir == SNAKE_UP_DIR || SNAKE->moveDir == SNAKE_DOWN_DIR)
-//        {
-//          SNAKE->moveDir = SNAKE_LEFT_DIR;
-//        }
-//        break;
-//      case RIGHT_BTN_CASE:
-//        if(SNAKE->moveDir == SNAKE_UP_DIR || SNAKE->moveDir == SNAKE_DOWN_DIR)
-//        {
-//          SNAKE->moveDir = SNAKE_RIGHT_DIR;
-//        }
-//        break;
+      case UP_BTN_CASE:
+        break;
+      case DOWN_BTN_CASE:
+        break;
+      case LEFT_BTN_CASE:
+        TetrisShiftLeft(TETRIS);
+        break;
+      case RIGHT_BTN_CASE:
+        TetrisShiftRight(TETRIS);
+        break;
       case ENTER_BTN_CASE:
         Tetris_DeInit(TETRIS);
         vTaskResume(xLASTLEVELMENUHandle);

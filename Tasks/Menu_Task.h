@@ -5,7 +5,7 @@
 #define MENU_LEVEL                1
 #define LAST_LEVEL                2
 /*----------------Menu max values Defines--------------*/
-#define MENU_BTN_CNT              7
+#define MENU_BTN_CNT              8
 #define BTN_FIRST_POS             0
 #define BTN_LAST_POS              3
 #define BTN_MIN_OFFSET            0
@@ -17,7 +17,8 @@
 #define MENU_CALIBRATE_POS        3
 #define MENU_GAME1_POS            4
 #define MENU_GAME2_POS            5
-#define MENU_TURNOFF_POS          6
+#define MENU_ABOUT_POS            6
+#define MENU_TURNOFF_POS          7
 /*----------------LastLevel Positions Defines--------------*/
 #define BIAS_CALIB                0
 #define AMPF_CALIB                1

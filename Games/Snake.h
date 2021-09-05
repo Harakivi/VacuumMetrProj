@@ -34,6 +34,7 @@ typedef struct {
   CELL_Struct *head;
   CELL_Struct *tail;
   SNAKE_Move_DIR moveDir;
+  SNAKE_Move_DIR nextMoveDir;
   size_t length;
   uint16_t Speed;
   uint8_t GameOver;

@@ -1,7 +1,5 @@
 #include "main.h"
 
-
-
 extern VDC_Struct SensorVoltageStruct;
 
 Config_Struct* Config = (Config_Struct*)CONFIG_ADDRESS;

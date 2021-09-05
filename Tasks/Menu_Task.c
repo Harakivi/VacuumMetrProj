@@ -59,6 +59,7 @@ void menuButtArrayInit(void)
   btnArray[MENU_CALIBRATE_POS] = ButtCreate("Calibrate");
   btnArray[MENU_GAME1_POS] = ButtCreate("Snake");
   btnArray[MENU_GAME2_POS] = ButtCreate("Tetris");
+  btnArray[MENU_ABOUT_POS] = ButtCreate("About");
   btnArray[MENU_TURNOFF_POS] = ButtCreate("Turn off");
 }
 
@@ -90,9 +91,13 @@ void vMENU_Task(void *pvParameters)
         switch(menuStruct.menuDepth)
         {
         case TOP_LEVEL:
-          if(FILT.FILT_Delay < MAX_FILT_DELAY)
+          if(FILT.Data_CNT < MAX_FILTER_DATA_SIZE + 1)
           {
-            FILT.FILT_Delay += 10;
+            METER_Task_Deinit();
+            
+            FILT.Data_CNT += FILTER_DATA_INCR_SIZE;
+              
+            METER_Task_init();
           } 
           break;
         case MENU_LEVEL:
@@ -108,9 +113,9 @@ void vMENU_Task(void *pvParameters)
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
         case MENU_BRIGHT_POS:
-          if(BRIGHT <= 90)
+          if(DISPLAYBRIGHT <= 90)
           {
-            BRIGHT += 10;
+            DISPLAYBRIGHT += 10;
           }
           break;
         case MENU_CALIBRATE_POS:
@@ -164,6 +169,9 @@ void vMENU_Task(void *pvParameters)
           tempConfig = *Config;
           menuStruct.menuDepth++;
           break;
+        case MENU_ABOUT_POS:
+          menuStruct.menuDepth++;
+          break;
         case MENU_TURNOFF_POS:
           DISP_Clear();
           enterStandBy();
@@ -186,7 +194,11 @@ void vMENU_Task(void *pvParameters)
         case MENU_METER_SETS_POS:
           FILT.Dig_CNT == THREE_DIGITS ? (FILT.Dig_CNT = TWO_DIGITS) : (FILT.Dig_CNT = THREE_DIGITS);
           break;
+        case MENU_ABOUT_POS:
+          menuStruct.menuDepth--;
+          break;
         }
+          
         break;
       }
       break;
@@ -194,9 +206,13 @@ void vMENU_Task(void *pvParameters)
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
-        if(FILT.FILT_Delay >= 10)
+        if(FILT.Data_CNT >= FILTER_DATA_INCR_SIZE + 1)
           {
-            FILT.FILT_Delay -= 10;
+            METER_Task_Deinit();
+            
+            FILT.Data_CNT -= FILTER_DATA_INCR_SIZE;
+              
+            METER_Task_init();
           } 
         break;
       case MENU_LEVEL:
@@ -212,9 +228,9 @@ void vMENU_Task(void *pvParameters)
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
         case MENU_BRIGHT_POS:
-          if(BRIGHT >= 10)
+          if(DISPLAYBRIGHT >= 10)
           {
-            BRIGHT -= 10;
+            DISPLAYBRIGHT -= 10;
           }
           break;
         case MENU_CALIBRATE_POS:
@@ -240,8 +256,8 @@ void vMENU_Task(void *pvParameters)
         case MENU_BRIGHT_POS:
           if(Config->Bright > 100)
           {
-            BRIGHT = 100;
-          }else{ BRIGHT = Config->Bright;}
+            DISPLAYBRIGHT = 100;
+          }else{ DISPLAYBRIGHT = Config->Bright;}
           menuStruct.menuDepth--;
           menuVBUFDraw();    
           break;    
@@ -263,10 +279,10 @@ void vMENU_Task(void *pvParameters)
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
         case MENU_BRIGHT_POS:
-          if(BRIGHT > 100)
+          if(DISPLAYBRIGHT > 100)
           {
             SaveBright(100);
-          }else{SaveBright(BRIGHT);}
+          }else{SaveBright(DISPLAYBRIGHT);}
           menuStruct.menuDepth--;   
           break;    
         case MENU_CALIBRATE_POS:

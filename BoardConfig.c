@@ -11,6 +11,8 @@ extern uint8_t chel_smile[];
 //Бендер ¯ \ _ (ツ) _ / ¯ 
 extern uint8_t bender[84 * 48 / 8];
 
+extern char build [];
+
 //size: 16x24
 extern uint8_t H_symb[];
 //size: 16x24
@@ -33,6 +35,7 @@ extern uint8_t y_symb[];
 
 void disp_LOGO()
 {
+  BOOL btnNotPressed = FALSE;
   VBUF_Clear();
   for(int16_t i = 83; i >= -128; i--)
   {
@@ -46,22 +49,43 @@ void disp_LOGO()
     VBUF_Draw_Image(i + 96, 0, 16, 24, V_symb);
     VBUF_Draw_Image(i + 112, 0, 16, 24, I_symb);
     DISP_Update();
-    uint32_t timeoutLOGO = 50000;
+    uint32_t timeoutLOGO = 15000;
     while(timeoutLOGO)
     {
       timeoutLOGO--;
+      if(!ENTER_BTN_CHK)
+      {
+        btnNotPressed = TRUE;
+      }
+      if(ENTER_BTN_CHK && btnNotPressed)
+      {
+        btnNotPressed = FALSE;
+        timeoutLOGO = 0;
+        i = -128;
+      }
     }
   }
   VBUF_Clear();
   VBUF_Write_String(16, 10, "CarbSynch");
-  VBUF_Write_String(40, 20, SOFTWARE_VERSION);
+  char version[] = SOFTWARE_VERSION;
+  VBUF_Write_String(40, 20, version);
+  
   VBUF_Write_String(20, 40, "by Harakivi");
   DISP_Update();
   //Висим несколько секунд, чтобы отобразить лого
-  uint32_t timeoutLOGO = 1000000;
-  while(timeoutLOGO && !ENTER_BTN_CHK)
+  uint32_t timeoutLOGO = 700000;
+  while(timeoutLOGO)
   {
     timeoutLOGO--;
+    if(!ENTER_BTN_CHK)
+    {
+      btnNotPressed = TRUE;
+    }
+    if(ENTER_BTN_CHK && btnNotPressed)
+    {
+      btnNotPressed = FALSE;
+      timeoutLOGO = 0;
+    }
   }
 }
 

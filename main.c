@@ -11,10 +11,6 @@ int main()
   LASTLEVELMENU_Task_init(); // Задача обновления экрана во время нахождения в разделе настроек
   //Запуск и передача управления шедулеру
   vTaskStartScheduler();
-  while(1)
-  {
-    //Ненужно, не дойдём.
-  }
 }
 
 void vApplicationIdleHook(void){ }
