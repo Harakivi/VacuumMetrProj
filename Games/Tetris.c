@@ -119,13 +119,13 @@ BLOCK_Struct gen_Z_Block()
 
 void Tetris_DeInit(TETRIS_Struct *TETRIS)
 {
-  free(TETRIS);
+  vPortFree(TETRIS);
 }
 
 void vTetris_Start(void)
 {
   //выделяем память под нужды игры
-  void *memoryToStructs = malloc(sizeof(TETRIS_Struct));
+  void *memoryToStructs = pvPortMalloc(sizeof(TETRIS_Struct));
   memset(memoryToStructs, 0 ,sizeof(TETRIS_Struct));
   //Создание задач игры
   xTaskCreate(vDrawTetris_Task, "DRAW_TETRIS_TASK", TETRIS_DRAW_STACK_SIZE, memoryToStructs, TETRIS_GAME_TASK_PRIORITY, &xGameDrawHandle);

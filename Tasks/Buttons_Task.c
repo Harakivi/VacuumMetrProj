@@ -8,7 +8,7 @@ extern uint8_t VBUF[84 * 48 / 8];
 //Счётный семафор нажатой кнопки
 xSemaphoreHandle xBtnPresSem = NULL;
 
-UBaseType_t taskStack;
+HeapStats_t Stats;
 
 //Очередь нажатых кнопок 
 QueueHandle_t xBtnPresQueue = NULL;
@@ -47,7 +47,6 @@ void vBUTTONSCheck_Task (void *pvParameters)
   configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   for (;;)
   {
-    taskStack = uxTaskGetStackHighWaterMark(NULL);
     uint16_t pressedTime = 0;
     switch(GetButtons())
     {
@@ -76,7 +75,6 @@ void vBUTTONSCheck_Task (void *pvParameters)
         DISPLAYBRIGHT = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
-      DISPLAYBRIGHT = Config->Bright;
       xQueueSend( xBtnPresQueue, ( void * )&ENTER_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -91,7 +89,6 @@ void vBUTTONSCheck_Task (void *pvParameters)
         DISPLAYBRIGHT = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
-      DISPLAYBRIGHT = Config->Bright;  
       xQueueSend( xBtnPresQueue, ( void * )&DOWN_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -106,7 +103,6 @@ void vBUTTONSCheck_Task (void *pvParameters)
         DISPLAYBRIGHT = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
-      DISPLAYBRIGHT = Config->Bright;  
       xQueueSend( xBtnPresQueue, ( void * )&LEFT_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -121,7 +117,6 @@ void vBUTTONSCheck_Task (void *pvParameters)
         DISPLAYBRIGHT = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
-      DISPLAYBRIGHT = Config->Bright;
       xQueueSend( xBtnPresQueue, ( void * )&RIGHT_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -134,6 +129,7 @@ void vBUTTONSCheck_Task (void *pvParameters)
     {
       enterStandBy();
     }
+    vPortGetHeapStats( &Stats );
     vTaskDelay(50);
   }
 }

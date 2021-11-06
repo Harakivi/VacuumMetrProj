@@ -2229,6 +2229,9 @@
             <file>
                 <name>$PROJ_DIR$\Tasks\METER_Task.c</name>
             </file>
+            <file>
+                <name>$PROJ_DIR$\Tasks\SCOPE_Task.c</name>
+            </file>
         </group>
         <file>
             <name>$PROJ_DIR$\BoardConfig.c</name>
@@ -2240,4 +2243,7 @@
             <name>$PROJ_DIR$\main.c</name>
         </file>
     </group>
+    <file>
+        <name>$PROJ_DIR$\libs\VacuumMetrProj.icf</name>
+    </file>
 </project>

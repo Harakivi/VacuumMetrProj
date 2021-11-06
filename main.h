@@ -19,6 +19,7 @@ typedef enum{
 #include "Menu_Task.h"
 #include "Buttons_Task.h"
 #include "METER_Task.h"
+#include "SCOPE_Task.h"
 #include "LASTLEVELMENU_Task.h"
 
 /* -= Игры =- */

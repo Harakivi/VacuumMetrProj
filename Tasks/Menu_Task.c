@@ -55,6 +55,7 @@ void menuButtArrayInit(void)
 {  
   btnArray[MENU_METER_POS] = ButtCreate("Meter");
   btnArray[MENU_METER_SETS_POS] = ButtCreate("Meter Sets");
+  btnArray[MENU_SCOPE_POS] = ButtCreate("Scope");
   btnArray[MENU_BRIGHT_POS] = ButtCreate("Brightness");
   btnArray[MENU_CALIBRATE_POS] = ButtCreate("Calibrate");
   btnArray[MENU_GAME1_POS] = ButtCreate("Snake");
@@ -136,18 +137,26 @@ void vMENU_Task(void *pvParameters)
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
-        menuStruct.menuPosition = 0;
-        menuStruct.menuOffset = 0;
-        menuStruct.lastLevelPosition = 0;
-        menuStruct.lastLevelOffset = 0;
-        menuStruct.menuDepth++;
+        switch(menuStruct.menuPosition + menuStruct.menuOffset)
+        {
+        case MENU_METER_POS:
+          menuStruct.lastLevelPosition = 0;
+          menuStruct.lastLevelOffset = 0;
+          menuStruct.menuDepth++;
+          METER_Task_Deinit();
+          break;
+        case MENU_SCOPE_POS:
+          menuStruct.lastLevelPosition = 0;
+          menuStruct.lastLevelOffset = 0;
+          menuStruct.menuDepth++;
+          SCOPE_Task_Deinit();
+          break;
+        }
         break;
       case MENU_LEVEL:
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
         case MENU_METER_POS:
-          menuStruct.menuPosition = 0;
-          menuStruct.menuOffset = 0;
           menuStruct.lastLevelPosition = 0;
           menuStruct.lastLevelOffset = 0;
           menuStruct.menuDepth--;
@@ -155,6 +164,12 @@ void vMENU_Task(void *pvParameters)
           break;
         case MENU_METER_SETS_POS:
           menuStruct.menuDepth++; 
+          break;
+        case MENU_SCOPE_POS:
+          menuStruct.lastLevelPosition = 0;
+          menuStruct.lastLevelOffset = 0;
+          menuStruct.menuDepth--;
+          SCOPE_Task_init();
           break;
         case MENU_BRIGHT_POS:
           menuStruct.menuDepth++; 
@@ -313,7 +328,7 @@ void menuVBUFDraw()
     break;
   case MENU_LEVEL:
     //vTaskSuspend(xMeterHandle);
-    METER_Task_Deinit();
+    
     vTaskSuspend(xLASTLEVELMENUHandle);
     VBUF_Clear();
     for(int i = menuStruct.menuOffset; i <= BTN_LAST_POS + menuStruct.menuOffset; i++)

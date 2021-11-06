@@ -1,1 +1,1 @@
- const char build[18] @ "_version" = "05.09.2021.02.0053";
+ const char build[18] @ "_version" = "06.11.2021.02.0123";

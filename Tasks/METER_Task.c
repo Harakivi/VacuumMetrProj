@@ -7,7 +7,7 @@
 
 extern VDC_Struct SensorVoltageStruct;
 
-//Счётный семафор нажатой кнопки
+//Бинарный семафор конца работы фильтра
 xSemaphoreHandle xFilterDone = NULL;
 
 TaskHandle_t  xMeterHandle = NULL;

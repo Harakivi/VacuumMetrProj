@@ -183,8 +183,8 @@ void enablePWRDisp(uint8_t _PWR)
   
 }
 
-//Подключить первую ступень основной батареи
-void enableFirstStepMainBatt(uint8_t _PWR)
+//Включить транзистор делителя измерения напряжения батареи
+void enableVoltMeas(uint8_t _PWR)
 {
   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
   GPIOA->CRH |= GPIO_CRH_MODE10_0 | GPIO_CRH_MODE10_1;
@@ -197,19 +197,19 @@ void enableFirstStepMainBatt(uint8_t _PWR)
   
 }
 
-//Подключить вторую ступень основной батареи
-void enableSecondStepMainBatt(uint8_t _PWR)
-{
-  RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-  GPIOB->CRH |= GPIO_CRH_MODE12_0 | GPIO_CRH_MODE12_1;
-  GPIOB->CRH |= GPIO_CRH_CNF12_0;
-  GPIOB->CRH &= ~GPIO_CRH_CNF12_1;
-  if(_PWR)
-  {
-    GPIOB->ODR &= ~GPIO_ODR_ODR12;
-  }else {GPIOB->ODR |= GPIO_ODR_ODR12;}
-  
-}
+////Подключить вторую ступень основной батареи
+//void enableSecondStepMainBatt(uint8_t _PWR)
+//{
+//  RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+//  GPIOB->CRH |= GPIO_CRH_MODE12_0 | GPIO_CRH_MODE12_1;
+//  GPIOB->CRH |= GPIO_CRH_CNF12_0;
+//  GPIOB->CRH &= ~GPIO_CRH_CNF12_1;
+//  if(_PWR)
+//  {
+//    GPIOB->ODR &= ~GPIO_ODR_ODR12;
+//  }else {GPIOB->ODR |= GPIO_ODR_ODR12;}
+//  
+//}
 
 uint16_t ReadVoltageOnMainBatt()
 {
@@ -254,7 +254,7 @@ void StandByCheck()
 {
     //Чтобы ENTER работал отключаем режим WKUP для работы PA0 в обычном режиме GPIO
   WKUP_PIN_DISABLE;
-  enableFirstStepMainBatt(1);
+  enableVoltMeas(1);
   //Измеряем напряжение на батарее
   uint16_t _Voltage = ReadVoltageOnMainBatt();
   //Если оно меньше допустимого
@@ -263,7 +263,8 @@ void StandByCheck()
     //То засыпаем
     enterStandBy();
   }
-  enableSecondStepMainBatt(1);
+  //Теперь не используется, так как питание идёт только от 9 Вольт
+  //enableSecondStepMainBatt(1);
   //Инициализируем пины GPIO к которым подключены кнопки, чтобы отслеживать нажатие кнопки ENTER
   initButt();
   //Если кнопка нажата, считаем время, если оно больше таймаута, выходим
