@@ -91,8 +91,8 @@ void vLASTLEVELMENU_Task (void *pvParameters)
         VBUF_Write_String(55,39, "Save>");
         DISP_Update();
         vTaskDelay(100);
-        break;
       }
+      break;
     case MENU_CALIBRATE_POS:
       if(menuStruct.lastLevelOffset == CALIB_FIRST_PAGE)
       {
@@ -185,9 +185,14 @@ void vLASTLEVELMENU_Task (void *pvParameters)
       vTaskDelay(100);
       break;
     case MENU_ABOUT_POS:
-      VBUF_Write_String(2, 2, "Build");
-      char build_number[] = {build[14], build[15], build[16], build[17]};
-      VBUF_Write_String(43, 2, build_number);
+      VBUF_Write_String(2, 2, "Build:");
+      char build_number[] = {build[14], build[15], build[16], build[17], 0};
+      VBUF_Write_String(37, 2, build_number);
+      VBUF_Write_String(2, 14, "Date:");
+      char build_date[] = {build[0], build[1], '.', build[3], build[4], '.',
+                           build[8], build[9], 0};
+      VBUF_Write_String(31, 14, build_date);
+      VBUF_Write_String(0,39, "<Back");
       DISP_Update();
       vTaskDelay(100);
       break;

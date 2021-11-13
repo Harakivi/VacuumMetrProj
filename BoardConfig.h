@@ -3,7 +3,7 @@
 /*---------------------Common Defines------------------*/
 #define SOFTWARE_VERSION        {'V', build[11], '.',build[12], 0}  
 #define MIN_VOLT_ON_BATTERY     5000 // 5.000 Вольт
-#define CHECK_BATT_VOLT         TRUE //Проверка напряжения на батарее
+#define CHECK_BATT_VOLT         FALSE//Проверка напряжения на батарее
 #define TIMETOINACTIONSTANDBY   300000 //Время в милисекундах до перехода в режим Standby(300000 = 5 минут)
 #define TIMETOINACTIONBRIGHTOFF 240000 //Время в милисекундах до отключения подстветки дисплея(300000 = 5 минут)
 
@@ -20,6 +20,7 @@
 /*---------------------Buttons PINS Defines------------------*/
 
 //------------------------------------------------
+void disp_LOWBATT();
 void initAll(void);
 void enterStandBy(void);
 void enablePWRDisp(uint8_t _PWR);

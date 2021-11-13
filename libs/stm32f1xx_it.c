@@ -48,10 +48,10 @@ void TIM4_IRQHandler()
     }
     tempADCval[CHAN_COUNT - 1] /= ADC_BUFFSIZE;
     SensorVoltageStruct.BATT_VDC = ((tempADCval[CHAN_COUNT - 1] * 3300) / 4096) * 5305 / 1000;
-    if(SensorVoltageStruct.BATT_VDC != 0 && SensorVoltageStruct.BATT_VDC < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
-    {
-      enterStandBy();
-    }
+//    if(SensorVoltageStruct.BATT_VDC != 0 && SensorVoltageStruct.BATT_VDC < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
+//    {
+//      enterStandBy();
+//    }
     //DMA1_Channel1->CCR |= DMA_CCR_EN; //Повторно запускаем запись
     TIM4->SR &= ~TIM_SR_UIF;
   }

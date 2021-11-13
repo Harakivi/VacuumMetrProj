@@ -1,16 +1,10 @@
 #include "main.h"
 
-extern Config_Struct* Config;
-
 void DISP_Init()
 {
   gpioInit();
   SPI2Init();
   bltInit();
-  if(Config->Bright > 100)
-  {
-    DISPLAYBRIGHT = 100;
-  }else{ DISPLAYBRIGHT = Config->Bright;}
   RST_LOW;
   for(int i=0; i < 1000; i++){}
   RST_HIGH;

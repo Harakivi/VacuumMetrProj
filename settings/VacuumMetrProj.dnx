@@ -16,15 +16,15 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <StLinkDriver>
-        <stlinkserialNo>101E080029135147324D4E00</stlinkserialNo>
-        <stlinkfoundProbes />
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
         <CStepIntDis>_ 0</CStepIntDis>
         <stlinkResetStyle>0</stlinkResetStyle>
         <stlinkResetStrategy>0</stlinkResetStrategy>
+        <stlinkserialNo>101E080029135147324D4E00</stlinkserialNo>
+        <stlinkfoundProbes />
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>327357857</Checksum>
+        <Checksum>1319041891</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -43,7 +43,7 @@
     <SWOTraceHWSettings>
         <OverrideDefaultClocks>0</OverrideDefaultClocks>
         <CpuClock>72000000</CpuClock>
-        <ClockAutoDetect>0</ClockAutoDetect>
+        <ClockAutoDetect>1</ClockAutoDetect>
         <ClockWanted>2000000</ClockWanted>
         <JtagSpeed>2000000</JtagSpeed>
         <Prescaler>36</Prescaler>
@@ -53,7 +53,7 @@
         <PcSampPOSTCNT>15</PcSampPOSTCNT>
         <PcSampIndex>0</PcSampIndex>
         <DataLogMode>0</DataLogMode>
-        <ITMportsEnable>0</ITMportsEnable>
+        <ITMportsEnable>62</ITMportsEnable>
         <ITMportsTermIO>0</ITMportsTermIO>
         <ITMportsLogFile>0</ITMportsLogFile>
         <ITMlogFile>$PROJ_DIR$\ITM.log</ITMlogFile>
@@ -80,6 +80,19 @@
         <FreqHi>0</FreqHi>
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
+    <InterruptStripe>
+        <Sort>1</Sort>
+    </InterruptStripe>
+    <EventStripe>
+        <Title0>ITM4</Title0>
+        <Setup0>1 1 3 1 1 0 0 0 0</Setup0>
+        <Title1>ITM3</Title1>
+        <Setup1>1 1 3 1 1 0 0 0 0</Setup1>
+        <Title2>ITM2</Title2>
+        <Setup2>1 1 3 1 1 0 0 0 0</Setup2>
+        <Title3>ITM1</Title3>
+        <Setup3>1 1 3 1 1 0 0 0 0</Setup3>
+    </EventStripe>
     <struct_types>
         <Fmt0>Apple_Struct-xPos	3	0</Fmt0>
         <Fmt1>Apple_Struct-yPos	3	0</Fmt1>
@@ -87,13 +100,15 @@
         <Fmt3>CELL_Struct-xPos	3	0</Fmt3>
         <Fmt4>CELL_Struct-yPos	3	0</Fmt4>
         <Fmt5>FILT_Struct-Data_CNT	3	0</Fmt5>
-        <Fmt6>struct _CELL_Struct-xPos	3	0</Fmt6>
-        <Fmt7>struct _CELL_Struct-yPos	3	0</Fmt7>
+        <Fmt6>SCOPE_Struct-Time_Delay	3	0</Fmt6>
+        <Fmt7>struct _CELL_Struct-xPos	3	0</Fmt7>
+        <Fmt8>struct _CELL_Struct-yPos	3	0</Fmt8>
     </struct_types>
     <array_types>
         <Fmt0>char[14]	5	0</Fmt0>
-        <Fmt1>uint8_t[4]	3	0</Fmt1>
-        <Fmt2>uint8_t[504]	4	0</Fmt2>
+        <Fmt1>uint8_t[14336]	1	0</Fmt1>
+        <Fmt2>uint8_t[4]	3	0</Fmt2>
+        <Fmt3>uint8_t[504]	4	0</Fmt3>
     </array_types>
     <watch_formats>
         <Fmt0>{W}1:entButt	1	0</Fmt0>
@@ -120,14 +135,14 @@
         <EventSLEEP>0</EventSLEEP>
     </SWOTraceWindow>
     <DataLog>
-        <GraphEnabled>0</GraphEnabled>
+        <GraphEnabled>1</GraphEnabled>
         <LogEnabled>0</LogEnabled>
         <ShowTimeLog>1</ShowTimeLog>
         <SumEnabled>0</SumEnabled>
         <ShowTimeSum>1</ShowTimeSum>
     </DataLog>
     <InterruptLog>
-        <GraphEnabled>0</GraphEnabled>
+        <GraphEnabled>1</GraphEnabled>
         <LogEnabled>0</LogEnabled>
         <ShowTimeLog>1</ShowTimeLog>
         <SumEnabled>0</SumEnabled>
@@ -135,7 +150,7 @@
         <SumSortOrder>0</SumSortOrder>
     </InterruptLog>
     <EventLog>
-        <GraphEnabled>0</GraphEnabled>
+        <GraphEnabled>1</GraphEnabled>
         <LogEnabled>0</LogEnabled>
         <ShowTimeLog>1</ShowTimeLog>
         <Title_0>Ch3</Title_0>
@@ -157,15 +172,15 @@
         <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\libs\Configuration.c}.152.3" 0 0 1 "" 0 "" 0</Bp0>
         <Count>1</Count>
     </Breakpoints2>
-    <TermIOLog>
-        <LoggingEnabled>_ 0</LoggingEnabled>
-        <LogFile>_ ""</LogFile>
-    </TermIOLog>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
         <Category>_ 0</Category>
     </LogFile>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
     <Aliases>
         <Count>0</Count>
         <SuppressDialog>0</SuppressDialog>

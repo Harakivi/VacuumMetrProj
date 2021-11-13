@@ -80,7 +80,7 @@
                 </option>
                 <option>
                     <name>OCProductVersion</name>
-                    <state>8.32.3.20186</state>
+                    <state>9.10.2.39304</state>
                 </option>
                 <option>
                     <name>OCDynDriverList</name>
@@ -144,7 +144,7 @@
                 </option>
                 <option>
                     <name>OCImagesOffset1</name>
-                    <state>0</state>
+                    <state></state>
                 </option>
                 <option>
                     <name>OCImagesOffset2</name>
@@ -1098,7 +1098,7 @@
                 </option>
                 <option>
                     <name>CCSwoClockAuto</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCSwoClockEdit</name>
@@ -1188,7 +1188,7 @@
                 <option>
                     <name>CCSTLinkProbeList</name>
                     <version>1</version>
-                    <state>2</state>
+                    <state>0</state>
                 </option>
             </data>
         </settings>

@@ -10,6 +10,9 @@
 typedef struct{
   int16_t* PDE_Array;
   uint8_t Data_CNT;
+  uint8_t Time_Delay;
+  uint8_t Lim_Div;
+  int64_t Average;
 }SCOPE_Struct;
 
 void SCOPE_Task_init(void);

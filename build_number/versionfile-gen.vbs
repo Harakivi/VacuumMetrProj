@@ -69,7 +69,8 @@ else
   
   FileOutStream.Write build_full + vbCrLf
   FileOutStream.Close
-  Wscript.Echo "build incr DONE"
+  Wscript.Echo "build incr DONE" + vbNewLine
+  Wscript.Echo "Build:" + BuildStr
   else
   build_full = " const char build[18] @ ""_version"" = """+vDay+"."+vMonth+"."+vYear+".00.0000"";"
   Set FSO = CreateObject("Scripting.FileSystemObject")

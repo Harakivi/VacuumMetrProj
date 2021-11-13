@@ -4,6 +4,8 @@ extern Config_Struct* Config;
 extern uint8_t bender[84 * 48 / 8];
 extern uint8_t VBUF[84 * 48 / 8];
 
+//Стурктура со значениями измерителей
+extern VDC_Struct SensorVoltageStruct;
 
 //Счётный семафор нажатой кнопки
 xSemaphoreHandle xBtnPresSem = NULL;
@@ -43,6 +45,8 @@ void vBUTTONSCheck_Task (void *pvParameters)
   static const uint8_t LEFT_BTN = 1 << 3;
   static const uint8_t RIGHT_BTN = 1 << 4;
   TickType_t lastBtnClkTime = xTaskGetTickCount();
+  uint32_t averageBatteryVoltage = 0;
+  uint8_t voltageCountReads = 0;
   //Ожидается что pvParameters будет равен 1
   configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   for (;;)
@@ -129,6 +133,26 @@ void vBUTTONSCheck_Task (void *pvParameters)
     {
       enterStandBy();
     }
+    //Записываем текущее значение напряжения на батарее для усреднения
+    averageBatteryVoltage += SensorVoltageStruct.BATT_VDC;
+    //Делаем 5 измерений
+    if(++voltageCountReads == 5)
+    {
+      averageBatteryVoltage /= 5;
+      //Проверка напряжения на батарее, если меньше MIN_VOLT_ON_BATTERY, то выключаемся
+      if(averageBatteryVoltage != 0 && averageBatteryVoltage < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
+      {
+        //Выводим сообщение
+        disp_LOWBATT();
+        //И засыпаем
+        enterStandBy();
+      }else//Иначе сбрасываем измерения и начинаем заного
+      {
+        averageBatteryVoltage = 0;
+        voltageCountReads = 0;
+      }
+    }
+    
     vPortGetHeapStats( &Stats );
     vTaskDelay(50);
   }

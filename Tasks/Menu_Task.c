@@ -5,6 +5,7 @@ MENU_Struct menuStruct = { 0 };
 BTN_Struct btnArray[MENU_BTN_CNT] = { 0 };
 
 extern FILT_Struct FILT;
+extern SCOPE_Struct SCOPE;
 extern VDC_Struct SensorVoltageStruct;
 extern Config_Struct* Config;
 extern Config_Struct tempConfig;
@@ -92,14 +93,22 @@ void vMENU_Task(void *pvParameters)
         switch(menuStruct.menuDepth)
         {
         case TOP_LEVEL:
-          if(FILT.Data_CNT < MAX_FILTER_DATA_SIZE + 1)
+          switch(menuStruct.menuPosition + menuStruct.menuOffset)
           {
-            METER_Task_Deinit();
-            
-            FILT.Data_CNT += FILTER_DATA_INCR_SIZE;
+          case MENU_METER_POS:
+            if(FILT.Data_CNT < MAX_FILTER_DATA_SIZE + 1)
+            {
+              METER_Task_Deinit();
+                
+              FILT.Data_CNT += FILTER_DATA_INCR_SIZE;
               
-            METER_Task_init();
-          } 
+              METER_Task_init();
+            }
+            break;
+          case MENU_SCOPE_POS:
+            SCOPE.Lim_Div++;
+            break;
+          }
           break;
         case MENU_LEVEL:
         if(menuStruct.menuPosition != BTN_FIRST_POS)
@@ -209,9 +218,6 @@ void vMENU_Task(void *pvParameters)
         case MENU_METER_SETS_POS:
           FILT.Dig_CNT == THREE_DIGITS ? (FILT.Dig_CNT = TWO_DIGITS) : (FILT.Dig_CNT = THREE_DIGITS);
           break;
-        case MENU_ABOUT_POS:
-          menuStruct.menuDepth--;
-          break;
         }
           
         break;
@@ -221,14 +227,22 @@ void vMENU_Task(void *pvParameters)
       switch(menuStruct.menuDepth)
       {
       case TOP_LEVEL:
-        if(FILT.Data_CNT >= FILTER_DATA_INCR_SIZE + 1)
+        switch(menuStruct.menuPosition + menuStruct.menuOffset)
+        {
+        case MENU_METER_POS:
+          if(FILT.Data_CNT >= FILTER_DATA_INCR_SIZE + 1)
           {
             METER_Task_Deinit();
-            
-            FILT.Data_CNT -= FILTER_DATA_INCR_SIZE;
               
+            FILT.Data_CNT -= FILTER_DATA_INCR_SIZE;
+                  
             METER_Task_init();
-          } 
+          }
+          break;
+        case MENU_SCOPE_POS:
+          SCOPE.Lim_Div--;
+          break;
+        }
         break;
       case MENU_LEVEL:
         if(menuStruct.menuPosition != BTN_LAST_POS)
@@ -265,6 +279,16 @@ void vMENU_Task(void *pvParameters)
     case LEFT_BTN_CASE:
       switch(menuStruct.menuDepth)
       {
+      case TOP_LEVEL:
+        switch(menuStruct.menuPosition + menuStruct.menuOffset)
+        {
+        case MENU_METER_POS:
+          break;
+        case MENU_SCOPE_POS:
+          SCOPE.Time_Delay--;
+          break;
+        }
+        break;
       case LAST_LEVEL:
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
@@ -284,12 +308,25 @@ void vMENU_Task(void *pvParameters)
         case MENU_METER_SETS_POS:
           menuStruct.menuDepth--;
           break;
+        case MENU_ABOUT_POS:
+          menuStruct.menuDepth--;
+          break;
         }
       }
       break;
     case RIGHT_BTN_CASE:
       switch(menuStruct.menuDepth)
       {
+      case TOP_LEVEL:
+        switch(menuStruct.menuPosition + menuStruct.menuOffset)
+        {
+        case MENU_METER_POS:
+          break;
+        case MENU_SCOPE_POS:
+          SCOPE.Time_Delay++;
+          break;
+        }
+        break;
       case LAST_LEVEL:
         switch(menuStruct.menuPosition + menuStruct.menuOffset)
         {
