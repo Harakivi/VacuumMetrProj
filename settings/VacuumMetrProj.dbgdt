@@ -891,7 +891,7 @@
                     <item>xTickCount</item>
                     <item>Stats</item>
                     <item>Config</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>
@@ -983,7 +983,7 @@
                     <item>Heap</item>
                     <item>_Voltage</item>
                     <item>data</item>
-                    <item></item>
+                    <item />
                 </expressions>
                 <col-names>
                     <item>Expression</item>

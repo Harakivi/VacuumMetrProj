@@ -659,7 +659,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>1</hasPrio>
+                <hasPrio>224</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -752,7 +752,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\libs\VacuumMetrProj.icf</state>
+                    <state>$PROJ_DIR$\libs\VacuumMetrProj.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>

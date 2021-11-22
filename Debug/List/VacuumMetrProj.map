@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V9.10.2.313/W64 for ARM                  21/Nov/2021  11:45:34
+# IAR ELF Linker V9.10.2.313/W64 for ARM                  22/Nov/2021  21:52:24
 # Copyright 2007-2021 IAR Systems AB.
 #
 #    Output file  =
@@ -9,7 +9,7 @@
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\List\VacuumMetrProj.map
 #    Command line =
 #        -f
-#        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Exe\VacuumMetrProj.out.rsp
+#        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\List\VacuumMetrProj.map.rsp
 #        (C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\User\libs\ADC.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\User\BoardConfig.o
 #        C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Obj\User\build.o
