@@ -95,7 +95,7 @@ void disp_LOGO()
 void disp_LOWBATT()
 {
   //Висим несколько секунд, чтобы отобразить сообщение
-  uint8_t timeoutMESAGE = 4;
+  uint8_t timeoutMESAGE = 3;
   while(timeoutMESAGE--)
   {
     //Алгоритм мегания сообщением

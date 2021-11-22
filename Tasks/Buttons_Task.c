@@ -142,6 +142,7 @@ void vBUTTONSCheck_Task (void *pvParameters)
       //Проверка напряжения на батарее, если меньше MIN_VOLT_ON_BATTERY, то выключаемся
       if(averageBatteryVoltage != 0 && averageBatteryVoltage < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
       {
+        vTaskSuspendAll();
         //Выводим сообщение
         disp_LOWBATT();
         //И засыпаем

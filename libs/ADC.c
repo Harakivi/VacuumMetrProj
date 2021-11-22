@@ -75,12 +75,13 @@ void ADCTIMinit(){
   TIM4->CR1 &= ~(TIM_CR1_DIR | TIM_CR1_CMS_1 | TIM_CR1_CMS_0); //0: Counter used as upcounter
   TIM4->CR1 &= ~TIM_CR1_OPM; //0: Counter is not stopped at update event
   TIM4->ARR = 1000;
-  TIM4->PSC = 1;
+  TIM4->PSC = 10;
   TIM4->EGR |= TIM_EGR_UG; //1: Re-initialize the counter and generates an update of the registers. Note that the prescaler
                            //counter is cleared too (anyway the prescaler ratio is not affected). The counter is cleared if
                            //the center-aligned mode is selected or if DIR=0 (upcounting), else it takes the auto-reload
                            //value (TIMx_ARR) if DIR=1 (downcounting).
   TIM4->DIER |= TIM_DIER_UIE;
+  //NVIC_SetPriority(TIM4_IRQn, uint32_t priority)
   NVIC_EnableIRQ(TIM4_IRQn);
   TIM4->CR1 |= TIM_CR1_CEN;
 }

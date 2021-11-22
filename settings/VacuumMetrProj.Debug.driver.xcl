@@ -8,7 +8,7 @@
 
 "C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\CONFIG\debugger\ST\STM32F103C8.ddf" 
 
-"--semihosting" 
+"--semihosting=none" 
 
 "--device=STM32F103C8" 
 

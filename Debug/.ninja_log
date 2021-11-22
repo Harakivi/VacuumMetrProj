@@ -1,96 +1,76 @@
 # ninja log v5
-3226	3370	6583492692695515	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
-732	1297	6583492672015519	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/queue.o	30e4ed2c8bf6cdc4
-217	743	6583492661925522	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/CMSIS/startup_stm32f103xb.o	7958caa0faebcb1c
-1071	1330	6583492672275527	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/list.o	b1765fc56304fc8c
-753	976	6583492668965523	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/croutine.o	7dc9ccc153478406
-3948	3991	6583492699255992	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
-168	319	6555580729810389	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/portasm.o	b5d6032fc1b413ae
-228	1098	6583492669605525	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/CMSIS/system_stm32f1xx.o	ebf51df643885abb
-681	1052	6583492669595566	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/heap_4.o	cf98f6dc94f9da4f
-3658	3910	6583492698185988	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	77ae645ba4f42d11
-998	1250	6583492671715521	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/port.o	fd51737c8b96da94
-1315	1718	6583492676275526	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/ADC.o	6428032761300d74
-2240	2721	6583492686135516	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Buttons.o	bec06a5699106541
-2329	2793	6583492686785528	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
-1269	2054	6583492679695530	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/tasks.o	cd7bb3a21a415a0
-1350	1896	6583492678135528	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Snake.o	f1b73cf1cf248537
-2740	3264	6583492691385512	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/BoardConfig.o	c9a1d8674d711950
-1118	1769	6583492676315529	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Tetris.o	8db871229373258b
-1735	2219	6583492681315594	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Buttons_Task.o	42ad05fa9af52139
-1915	2340	6583492682295530	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/stm32f1xx_it.o	99377d0127b040a7
-2071	2662	6583492685755542	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/DISP_Buff.o	aee7e8bde029cd27
-1792	2310	6583492682255544	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/lcd5110.o	52c7d6b40138775e
-3284	3641	6583492695605539	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/main.o	6d9d8e94d22af973
-4	212	0	Pre-build command	1d02c908437ff594
-2919	3442	6583492693585581	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Menu_Task.o	20951f1dfd34e54a
-2810	3326	6583492692385519	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/LASTLEVELMENU_Task.o	60af78df4a8b0710
-2683	3208	6583492691235534	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/METER_Task.o	709914a528ad8fa2
-3485	4023	6555580766830446	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/List/VacuumMetrProj.map	7d8d6bd3555cea6e
-2360	2899	6583492688155530	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/SCOPE_Task.o	dcd7ca8d7e35b041
-6	171	0	Pre-build command	1d02c908437ff594
+2109	2224	6586812461830830	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
+398	925	6585850116583959	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/queue.o	30e4ed2c8bf6cdc4
 176	221	6583493683301542	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/CMSIS/startup_stm32f103xb.o	7958caa0faebcb1c
+192	460	6585850111663955	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/list.o	b1765fc56304fc8c
+185	381	6585850111213960	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/croutine.o	7dc9ccc153478406
+3089	3135	6586812471010817	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
 187	245	6583493683631566	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/portasm.o	b5d6032fc1b413ae
-192	416	6583493685221549	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/list.o	b1765fc56304fc8c
-257	454	6583493685541536	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/croutine.o	7dc9ccc153478406
-203	508	6583493686131538	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/heap_4.o	cf98f6dc94f9da4f
-432	669	6583493687751544	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/port.o	fd51737c8b96da94
-230	758	6583493688591534	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/queue.o	30e4ed2c8bf6cdc4
-474	824	6583493689241537	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/CMSIS/system_stm32f1xx.o	ebf51df643885abb
-688	1128	6583493692291538	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/ADC.o	6428032761300d74
-527	1187	6583493692591538	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Snake.o	f1b73cf1cf248537
-775	1365	6583493694651541	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Tetris.o	8db871229373258b
-1152	1603	6583493696991536	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Buttons_Task.o	42ad05fa9af52139
-848	1662	6583493697591542	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/tasks.o	cd7bb3a21a415a0
-1218	1722	6583493698091533	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/lcd5110.o	52c7d6b40138775e
-1388	1866	6583493699681544	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/stm32f1xx_it.o	99377d0127b040a7
-1622	2378	6583493704761540	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
-1686	2427	6583493705071538	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Buttons.o	bec06a5699106541
-1992	2509	6583493706081540	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/METER_Task.o	709914a528ad8fa2
-1740	2664	6583493707631535	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/DISP_Buff.o	aee7e8bde029cd27
-2397	2898	6583493709971537	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/SCOPE_Task.o	dcd7ca8d7e35b041
-2449	2967	6583493710501534	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/BoardConfig.o	c9a1d8674d711950
-2926	3041	6583493711521534	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
-2531	3094	6583493711791540	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Menu_Task.o	20951f1dfd34e54a
-2681	3235	6583493713361532	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/LASTLEVELMENU_Task.o	60af78df4a8b0710
-2994	3375	6583493714781549	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/main.o	6d9d8e94d22af973
-3392	3606	6583493717191566	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	c827d4c500fec0b0
+484	821	6585850115513961	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/CMSIS/system_stm32f1xx.o	ebf51df643885abb
+180	510	6585850112313963	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/heap_4.o	cf98f6dc94f9da4f
+2724	3046	6586812469840827	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+170	423	6585850111413957	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/portable/port.o	fd51737c8b96da94
+242	940	6586812448890819	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/ADC.o	6428032761300d74
+189	759	6586812447060821	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Buttons.o	bec06a5699106541
+1007	1459	6586812454040831	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
+527	1273	6585850120024010	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/FreeRTOS/tasks.o	cd7bb3a21a415a0
+200	988	6586812449190821	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Snake.o	f1b73cf1cf248537
+1488	2014	6586812459240822	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/BoardConfig.o	c9a1d8674d711950
+248	1122	6586812450680831	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Tetris.o	8db871229373258b
+959	1395	6586812453420820	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Buttons_Task.o	42ad05fa9af52139
+776	1520	6586812454370821	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/stm32f1xx_it.o	99377d0127b040a7
+1141	1791	6586812457390818	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/DISP_Buff.o	aee7e8bde029cd27
+1417	1971	6586812459140824	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/lcd5110.o	52c7d6b40138775e
+2242	2695	6586812465980831	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/main.o	6d9d8e94d22af973
+5	185	0	Pre-build command	1d02c908437ff594
+2002	2637	6586812465810823	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Menu_Task.o	20951f1dfd34e54a
+1539	2087	6586812460320828	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/LASTLEVELMENU_Task.o	60af78df4a8b0710
+1812	2509	6586812464440817	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/METER_Task.o	709914a528ad8fa2
 3392	3606	6583493717191566	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/List/VacuumMetrProj.map	c827d4c500fec0b0
-3648	3665	6583493717841540	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
-4	174	0	Pre-build command	1d02c908437ff594
-179	397	6583494016121552	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	77ae645ba4f42d11
-434	449	6583494016891585	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
-5	229	0	Pre-build command	1d02c908437ff594
-234	531	6583503477830550	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
-547	855	6583503480750501	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	77ae645ba4f42d11
-924	973	6583503482340545	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
-5	234	0	Pre-build command	1d02c908437ff594
-5	224	0	Pre-build command	1d02c908437ff594
-229	523	6583508423282537	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
-539	842	6583508426272547	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	77ae645ba4f42d11
-880	923	6583508427363010	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
-173	1295	0	Pre-build command	1d02c908437ff594
-6	187	0	Pre-build command	1d02c908437ff594
-192	2649	6584874928552358	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/ADC.o	6428032761300d74
-555	2686	6584874928542356	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Buttons_Task.o	42ad05fa9af52139
-562	2759	6584874929152364	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Tetris.o	8db871229373258b
-567	2786	6584874929112362	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Snake.o	f1b73cf1cf248537
-2779	3206	6584874934142363	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/stm32f1xx_it.o	99377d0127b040a7
-2806	3233	6584874934172360	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Buttons.o	bec06a5699106541
-2667	3284	6584874934482368	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/lcd5110.o	52c7d6b40138775e
-2728	3331	6584874935232358	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/DISP_Buff.o	aee7e8bde029cd27
-3226	3695	6584874939042361	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
-3253	3793	6584874939962365	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/SCOPE_Task.o	dcd7ca8d7e35b041
-3302	3917	6584874940722364	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/BoardConfig.o	c9a1d8674d711950
-3347	3968	6584874941052363	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/LASTLEVELMENU_Task.o	60af78df4a8b0710
-3937	4053	6584874942702355	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
-3722	4342	6584874945522423	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/METER_Task.o	709914a528ad8fa2
-3987	4379	6584874945842379	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/main.o	6d9d8e94d22af973
-3829	4427	6584874946372367	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Menu_Task.o	20951f1dfd34e54a
-4444	5659	6584874958622378	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	77ae645ba4f42d11
-5696	5879	6584874961082829	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
-4	183	0	Pre-build command	1d02c908437ff594
-5	348	0	Pre-build command	1d02c908437ff594
-352	749	6585359272703475	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
-764	1068	6585359275713504	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	77ae645ba4f42d11
-1104	1146	6585359276773499	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
+2035	2492	6586812464390824	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/SCOPE_Task.o	dcd7ca8d7e35b041
+4	256	0	Pre-build command	1d02c908437ff594
+277	985	6586821593958909	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/ADC.o	6428032761300d74
+271	1033	6586821594218926	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Snake.o	f1b73cf1cf248537
+261	1061	6586821594438924	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Buttons.o	bec06a5699106541
+289	1115	6586821594818905	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Games/Tetris.o	8db871229373258b
+1083	1493	6586821599058905	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/stm32f1xx_it.o	99377d0127b040a7
+1001	1540	6586821599238912	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Buttons_Task.o	42ad05fa9af52139
+1141	1587	6586821599778915	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
+1054	1634	6586821600068912	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/DISP_Buff.o	aee7e8bde029cd27
+1559	2030	6586821604368916	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/BoardConfig.o	c9a1d8674d711950
+1513	2057	6586821604388920	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/lcd5110.o	52c7d6b40138775e
+1605	2110	6586821604658920	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/SCOPE_Task.o	dcd7ca8d7e35b041
+1652	2169	6586821605778917	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/Menu_Task.o	20951f1dfd34e54a
+2139	2478	6586821608888915	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/main.o	6d9d8e94d22af973
+2049	2535	6586821609468916	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/LASTLEVELMENU_Task.o	60af78df4a8b0710
+2078	2574	6586821609758913	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/Tasks/METER_Task.o	709914a528ad8fa2
+2592	2920	6586821613238925	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+2964	3011	6586821614388905	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
+5	418	0	Pre-build command	1d02c908437ff594
+440	1388	6591736956559875	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
+1404	3630	6591736978804938	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+3679	3823	6591736981054936	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
+4	122	0	Pre-build command	1d02c908437ff594
+127	916	6591744801274443	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
+932	1167	6591744803684512	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+1206	1221	6591744804534541	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
+5	183	0	Pre-build command	1d02c908437ff594
+197	445	6591760468959412	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
+4	105	0	Pre-build command	1d02c908437ff594
+109	524	6591760555463748	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/ADC.o	6428032761300d74
+541	810	6591760558203647	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+848	890	6591760559273657	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
+4	120	0	Pre-build command	1d02c908437ff594
+152	274	6591761057228522	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
+124	580	6591761060198538	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
+599	809	6591761062418520	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+849	866	6591761063228996	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
+5	169	0	Pre-build command	1d02c908437ff594
+176	773	6591765966333300	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/Configuration.o	1baff6506316ab16
+790	1012	6591765968663285	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+1051	1066	6591765969443346	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
+4	135	0	Pre-build command	1d02c908437ff594
+151	259	6591767338218047	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/build.o	92e5619334df3020
+139	662	6591767342158051	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Obj/User/libs/stm32f1xx_it.o	99377d0127b040a7
+679	917	6591767344568057	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.out	be47554290839be4
+956	972	6591767345418059	C:/Users/Harak/Documents/Projects/vacuumMetr/MCU_Proj/VacuumMetrProj/Debug/Exe/VacuumMetrProj.bin	66ca27e073275313
