@@ -3,9 +3,9 @@
 /*---------------------Common Defines------------------*/
 #define SOFTWARE_VERSION        {'V', build[11], '.',build[12], 0}  
 #define MIN_VOLT_ON_BATTERY     6000 // 6.000 Вольт
-#define CHECK_BATT_VOLT         TRUE//Проверка напряжения на батарее
+#define CHECK_BATT_VOLT         FALSE//Проверка напряжения на батарее
 #define TIMETOINACTIONSTANDBY   300000 //Время в милисекундах до перехода в режим Standby(300000 = 5 минут)
-#define TIMETOINACTIONBRIGHTOFF 240000 //Время в милисекундах до отключения подстветки дисплея(300000 = 5 минут)
+#define TIMETOINACTIONBRIGHTOFF 240000 //Время в милисекундах до отключения подстветки дисплея(240000 = 4 минуты)
 
 /*---------------------LCD5110 PINS Defines------------------*/
 #define LCD_DC_PORT     GPIOB           // DATA/COMMAND GPIO PORT

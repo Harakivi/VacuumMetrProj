@@ -81,12 +81,12 @@ void vLASTLEVELMENU_Task (void *pvParameters)
         {
           battVolt = averVolt / 1000.0;
         }
-        VBUF_Write_String(2, 2, "Batt:");
-        sprintf(string, "%4.2f", battVolt);
-        VBUF_Write_String(31,2,string);
-        VBUF_Write_String(2, 14, "Bright:");
-        sprintf(string, "%u", DISPLAYBRIGHT);
-        VBUF_Write_String(43,14, string);
+        //VBUF_Write_String(2, 2, "");
+        sprintf(string, "Batt:%4.2f", battVolt);
+        VBUF_Write_String(2,2,string);
+        //VBUF_Write_String(2, 14, "");
+        sprintf(string, "Bright:%u", DISPLAYBRIGHT);
+        VBUF_Write_String(2,14, string);
         VBUF_Write_String(0,39, "<Back");
         VBUF_Write_String(55,39, "Save>");
         DISP_Update();
@@ -96,43 +96,43 @@ void vLASTLEVELMENU_Task (void *pvParameters)
     case MENU_CALIBRATE_POS:
       if(menuStruct.lastLevelOffset == CALIB_FIRST_PAGE)
       {
-        VBUF_Write_String(2, 2, "Bias1:");
-        sprintf(string, "%i", tempConfig.BIAS_PDE1);
-        VBUF_Write_String(37,2,string);
-        VBUF_Write_String(2, 14, "Bias2:");
-        sprintf(string, "%i", tempConfig.BIAS_PDE2);
-        VBUF_Write_String(37,14,string);
-        VBUF_Write_String(2, 26, "Bias2:");
-        sprintf(string, "%i", tempConfig.BIAS_PDE3);
-        VBUF_Write_String(37,26,string);
+        //VBUF_Write_String(2, 2, "Bias1:");
+        sprintf(string, "Bias1:%i", tempConfig.BIAS_PDE1);
+        VBUF_Write_String(2,2,string);
+        //VBUF_Write_String(2, 14, "Bias2:");
+        sprintf(string, "Bias2:%i", tempConfig.BIAS_PDE2);
+        VBUF_Write_String(2,14,string);
+        //VBUF_Write_String(2, 26, "Bias2:");
+        sprintf(string, "Bias3:%i", tempConfig.BIAS_PDE3);
+        VBUF_Write_String(2,26,string);
         VBUF_Draw_Image(79,30,5,8,ArrowDOWN);//Стрелка вниз
       }
       if(menuStruct.lastLevelOffset == CALIB_SECOND_PAGE)
       {
-        VBUF_Write_String(2, 2, "Bias4:");
-        sprintf(string, "%i", tempConfig.BIAS_PDE4);
-        VBUF_Write_String(37,2,string);
-        VBUF_Write_String(2, 14, "Ampf1:");
-        sprintf(string, "%i", tempConfig.AMPF_PDE1);
-        VBUF_Write_String(37,14,string);
-        VBUF_Write_String(2, 26, "Ampf2:");
-        sprintf(string, "%i", tempConfig.AMPF_PDE2);
-        VBUF_Write_String(37,26,string);
+        //VBUF_Write_String(2, 2, "Bias4:");
+        sprintf(string, "Bias4:%i", tempConfig.BIAS_PDE4);
+        VBUF_Write_String(2,2,string);
+        //VBUF_Write_String(2, 14, "Ampf1:");
+        sprintf(string, "Ampf1:%i", tempConfig.AMPF_PDE1);
+        VBUF_Write_String(2,14,string);
+        //VBUF_Write_String(2, 26, "Ampf2:");
+        sprintf(string, "Ampf2:%i", tempConfig.AMPF_PDE2);
+        VBUF_Write_String(2,26,string);
         VBUF_Draw_Image(79,0,5,8,ArrowUP);//Стрелка вверх
         VBUF_Draw_Image(79,30,5,8,ArrowDOWN);//Стрелка вниз
       }
       if(menuStruct.lastLevelOffset == CALIB_THIRD_PAGE)
       {
-        VBUF_Write_String(2, 2, "Ampf3:");
-        sprintf(string, "%i", tempConfig.AMPF_PDE3);
-        VBUF_Write_String(37,2,string);
-        VBUF_Write_String(2, 14, "Ampf4:");
-        sprintf(string, "%i", tempConfig.AMPF_PDE4);
-        VBUF_Write_String(37,14,string);
-        VBUF_Write_String(2, 26, "Flag:");
-        VBUF_Write_String(31, 26, "0x");
-        sprintf(string, "%X", tempConfig.CalibComplete);
-        VBUF_Write_String(43,26,string);
+        //VBUF_Write_String(2, 2, "Ampf3:");
+        sprintf(string, "Ampf3:%i", tempConfig.AMPF_PDE3);
+        VBUF_Write_String(2,2,string);
+        //VBUF_Write_String(2, 14, "Ampf4:");
+        sprintf(string, "Ampf4:%i", tempConfig.AMPF_PDE4);
+        VBUF_Write_String(2,14,string);
+        //VBUF_Write_String(2, 26, "Flag:");
+        //VBUF_Write_String(31, 26, "0x");
+        sprintf(string, "Flag:0x%X", tempConfig.CalibComplete);
+        VBUF_Write_String(2,26,string);
         VBUF_Draw_Image(79,0,5,8,ArrowUP);//Стрелка вверх
         VBUF_Draw_Image(79,30,5,8,ArrowDOWN);//Стрелка вниз
       }

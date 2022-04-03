@@ -346,6 +346,9 @@ void vMENU_Task(void *pvParameters)
         case MENU_METER_SETS_POS:
           menuStruct.menuDepth--;
           break;
+        case MENU_ABOUT_POS:
+          SaveWorkingTime(0, 0);
+          break;
         }
       }
       break;

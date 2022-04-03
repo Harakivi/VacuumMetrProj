@@ -46,7 +46,7 @@ uint8_t SaveCongig(Config_Struct* _Config)
   
   FLASH->CR |= FLASH_CR_PG;
   
-  for(int i = 0; i < 10 ;i++)
+  for(int i = 0; i < sizeof(Config_Struct)/2 ;i++)
   {
     //Сама запись
     *(__IO uint16_t*)configReg = *(uint16_t*)data++;
@@ -114,7 +114,7 @@ uint8_t SaveBright(uint16_t _Bright)
   
   FLASH->CR |= FLASH_CR_PG;
   
-  for(int i = 0; i < 10 ;i++)
+  for(int i = 0; i < sizeof(Config_Struct)/2 ;i++)
   {
     //Сама запись
     *(__IO uint16_t*)configReg = *(uint16_t*)data++;
@@ -139,6 +139,116 @@ uint8_t SaveBright(uint16_t _Bright)
   //Всё хорошо, возвращаем единицу
   return 1;
 }
+
+uint8_t SaveWorkingTime(uint32_t workingTime, uint16_t voltage)
+{
+  Config_Struct _tempConfig = *Config;
+  if(!workingTime && !voltage)
+  {
+    _tempConfig.WorkingTime9V = 0;
+    _tempConfig.WorkingTime8V = 0;
+    _tempConfig.WorkingTime7V = 0;
+    _tempConfig.WorkingTime6V = 0;
+    _tempConfig.WorkingTime5V = 0;
+    _tempConfig.WorkingTime4V = 0;
+    _tempConfig.WorkingTime3_5V = 0;
+  }
+  else
+  {
+    if(voltage <= 9000 && voltage > 8000)
+    {
+      _tempConfig.WorkingTime9V += (uint32_t)workingTime;
+    }
+    else if(voltage <= 8000 && voltage > 7000)
+    {
+      _tempConfig.WorkingTime8V += (uint32_t)workingTime;
+    }
+    else if(voltage <= 7000 && voltage > 6000)
+    {
+      _tempConfig.WorkingTime7V += (uint32_t)workingTime;
+    }
+    else if(voltage <= 6000 && voltage > 5000)
+    {
+      _tempConfig.WorkingTime6V += (uint32_t)workingTime;
+    }
+    else if(voltage <= 5000 && voltage > 4000)
+    {
+      _tempConfig.WorkingTime5V += (uint32_t)workingTime;
+    }
+    else if(voltage <= 4000 && voltage > 3500)
+    {
+      _tempConfig.WorkingTime4V += (uint32_t)workingTime;
+    }
+    else if(voltage <= 3500)
+    {
+      _tempConfig.WorkingTime3_5V += (uint32_t)workingTime;
+    }
+  }
+  
+  uint16_t* data = (uint16_t*)&_tempConfig;
+  //Разблокируем флэш
+  FLASH->KEYR = FLASH_KEY1;
+  FLASH->KEYR = FLASH_KEY2;
+  
+  //Проверяем разблокировался ли флэш
+  if(FLASH->CR & FLASH_CR_LOCK != 0)
+  {
+    //Если флэш заблокирован, то выходим с 0
+    return 0;
+  }
+  
+  //Присваиваем адресс в памяти переменной
+  uint32_t configReg = CONFIG_ADDRESS;
+  
+  //Перед записью стираем область памяти 
+  FLASH->CR |= FLASH_CR_PER;
+  FLASH->AR = CONFIG_ADDRESS;
+  FLASH->CR |= FLASH_CR_STRT;
+  
+  uint16_t timeout = 10000;
+  //Ждём коца стирания
+  while(FLASH->SR & FLASH_SR_BSY == 0)
+  {
+    timeout--;
+    if(!timeout)
+    {
+      //Если таймаут, то блокируем флэш и выходим с 0
+      FLASH->CR &= ~FLASH_CR_PG;
+      FLASH->CR |= FLASH_CR_LOCK;
+      return 0;
+    }
+  }
+  
+  FLASH->CR &= ~FLASH_CR_PER;
+  
+  FLASH->CR |= FLASH_CR_PG;
+  
+  for(int i = 0; i < sizeof(Config_Struct)/2 ;i++)
+  {
+    //Сама запись
+    *(__IO uint16_t*)configReg = *(uint16_t*)data++;
+    configReg += 2;
+    timeout = 10000;
+    //Ждём коца записи
+    while(FLASH->SR & FLASH_SR_BSY == 0)
+    {
+      timeout--;
+      if(!timeout)
+      {
+        //Если таймаут, то блокируем флэш и выходим с 0
+        FLASH->CR &= ~FLASH_CR_PG;
+        FLASH->CR |= FLASH_CR_LOCK;
+        return 0;
+      }
+    }
+  }
+  //блокируем флэш
+  FLASH->CR &= ~FLASH_CR_PG;
+  FLASH->CR |= FLASH_CR_LOCK;
+  //Всё хорошо, возвращаем единицу
+  return 1;
+}
+
 
 
 Config_Struct biasCalibrate(void)
