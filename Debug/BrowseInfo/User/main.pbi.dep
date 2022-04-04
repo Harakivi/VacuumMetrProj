@@ -1,6 +1,7 @@
 C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\BrowseInfo\User\main.pbi: \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\main.c \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\main.h \
+  C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\build_number\build.h \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\CMSIS\stm32f1xx.h \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\CMSIS\stm32f103xb.h \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\CMSIS\core_cm3.h \
@@ -26,6 +27,7 @@ C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Debug\Brows
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks\Buttons_Task.h \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\libs\Buttons.h \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks\METER_Task.h \
+  C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks\SCOPE_Task.h \
   C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Tasks\LASTLEVELMENU_Task.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\stdio.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.0\arm\inc\c\ysizet.h \

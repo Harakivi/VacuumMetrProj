@@ -14,6 +14,7 @@ extern TaskHandle_t xMenuHandle;
 extern MENU_Struct menuStruct;
 extern VDC_Struct SensorVoltageStruct;
 extern FILT_Struct FILT;
+extern char build[];
 
 //size: 5x8
 extern uint8_t ArrowUP[];   // Стрелка вверх
@@ -84,14 +85,14 @@ void vLASTLEVELMENU_Task (void *pvParameters)
         sprintf(string, "%4.2f", battVolt);
         VBUF_Write_String(31,2,string);
         VBUF_Write_String(2, 14, "Bright:");
-        sprintf(string, "%u", BRIGHT);
+        sprintf(string, "%u", DISPLAYBRIGHT);
         VBUF_Write_String(43,14, string);
         VBUF_Write_String(0,39, "<Back");
         VBUF_Write_String(55,39, "Save>");
         DISP_Update();
         vTaskDelay(100);
-        break;
       }
+      break;
     case MENU_CALIBRATE_POS:
       if(menuStruct.lastLevelOffset == CALIB_FIRST_PAGE)
       {
@@ -129,8 +130,9 @@ void vLASTLEVELMENU_Task (void *pvParameters)
         sprintf(string, "%i", tempConfig.AMPF_PDE4);
         VBUF_Write_String(37,14,string);
         VBUF_Write_String(2, 26, "Flag:");
+        VBUF_Write_String(31, 26, "0x");
         sprintf(string, "%X", tempConfig.CalibComplete);
-        VBUF_Write_String(37,26,string);
+        VBUF_Write_String(43,26,string);
         VBUF_Draw_Image(79,0,5,8,ArrowUP);//Стрелка вверх
         VBUF_Draw_Image(79,30,5,8,ArrowDOWN);//Стрелка вниз
       }
@@ -180,6 +182,18 @@ void vLASTLEVELMENU_Task (void *pvParameters)
       menuStruct.menuDepth--;
       vTaskResume(xMenuHandle);
       xSemaphoreGive( xBtnPresSem);
+      vTaskDelay(100);
+      break;
+    case MENU_ABOUT_POS:
+      VBUF_Write_String(2, 2, "Build:");
+      char build_number[] = {build[14], build[15], build[16], build[17], 0};
+      VBUF_Write_String(37, 2, build_number);
+      VBUF_Write_String(2, 14, "Date:");
+      char build_date[] = {build[0], build[1], '.', build[3], build[4], '.',
+                           build[8], build[9], 0};
+      VBUF_Write_String(31, 14, build_date);
+      VBUF_Write_String(0,39, "<Back");
+      DISP_Update();
       vTaskDelay(100);
       break;
     }

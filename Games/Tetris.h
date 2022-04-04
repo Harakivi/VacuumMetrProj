@@ -44,7 +44,8 @@ typedef struct{
   BOOL Field[22][10];
   uint8_t Field_Level;
   BLOCK_Struct currBlock;
-  uint8_t GameOver;
+  uint8_t Speed;
+  BOOL GameOver;
 }TETRIS_Struct;
 
 void vTetris_Start(void);

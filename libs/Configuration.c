@@ -1,7 +1,5 @@
 #include "main.h"
 
-
-
 extern VDC_Struct SensorVoltageStruct;
 
 Config_Struct* Config = (Config_Struct*)CONFIG_ADDRESS;
@@ -48,7 +46,7 @@ uint8_t SaveCongig(Config_Struct* _Config)
   
   FLASH->CR |= FLASH_CR_PG;
   
-  for(int i = 0; i < 9 ;i++)
+  for(int i = 0; i < 10 ;i++)
   {
     //Сама запись
     *(__IO uint16_t*)configReg = *(uint16_t*)data++;
@@ -67,8 +65,6 @@ uint8_t SaveCongig(Config_Struct* _Config)
       }
     }
   }
-  //Записываем флаг выполнения настройки
-  *(__IO uint16_t*)configReg = 0x5555;
   //блокируем флэш
   FLASH->CR &= ~FLASH_CR_PG;
   FLASH->CR |= FLASH_CR_LOCK;
@@ -173,6 +169,7 @@ Config_Struct biasCalibrate(void)
   _tempConfig.BIAS_PDE2 = bias2;
   _tempConfig.BIAS_PDE3 = bias3;
   _tempConfig.BIAS_PDE4 = bias4;
+  _tempConfig.CalibComplete &= 0x55ff;
   flagCalib = 0;
   return _tempConfig;
 }
@@ -218,6 +215,7 @@ Config_Struct ampfCalibrate(void)
   _tempConfig.AMPF_PDE2 = ampf2;
   _tempConfig.AMPF_PDE3 = ampf3;
   _tempConfig.AMPF_PDE4 = ampf4;
+  _tempConfig.CalibComplete &= 0xff55;
   flagCalib = 0;
   return _tempConfig;
 }

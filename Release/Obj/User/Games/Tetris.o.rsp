@@ -1,0 +1,1 @@
+﻿C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Games\Tetris.c -D NDEBUG -o C:\Users\Harak\Documents\Projects\vacuumMetr\MCU_Proj\VacuumMetrProj\Release\Obj\User\Games --endian=little --cpu=Cortex-M3 -e --fpu=None --dlib_config "C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\inc\c\DLib_Config_Normal.h" -Oh

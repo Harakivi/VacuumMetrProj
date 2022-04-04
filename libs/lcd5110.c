@@ -1,21 +1,15 @@
 #include "main.h"
 
-extern Config_Struct* Config;
-
 void DISP_Init()
 {
   gpioInit();
   SPI2Init();
   bltInit();
-  if(Config->Bright > 100)
-  {
-    BRIGHT = 100;
-  }else{ BRIGHT = Config->Bright;}
   RST_LOW;
   for(int i=0; i < 1000; i++){}
   RST_HIGH;
   DISP_setBias(0x04);
-  DISP_setContrast(94);
+  DISP_setContrast(67);
   // normal mode
   DISP_command(PCD8544_FUNCTIONSET);
   // Set display to Normal

@@ -1,13 +1,16 @@
 #include "main.h"
 
+extern Config_Struct* Config;
 extern uint8_t bender[84 * 48 / 8];
 extern uint8_t VBUF[84 * 48 / 8];
 
+//Стурктура со значениями измерителей
+extern VDC_Struct SensorVoltageStruct;
 
 //Счётный семафор нажатой кнопки
 xSemaphoreHandle xBtnPresSem = NULL;
 
-UBaseType_t taskStack;
+HeapStats_t Stats;
 
 //Очередь нажатых кнопок 
 QueueHandle_t xBtnPresQueue = NULL;
@@ -41,11 +44,13 @@ void vBUTTONSCheck_Task (void *pvParameters)
   static const uint8_t DOWN_BTN = 1 << 2;
   static const uint8_t LEFT_BTN = 1 << 3;
   static const uint8_t RIGHT_BTN = 1 << 4;
+  TickType_t lastBtnClkTime = xTaskGetTickCount();
+  uint32_t averageBatteryVoltage = 0;
+  uint8_t voltageCountReads = 0;
   //Ожидается что pvParameters будет равен 1
   configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
   for (;;)
   {
-    taskStack = uxTaskGetStackHighWaterMark(NULL);
     uint16_t pressedTime = 0;
     switch(GetButtons())
     {
@@ -55,6 +60,11 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&UP_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -64,6 +74,11 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&ENTER_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -73,6 +88,11 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&DOWN_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -82,6 +102,11 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);      
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&LEFT_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
@@ -91,10 +116,45 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
+      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      {
+        DISPLAYBRIGHT = Config->Bright;
+      }
+      lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&RIGHT_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
     }
+    if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+    {
+      DISPLAYBRIGHT = 0;
+    }
+    if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONSTANDBY)
+    {
+      enterStandBy();
+    }
+    //Записываем текущее значение напряжения на батарее для усреднения
+    averageBatteryVoltage += SensorVoltageStruct.BATT_VDC;
+    //Делаем 5 измерений
+    if(++voltageCountReads == 5)
+    {
+      averageBatteryVoltage /= 5;
+      //Проверка напряжения на батарее, если меньше MIN_VOLT_ON_BATTERY, то выключаемся
+      if(averageBatteryVoltage != 0 && averageBatteryVoltage < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
+      {
+        vTaskSuspendAll();
+        //Выводим сообщение
+        disp_LOWBATT();
+        //И засыпаем
+        enterStandBy();
+      }else//Иначе сбрасываем измерения и начинаем заного
+      {
+        averageBatteryVoltage = 0;
+        voltageCountReads = 0;
+      }
+    }
+    
+    vPortGetHeapStats( &Stats );
     vTaskDelay(50);
   }
 }

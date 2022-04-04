@@ -66,18 +66,22 @@ void DMA_ADCInit(void){
 
 //Таймер для переодического усреднения значений буфера АЦП
 void ADCTIMinit(){
+  //Расчёт таймера:
+  //-Тактирование от HCLK = 8MГц
+  //-
   RCC->APB1ENR |= RCC_APB1ENR_TIM4EN; //1: Timer 1 clock enabled
   TIM4->CR1 |= TIM_CR1_CKD_1;//
   TIM4->CR1 &= ~TIM_CR1_CKD_0;//10: tDTS = 4 × tCK_INT
   TIM4->CR1 &= ~(TIM_CR1_DIR | TIM_CR1_CMS_1 | TIM_CR1_CMS_0); //0: Counter used as upcounter
   TIM4->CR1 &= ~TIM_CR1_OPM; //0: Counter is not stopped at update event
-  TIM4->ARR = 10000;
-  TIM4->PSC = 1;
+  TIM4->ARR = 1000;
+  TIM4->PSC = 10;
   TIM4->EGR |= TIM_EGR_UG; //1: Re-initialize the counter and generates an update of the registers. Note that the prescaler
                            //counter is cleared too (anyway the prescaler ratio is not affected). The counter is cleared if
                            //the center-aligned mode is selected or if DIR=0 (upcounting), else it takes the auto-reload
                            //value (TIMx_ARR) if DIR=1 (downcounting).
   TIM4->DIER |= TIM_DIER_UIE;
+  //NVIC_SetPriority(TIM4_IRQn, uint32_t priority)
   NVIC_EnableIRQ(TIM4_IRQn);
   TIM4->CR1 |= TIM_CR1_CEN;
 }

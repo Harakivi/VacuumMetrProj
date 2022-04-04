@@ -42,16 +42,16 @@ void TIM4_IRQHandler()
     for(int i = 0; i < CHAN_COUNT - 1; i++)
     {
       tempADCval[i] /= ADC_BUFFSIZE;
-      tempPointer[i] = ((((int16_t)tempADCval[i] * 3300) / 4096) - 1630) - ((flagCalib == 1 || Config->CalibComplete != 0x5555) ? 0 :((int16_t*)Config)[i * 2]);
+      tempPointer[i] = ((((int16_t)tempADCval[i] * 3300) / 4096) - 1630) - ((flagCalib == 1 || (Config->CalibComplete & 0xff00) != 0x5500) ? 0 :((int16_t*)Config)[i * 2]);
       int32_t tempCalc = tempPointer[i] * 10000;
-      tempPointer[i] = tempCalc / ((flagCalib == 1 || Config->CalibComplete != 0x5555) ? 10000 :((int16_t*)Config)[(i * 2) + 1]);
+        tempPointer[i] = tempCalc / ((flagCalib == 1 || (Config->CalibComplete & 0xff) != 0x55) ? 10000 :((int16_t*)Config)[(i * 2) + 1]);
     }
     tempADCval[CHAN_COUNT - 1] /= ADC_BUFFSIZE;
     SensorVoltageStruct.BATT_VDC = ((tempADCval[CHAN_COUNT - 1] * 3300) / 4096) * 5305 / 1000;
-    if(SensorVoltageStruct.BATT_VDC != 0 && SensorVoltageStruct.BATT_VDC < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
-    {
-      enterStandBy();
-    }
+//    if(SensorVoltageStruct.BATT_VDC != 0 && SensorVoltageStruct.BATT_VDC < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
+//    {
+//      enterStandBy();
+//    }
     //DMA1_Channel1->CCR |= DMA_CCR_EN; //Повторно запускаем запись
     TIM4->SR &= ~TIM_SR_UIF;
   }
