@@ -2225,6 +2225,9 @@
                 <name>$PROJ_DIR$\..\libs\ADC.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\libs\BoardConfig.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\libs\Buttons.c</name>
             </file>
             <file>
@@ -2258,9 +2261,6 @@
                 <name>$PROJ_DIR$\..\Tasks\SCOPE_Task.c</name>
             </file>
         </group>
-        <file>
-            <name>$PROJ_DIR$\..\libs\BoardConfig.c</name>
-        </file>
         <file>
             <name>$PROJ_DIR$\..\build_number\build.c</name>
         </file>

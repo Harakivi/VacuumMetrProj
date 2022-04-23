@@ -2,10 +2,25 @@
 #define _BOARDCONFIG_
 /*---------------------Common Defines------------------*/
 #define SOFTWARE_VERSION        {'V', build[11], '.',build[12], 0}
-#define MIN_VOLT_ON_BATTERY     6000 // 6.000 Вольт
-#define CHECK_BATT_VOLT         FALSE//Проверка напряжения на батарее
-#define TIMETOINACTIONSTANDBY   300000 //Время в милисекундах до перехода в режим Standby(300000 = 5 минут)
-#define TIMETOINACTIONBRIGHTOFF 240000 //Время в милисекундах до отключения подстветки дисплея(240000 = 4 минуты)
+//#define FULL_VOLT_ON_BATTERY    7800 // 7.800 Вольт
+//#define MID_VOLT_ON_BATTERY     7200 // 7.200 Вольт
+//#define MIN_VOLT_ON_BATTERY     6000 // 6.000 Вольт
+//#define EMPTY_VOLT_ON_BATTERY   4000 // 4.000 Вольт
+typedef enum {
+    EMPTY_VOLT_ON_BATTERY = 4000,
+    LOW_VOLT_ON_BATTERY = 6000,
+    MID_VOLT_ON_BATTERY = 7200,
+    FULL_VOLT_ON_BATTERY = 7800
+}VoltagesOnBatteryEnum;
+#define CHECK_BATT_VOLT//Проверка напряжения на батарее
+#define MINTIMETOINACTIONSTANDBY   60000 //Минимальное время в милисекундах до перехода в режим Standby(90000 = 1.5 минуты)
+#define MINTIMETOINACTIONBRIGHTOFF 60000 //Минимальное время в милисекундах до отключения подстветки дисплея(60000 = 1 минута)
+
+typedef struct {
+  uint32_t bright;
+  uint32_t dimmerOff;
+  uint32_t deviceOff;
+}DISP_SETS_Struct;
 
 /*---------------------LCD5110 PINS Defines------------------*/
 #define LCD_DC_PORT     GPIOB           // DATA/COMMAND GPIO PORT

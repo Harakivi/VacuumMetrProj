@@ -46,7 +46,7 @@ uint8_t SaveCongig(Config_Struct* _Config)
   
   FLASH->CR |= FLASH_CR_PG;
   
-  for(int i = 0; i < 10 ;i++)
+  for(int i = 0; i < sizeof(Config_Struct)/2 ;i++)
   {
     //Сама запись
     *(__IO uint16_t*)configReg = *(uint16_t*)data++;
@@ -72,10 +72,12 @@ uint8_t SaveCongig(Config_Struct* _Config)
   return 1;
 }
 
-uint8_t SaveBright(uint16_t _Bright)
+uint8_t SaveDispSets(DISP_SETS_Struct* dispSets)
 {
   Config_Struct _tempConfig = *Config;
-  _tempConfig.Bright = _Bright;
+  _tempConfig.Bright = dispSets->bright;
+  _tempConfig.dimmerOff = dispSets->dimmerOff;
+  _tempConfig.deviceOff = dispSets->deviceOff;
   uint16_t* data = (uint16_t*)&_tempConfig;
   //Разблокируем флэш
   FLASH->KEYR = FLASH_KEY1;
@@ -114,7 +116,7 @@ uint8_t SaveBright(uint16_t _Bright)
   
   FLASH->CR |= FLASH_CR_PG;
   
-  for(int i = 0; i < 10 ;i++)
+  for(int i = 0; i < sizeof(Config_Struct)/2 ;i++)
   {
     //Сама запись
     *(__IO uint16_t*)configReg = *(uint16_t*)data++;

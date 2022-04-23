@@ -14,11 +14,13 @@ typedef struct {
   int16_t BIAS_PDE4;
   uint16_t AMPF_PDE4;
   uint16_t Bright;
+  uint32_t dimmerOff;
+  uint32_t deviceOff;
   uint16_t CalibComplete;
 }Config_Struct;
 
 uint8_t SaveCongig(Config_Struct* _Config);
-uint8_t SaveBright(uint16_t _Bright);
+uint8_t SaveDispSets(DISP_SETS_Struct* dispSets);
 Config_Struct biasCalibrate(void);
 Config_Struct ampfCalibrate(void);
 

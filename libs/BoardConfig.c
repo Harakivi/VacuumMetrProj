@@ -218,18 +218,35 @@ void initAll()
   //Измеряем напряжение на батарее
   uint16_t _Voltage = ReadVoltageOnMainBatt();
   //Если оно меньше допустимого
-  if(_Voltage < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
+#if defined (CHECK_BATT_VOLT)
+  if(_Voltage < EMPTY_VOLT_ON_BATTERY)
   {
     //Выводим сообщение
     disp_LOWBATT();
     //И засыпаем
     enterStandBy();
   }
+#endif
   //Устанавливаем уровень подстветки
   if(Config->Bright > 100)
   {
-    DISPLAYBRIGHT = 100;
-  }else{ DISPLAYBRIGHT = Config->Bright;}
+    DISPLAYBRIGHT_REG = 100;
+  }else{ }
+  if(Config->dimmerOff < MINTIMETOINACTIONBRIGHTOFF || Config->dimmerOff > (MINTIMETOINACTIONBRIGHTOFF * 30) 
+     || Config->deviceOff < MINTIMETOINACTIONSTANDBY || Config->deviceOff > (MINTIMETOINACTIONSTANDBY * 30)
+     || Config->Bright > 100)
+  {
+    DISP_SETS_Struct sets;
+    sets.bright = 10;
+    sets.dimmerOff = MINTIMETOINACTIONBRIGHTOFF;
+    sets.deviceOff = MINTIMETOINACTIONSTANDBY;
+    DISPLAYBRIGHT_REG = sets.bright;
+    SaveDispSets(&sets);
+  }
+  else
+  {
+    DISPLAYBRIGHT_REG = Config->Bright;
+  }
   disp_LOGO();
   DMA_ADCInit();
   //Если ENTER еще не отжат висим, пока не отожмут

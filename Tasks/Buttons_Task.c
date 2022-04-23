@@ -4,6 +4,8 @@ extern Config_Struct* Config;
 extern uint8_t bender[84 * 48 / 8];
 extern uint8_t VBUF[84 * 48 / 8];
 
+VoltagesOnBatteryEnum VoltagesOnBattery = FULL_VOLT_ON_BATTERY;
+
 //Стурктура со значениями измерителей
 extern VDC_Struct SensorVoltageStruct;
 
@@ -60,9 +62,9 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
-      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      if(xTaskGetTickCount() - lastBtnClkTime > Config->dimmerOff)
       {
-        DISPLAYBRIGHT = Config->Bright;
+        DISPLAYBRIGHT_REG = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&UP_BTN, ( TickType_t ) 10 );
@@ -74,9 +76,9 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
-      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      if(xTaskGetTickCount() - lastBtnClkTime > Config->dimmerOff)
       {
-        DISPLAYBRIGHT = Config->Bright;
+        DISPLAYBRIGHT_REG = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&ENTER_BTN, ( TickType_t ) 10 );
@@ -88,9 +90,9 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
-      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      if(xTaskGetTickCount() - lastBtnClkTime > Config->dimmerOff)
       {
-        DISPLAYBRIGHT = Config->Bright;
+        DISPLAYBRIGHT_REG = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&DOWN_BTN, ( TickType_t ) 10 );
@@ -102,9 +104,9 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);      
       }
-      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      if(xTaskGetTickCount() - lastBtnClkTime > Config->dimmerOff)
       {
-        DISPLAYBRIGHT = Config->Bright;
+        DISPLAYBRIGHT_REG = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&LEFT_BTN, ( TickType_t ) 10 );
@@ -116,37 +118,59 @@ void vBUTTONSCheck_Task (void *pvParameters)
         pressedTime += 50;
         vTaskDelay(50);
       }
-      if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+      if(xTaskGetTickCount() - lastBtnClkTime > Config->dimmerOff)
       {
-        DISPLAYBRIGHT = Config->Bright;
+        DISPLAYBRIGHT_REG = Config->Bright;
       }
       lastBtnClkTime = xTaskGetTickCount();
       xQueueSend( xBtnPresQueue, ( void * )&RIGHT_BTN, ( TickType_t ) 10 );
       xSemaphoreGive( xBtnPresSem);
       break;
     }
-    if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONBRIGHTOFF)
+    if(xTaskGetTickCount() - lastBtnClkTime > Config->dimmerOff)
     {
-      DISPLAYBRIGHT = 0;
+      DISPLAYBRIGHT_REG = 0;
     }
-    if(xTaskGetTickCount() - lastBtnClkTime > TIMETOINACTIONSTANDBY)
+    if(xTaskGetTickCount() - lastBtnClkTime > Config->deviceOff)
     {
       enterStandBy();
     }
     //Записываем текущее значение напряжения на батарее для усреднения
     averageBatteryVoltage += SensorVoltageStruct.BATT_VDC;
     //Делаем 5 измерений
-    if(++voltageCountReads == 5)
+    if(++voltageCountReads == 10)
     {
-      averageBatteryVoltage /= 5;
-      //Проверка напряжения на батарее, если меньше MIN_VOLT_ON_BATTERY, то выключаемся
-      if(averageBatteryVoltage != 0 && averageBatteryVoltage < MIN_VOLT_ON_BATTERY && CHECK_BATT_VOLT)
+      averageBatteryVoltage /= 10;
+      if(averageBatteryVoltage > FULL_VOLT_ON_BATTERY)
       {
+        VoltagesOnBattery = FULL_VOLT_ON_BATTERY;
+        xSemaphoreGive( xBtnPresSem);
+      }
+      else if(averageBatteryVoltage < FULL_VOLT_ON_BATTERY && averageBatteryVoltage > MID_VOLT_ON_BATTERY )
+      {
+        VoltagesOnBattery = MID_VOLT_ON_BATTERY;
+        xSemaphoreGive( xBtnPresSem);
+      }
+      else if(averageBatteryVoltage < MID_VOLT_ON_BATTERY && averageBatteryVoltage > LOW_VOLT_ON_BATTERY )
+      {
+        VoltagesOnBattery = LOW_VOLT_ON_BATTERY;
+        xSemaphoreGive( xBtnPresSem);
+      }
+      else if(averageBatteryVoltage < LOW_VOLT_ON_BATTERY )
+      {
+        VoltagesOnBattery = EMPTY_VOLT_ON_BATTERY;
+        xSemaphoreGive( xBtnPresSem);
+      }
+      //Проверка напряжения на батарее, если меньше EMPTY_VOLT_ON_BATTERY, то выключаемся
+      if(averageBatteryVoltage != 0 && averageBatteryVoltage < EMPTY_VOLT_ON_BATTERY)
+      {
+#if defined (CHECK_BATT_VOLT)
         vTaskSuspendAll();
         //Выводим сообщение
         disp_LOWBATT();
         //И засыпаем
         enterStandBy();
+#endif
       }else//Иначе сбрасываем измерения и начинаем заного
       {
         averageBatteryVoltage = 0;
