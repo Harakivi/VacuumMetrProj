@@ -20,7 +20,7 @@ jobs:
     - name: Configure CMake
       run: cmake ${{github.workspace}} --preset=Release
     - name: Build
-      run: cmake --build ${{github.workspace}}/build
+      run: cmake --install ${{github.workspace}}/build
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
