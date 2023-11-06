@@ -22,7 +22,7 @@ jobs:
     - name: Build and install
       run: |
           cmake --build ${{github.workspace}}/build 
-          cmake --install
+          cmake --install ${{github.workspace}}/build 
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
