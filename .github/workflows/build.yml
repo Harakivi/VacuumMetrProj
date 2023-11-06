@@ -22,8 +22,8 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build
     - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: install
-          path: build/install
+      uses: actions/upload-artifact@v3
+      with:
+        name: install
+        path: build/install
 
