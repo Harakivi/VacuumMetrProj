@@ -41,7 +41,7 @@ void ADC1Init(void){
   ADC1->CR2 |= ADC_CR2_SWSTART;
   while ((ADC1->CR2 & ADC_CR2_RSTCAL) == ADC_CR2_RSTCAL){}
   ADC1->CR2 |= ADC_CR2_CAL;
-  while ((ADC1->CR2 & ADC_CR2_RSTCAL) == ADC_CR2_CAL){}
+  while ((ADC1->CR2 & ADC_CR2_CAL) == ADC_CR2_CAL){}
 }
 
 //Инициализация DMA для работы АЦП в непрерывном режиме

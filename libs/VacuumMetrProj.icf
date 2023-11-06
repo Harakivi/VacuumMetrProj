@@ -26,12 +26,8 @@ place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
 
 define block ROM_CONTENT with fixed order
 {
-    readonly section _version,	    // Версия прошивки 
     readonly,
 };
-
-// Запрещаем линкеру выкидывать секцию
-keep { section _version };
 
 
 place in ROM_region { block ROM_CONTENT };

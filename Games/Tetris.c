@@ -148,23 +148,23 @@ void Tetris_Draw(TETRIS_Struct *TETRIS)
       VBUF_Draw_Pixel((TETRIS_DISP_MIN_X + (j * 2)) + 1, TETRIS_DISP_MAX_Y - (i * 2), pixel);
       VBUF_Draw_Pixel((TETRIS_DISP_MIN_X + (j * 2)), TETRIS_DISP_MAX_Y - (i * 2) - 1, pixel);
       VBUF_Draw_Pixel((TETRIS_DISP_MIN_X + (j * 2)) + 1, TETRIS_DISP_MAX_Y - (i * 2) - 1, pixel);
-      //VBUF[(((((TETRIS->Field[i][j] * 2)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y) + 1) & 8 - 1));
-                //VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y) + 1)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y + 1)) & 8 - 1));
-               // VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y)) & 8 - 1));
-               // VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y)) & 8 - 1));
+      //VBUF[(((((TETRIS->Field[i][j] * 2)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y) + 1) & (8 - 1)));
+                //VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y) + 1)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y + 1)) & (8 - 1)));
+               // VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y)) & (8 - 1)));
+               // VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + FIELD_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + FIELD_MIN_Y)) & (8 - 1)));
     }
   }
   for(int i = 0; i < 4; i++)
   {
-    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y) + 1)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y) + 1) & 8 - 1));
-    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y) + 1)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y + 1)) & 8 - 1));
-    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y)) & 8 - 1));
-    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y)) & 8 - 1));
+    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y) + 1)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y) + 1) & (8 - 1)));
+    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y) + 1)/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y + 1)) & (8 - 1)));
+    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y)) & (8 - 1)));
+    VBUF[(((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[i] * 2) + TETRIS_DISP_MIN_X + 1))] |= (1 << ((((TETRIS->currBlock.yPosArr[i] * 2) + TETRIS_DISP_MIN_Y)) & (8 - 1)));
   }
-//  VBUF[(((((TETRIS->currBlock.yPosArr[0] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[0] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[0] * 2) + FIELD_MIN_Y))/8) & 8 - 1));
-//  VBUF[(((((TETRIS->currBlock.yPosArr[1] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[1] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[1] * 2) + FIELD_MIN_Y))/8) & 8 - 1));
-//  VBUF[(((((TETRIS->currBlock.yPosArr[2] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[2] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[2] * 2) + FIELD_MIN_Y))/8) & 8 - 1));
-//  VBUF[(((((TETRIS->currBlock.yPosArr[3] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[3] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[3] * 2) + FIELD_MIN_Y))/8) & 8 - 1));
+//  VBUF[(((((TETRIS->currBlock.yPosArr[0] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[0] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[0] * 2) + FIELD_MIN_Y))/8) & (8 - 1)));
+//  VBUF[(((((TETRIS->currBlock.yPosArr[1] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[1] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[1] * 2) + FIELD_MIN_Y))/8) & (8 - 1)));
+//  VBUF[(((((TETRIS->currBlock.yPosArr[2] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[2] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[2] * 2) + FIELD_MIN_Y))/8) & (8 - 1)));
+//  VBUF[(((((TETRIS->currBlock.yPosArr[3] * 2) + FIELD_MIN_Y))/8) * 84) + (((TETRIS->currBlock.xPosArr[3] * 2) + FIELD_MIN_X))] |= (1 << (((((TETRIS->currBlock.yPosArr[3] * 2) + FIELD_MIN_Y))/8) & (8 - 1)));
 }
 
 void Tetris_Move(TETRIS_Struct *TETRIS)

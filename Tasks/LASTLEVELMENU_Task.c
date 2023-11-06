@@ -85,7 +85,7 @@ void vLASTLEVELMENU_Task (void *pvParameters)
         sprintf(string, "%4.2f", battVolt);
         VBUF_Write_String(31,2,string);
         VBUF_Write_String(2, 14, "Bright:");
-        sprintf(string, "%u", DISPLAYBRIGHT);
+        sprintf(string, "%lu", DISPLAYBRIGHT);
         VBUF_Write_String(43,14, string);
         VBUF_Write_String(0,39, "<Back");
         VBUF_Write_String(55,39, "Save>");

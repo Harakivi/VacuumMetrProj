@@ -238,7 +238,7 @@ void SystemInit (void)
     RCC->CFGR &= ~RCC_CFGR_SW_1;//
     RCC->CFGR |= RCC_CFGR_SW_0;// SW 01: HSE selected as system clock
     //Ждём переключения на HSE
-    while((RCC->CFGR & (RCC_CFGR_SWS_0 | RCC_CFGR_SWS_1)) != 1 && timeout < 1000){timeout++;}
+    while((RCC->CFGR & (RCC_CFGR_SWS_0 | RCC_CFGR_SWS_1) >> RCC_CFGR_SWS_Pos) != 1 && timeout < 1000){timeout++;}
   }
   //Иначе просто продолжаем на внутреннем генераторе
   RCC->CFGR &= ~RCC_CFGR_HPRE_3;//HPRE 0xxx: SYSCLK not divided

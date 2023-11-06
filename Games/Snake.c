@@ -150,21 +150,21 @@ void Snake_Draw(SNAKE_Struct *SNAKE, Apple_Struct *APPLE)
   CELL_Struct *currCell = SNAKE->head;
   while(currCell != NULL)
   {
-    VBUF[((((currCell->yPos * 3) - 1)/8) * 84) + (currCell->xPos * 3)] |= (1 << (((currCell->yPos * 3) - 1) & 8 - 1));
-    VBUF[((((currCell->yPos * 3) - 1)/8) * 84) + (currCell->xPos * 3) - 1] |= (1 << (((currCell->yPos * 3) - 1) & 8 - 1));
-    VBUF[((((currCell->yPos * 3) - 1)/8) * 84) + (currCell->xPos * 3) + 1] |= (1 << (((currCell->yPos * 3) - 1) & 8 - 1));
-    VBUF[((((currCell->yPos * 3) + 1)/8) * 84) + (currCell->xPos * 3)] |= (1 << (((currCell->yPos * 3) + 1) & 8 - 1));
-    VBUF[((((currCell->yPos * 3) + 1)/8) * 84) + (currCell->xPos * 3) - 1] |= (1 << (((currCell->yPos * 3) + 1) & 8 - 1));
-    VBUF[((((currCell->yPos * 3) + 1)/8) * 84) + (currCell->xPos * 3) + 1] |= (1 << (((currCell->yPos * 3) + 1) & 8 - 1));
-    VBUF[(((currCell->yPos * 3)/8) * 84) + (currCell->xPos * 3)] |= (1 << ((currCell->yPos * 3) & 8 - 1));
-    VBUF[(((currCell->yPos * 3)/8) * 84) + (currCell->xPos * 3) - 1] |= (1 << ((currCell->yPos * 3) & 8 - 1));
-    VBUF[(((currCell->yPos * 3)/8) * 84) + (currCell->xPos * 3) + 1] |= (1 << ((currCell->yPos * 3) & 8 - 1));
+    VBUF[((((currCell->yPos * 3) - 1)/8) * 84) + (currCell->xPos * 3)] |= (1 << (((currCell->yPos * 3) - 1) & (8 - 1)));
+    VBUF[((((currCell->yPos * 3) - 1)/8) * 84) + (currCell->xPos * 3) - 1] |= (1 << (((currCell->yPos * 3) - 1) & (8 - 1)));
+    VBUF[((((currCell->yPos * 3) - 1)/8) * 84) + (currCell->xPos * 3) + 1] |= (1 << (((currCell->yPos * 3) - 1) & (8 - 1)));
+    VBUF[((((currCell->yPos * 3) + 1)/8) * 84) + (currCell->xPos * 3)] |= (1 << (((currCell->yPos * 3) + 1) & (8 - 1)));
+    VBUF[((((currCell->yPos * 3) + 1)/8) * 84) + (currCell->xPos * 3) - 1] |= (1 << (((currCell->yPos * 3) + 1) & (8 - 1)));
+    VBUF[((((currCell->yPos * 3) + 1)/8) * 84) + (currCell->xPos * 3) + 1] |= (1 << (((currCell->yPos * 3) + 1) & (8 - 1)));
+    VBUF[(((currCell->yPos * 3)/8) * 84) + (currCell->xPos * 3)] |= (1 << ((currCell->yPos * 3) & (8 - 1)));
+    VBUF[(((currCell->yPos * 3)/8) * 84) + (currCell->xPos * 3) - 1] |= (1 << ((currCell->yPos * 3) & (8 - 1)));
+    VBUF[(((currCell->yPos * 3)/8) * 84) + (currCell->xPos * 3) + 1] |= (1 << ((currCell->yPos * 3) & (8 - 1)));
     currCell = currCell->nextCell;
   } 
-  VBUF[((((APPLE->yPos * 3) - 1)/8) * 84) + (APPLE->xPos * 3)] |= (1 << (((APPLE->yPos * 3) - 1) & 8 - 1));
-  VBUF[((((APPLE->yPos * 3) + 1)/8) * 84) + (APPLE->xPos * 3)] |= (1 << (((APPLE->yPos * 3) + 1) & 8 - 1));
-  VBUF[(((APPLE->yPos * 3)/8) * 84) + (APPLE->xPos * 3) - 1] |= (1 << ((APPLE->yPos * 3) & 8 - 1));
-  VBUF[(((APPLE->yPos * 3)/8) * 84) + (APPLE->xPos * 3) + 1] |= (1 << ((APPLE->yPos * 3) & 8 - 1));
+  VBUF[((((APPLE->yPos * 3) - 1)/8) * 84) + (APPLE->xPos * 3)] |= (1 << (((APPLE->yPos * 3) - 1) & (8 - 1)));
+  VBUF[((((APPLE->yPos * 3) + 1)/8) * 84) + (APPLE->xPos * 3)] |= (1 << (((APPLE->yPos * 3) + 1) & (8 - 1)));
+  VBUF[(((APPLE->yPos * 3)/8) * 84) + (APPLE->xPos * 3) - 1] |= (1 << ((APPLE->yPos * 3) & (8 - 1)));
+  VBUF[(((APPLE->yPos * 3)/8) * 84) + (APPLE->xPos * 3) + 1] |= (1 << ((APPLE->yPos * 3) & (8 - 1)));
   VBUF_Draw_Line(0, 8, -40, 1);
   VBUF_Draw_Line(1, 9, 1, 82);
   VBUF_Draw_Line(83, 8, -40, 1);

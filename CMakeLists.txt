@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(VacuumMetr VERSION 0.1.0 LANGUAGES C CXX ASM)
+project(VacuumMetr VERSION 1.0.0 LANGUAGES C CXX ASM)
 
 #############################################################
 #                          CMSIS                            #
