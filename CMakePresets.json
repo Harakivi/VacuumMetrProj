@@ -4,7 +4,6 @@
         {
             "name": "Debug",
             "displayName": "VacuumMetr Debug",
-            "inherits": "Ninja",
             "binaryDir": "${sourceDir}/build/",
             "installDir": "${sourceDir}/build/install",
             "generator": "Ninja",
@@ -16,7 +15,6 @@
         {
             "name": "Release",
             "displayName": "VacuumMetr Release",
-            "inherits": "Ninja",
             "binaryDir": "${sourceDir}/build/",
             "installDir": "${sourceDir}/build/install",
             "generator": "Ninja",
