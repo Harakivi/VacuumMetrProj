@@ -5,7 +5,6 @@
           "name": "Ninja",
           "displayName": "Default Ninja Config",
           "description": "Default build using Ninja generator",
-          
           "hidden": true
         },
         {

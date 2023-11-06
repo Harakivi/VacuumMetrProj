@@ -44,4 +44,8 @@ get_target_property(TARGET_SOURCE_DIR ${TARGET} SOURCE_DIR)
 
 target_link_libraries(${TARGET} CMSIS FreeRTOS)
 
-target_link_options(${TARGET}  PUBLIC -T ${TARGET_SOURCE_DIR}/libs/VacuumMetrProj.ld -Wl,-Map=${PROJECT_NAME}.map)
+target_link_options(${TARGET} PUBLIC -T ${TARGET_SOURCE_DIR}/libs/VacuumMetrProj.ld -Wl,-Map=${PROJECT_NAME}.map)
+
+add_custom_command(TARGET ${TARGET} POST_BUILD COMMAND ${CMAKE_OBJCOPY} ARGS -O binary ${TARGET} ${PROJECT_NAME}.bin)
+
+install(FILES build/${PROJECT_NAME}.bin DESTINATION build/install)

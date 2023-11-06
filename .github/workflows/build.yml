@@ -1,4 +1,4 @@
-name: CMake
+name: CMake+Arm-none-eabi
 
 on:
   push:
@@ -24,4 +24,10 @@ jobs:
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build
+    
+    - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: install
+          path: build/install
 
