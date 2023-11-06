@@ -13,6 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Setup Ninja
+      run: apt-get install -y ninja-build
+
+    - name: Setup Ninja
+      run: apt-get install -y ninja-build
+
     - name: Configure CMake
       run: cmake ${{github.workspace}} --preset=Release
 
