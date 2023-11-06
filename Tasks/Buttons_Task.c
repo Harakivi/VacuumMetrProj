@@ -154,7 +154,7 @@ void vBUTTONSCheck_Task (void *pvParameters)
       }
     }
     
-    vPortGetHeapStats( &Stats );
+    //vPortGetHeapStats( &Stats );
     vTaskDelay(50);
   }
 }
