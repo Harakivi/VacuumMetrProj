@@ -11,7 +11,7 @@ extern uint8_t chel_smile[];
 //Бендер ¯ \ _ (ツ) _ / ¯ 
 extern uint8_t bender[84 * 48 / 8];
 
-extern char build [];
+char build [] = "";
 
 //size: 16x24
 extern uint8_t H_symb[];

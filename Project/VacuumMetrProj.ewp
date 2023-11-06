@@ -2130,7 +2130,7 @@
             <name>$PROJ_DIR$\..\CMSIS\core_cmInstr.h</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\CMSIS\startup_stm32f103xb.s</name>
+            <name>$PROJ_DIR$\..\CMSIS\IAR\startup_stm32f103xb.s</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\CMSIS\stm32f103xb.h</name>

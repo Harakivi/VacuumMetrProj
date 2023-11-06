@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdlib.h>
+#include <string.h>
+
 
 int main()
 {
@@ -16,3 +19,12 @@ int main()
 void vApplicationIdleHook(void){ }
 
 void vApplicationTickHook(void){ }
+
+void HardFault_Handler()
+{
+  while (1)
+  {
+    /* code */
+  }
+  
+}
