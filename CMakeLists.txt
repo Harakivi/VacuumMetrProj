@@ -48,7 +48,7 @@ set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}.${PROJECT_VERSION_TWEAK}\
 
 set(DATE_INFO "#define DATE \"${DATE}\"" )
 
-message("Build version = ${PROJECT_VERSION}.${PROJECT_VERSION_TWEAK} \r\n Build date = ${DATE}")
+message("Build version = ${PROJECT_VERSION}.${PROJECT_VERSION_TWEAK}\r\nBuild date = ${DATE}")
 
 file(WRITE ${TARGET_SOURCE_DIR}/libs/Version.h ${VERSION_INFO} "\r\n" ${DATE_INFO})
 

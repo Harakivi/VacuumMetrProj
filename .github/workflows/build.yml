@@ -18,7 +18,7 @@ jobs:
     - name: Setup gcc-arm-none-eabi
       run: sudo apt-get install -y gcc-arm-none-eabi
     - name: Configure CMake
-      run: cmake ${{github.workspace}} --preset=Release -DPROJECT_VERSION_TWEAK=run_id
+      run: cmake ${{github.workspace}} --preset=Release -DPROJECT_VERSION_TWEAK=${{run_id}}
     - name: Build and install
       run: |
           cmake --build ${{github.workspace}}/build 
