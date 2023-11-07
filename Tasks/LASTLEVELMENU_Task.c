@@ -186,12 +186,11 @@ void vLASTLEVELMENU_Task (void *pvParameters)
       break;
     case MENU_ABOUT_POS:
       VBUF_Write_String(2, 2, "Build:");
-      char build_number[] = {build[14], build[15], build[16], build[17], 0};
-      VBUF_Write_String(37, 2, build_number);
-      VBUF_Write_String(2, 14, "Date:");
-      char build_date[] = {build[0], build[1], '.', build[3], build[4], '.',
-                           build[8], build[9], 0};
-      VBUF_Write_String(31, 14, build_date);
+      extern char BuildVersion[];
+      VBUF_Write_String(2, 14, BuildVersion);
+      VBUF_Write_String(2, 26, "Date:");
+      extern char BuildDate[];
+      VBUF_Write_String(31, 26, BuildDate);
       VBUF_Write_String(0,39, "<Back");
       DISP_Update();
       vTaskDelay(100);

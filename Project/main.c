@@ -15,16 +15,3 @@ int main()
   //Запуск и передача управления шедулеру
   vTaskStartScheduler();
 }
-
-void vApplicationIdleHook(void){ }
-
-void vApplicationTickHook(void){ }
-
-void HardFault_Handler()
-{
-  while (1)
-  {
-    /* code */
-  }
-  
-}

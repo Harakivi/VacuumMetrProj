@@ -1,5 +1,6 @@
 #include "main.h"
 #include "BoardConfig.h"
+#include "Version.h"
 
 //width 11 / height 32
 extern  uint8_t chel_1 [];
@@ -11,7 +12,8 @@ extern uint8_t chel_smile[];
 //Бендер ¯ \ _ (ツ) _ / ¯ 
 extern uint8_t bender[84 * 48 / 8];
 
-char build [] = "";
+const char BuildDate [] = DATE;
+const char BuildVersion [] = VERSION;
 
 //size: 16x24
 extern uint8_t H_symb[];
@@ -69,8 +71,7 @@ void disp_LOGO()
   }
   VBUF_Clear();
   VBUF_Write_String(16, 10, "CarbSynch");
-  char version[] = SOFTWARE_VERSION;
-  VBUF_Write_String(40, 20, version);
+  VBUF_Write_String(40, 20, (char*)BuildVersion);
   
   VBUF_Write_String(20, 40, "by Harakivi");
   DISP_Update();

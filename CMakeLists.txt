@@ -42,6 +42,14 @@ target_include_directories(${TARGET} PRIVATE Tasks Games libs Utilities/FreeRTOS
 
 get_target_property(TARGET_SOURCE_DIR ${TARGET} SOURCE_DIR)
 
+string(TIMESTAMP DATE "%d%m%Y")
+
+set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}\"" )
+
+set(DATE_INFO "#define DATE \"${DATE}\"" )
+
+file(WRITE ${TARGET_SOURCE_DIR}/libs/Version.h ${VERSION_INFO} "\r\n" ${DATE_INFO})
+
 target_link_libraries(${TARGET} CMSIS FreeRTOS)
 
 target_link_options(${TARGET} PUBLIC -T ${TARGET_SOURCE_DIR}/libs/VacuumMetrProj.ld -Wl,-Map=${PROJECT_NAME}.map)
