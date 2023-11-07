@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
 
-if(NOT DEFINED job)
-set(job 0)
+if(NOT DEFINED run_number)
+set(run_number 0)
 endif()
 
-project(VacuumMetr VERSION 1.0.0.${job} LANGUAGES C CXX ASM)
+project(VacuumMetr VERSION 1.0.0.${run_number} LANGUAGES C CXX ASM)
 
 #############################################################
 #                          CMSIS                            #
