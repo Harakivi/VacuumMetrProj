@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
-project(VacuumMetr VERSION 1.0.0 LANGUAGES C CXX ASM)
+
+if(NOT DEFINED ${github_action})
+set(github_action 0)
+endif()
+
+project(VacuumMetr VERSION 1.0.0.${github_action} LANGUAGES C CXX ASM)
 
 #############################################################
 #                          CMSIS                            #
@@ -44,11 +49,11 @@ get_target_property(TARGET_SOURCE_DIR ${TARGET} SOURCE_DIR)
 
 string(TIMESTAMP DATE "%d.%m.%Y")
 
-set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}.${PROJECT_VERSION_TWEAK}\"" )
+set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}\"" )
 
 set(DATE_INFO "#define DATE \"${DATE}\"" )
 
-message("Build version = ${PROJECT_VERSION}.${PROJECT_VERSION_TWEAK}\r\nBuild date = ${DATE}")
+message("Build version = ${PROJECT_VERSION}\r\nBuild date = ${DATE}")
 
 file(WRITE ${TARGET_SOURCE_DIR}/libs/Version.h ${VERSION_INFO} "\r\n" ${DATE_INFO})
 
