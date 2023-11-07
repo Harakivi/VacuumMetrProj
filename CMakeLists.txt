@@ -47,7 +47,7 @@ target_include_directories(${TARGET} PRIVATE Tasks Games libs Utilities/FreeRTOS
 
 get_target_property(TARGET_SOURCE_DIR ${TARGET} SOURCE_DIR)
 
-string(TIMESTAMP DATE "%d.%m.%Y")
+string(TIMESTAMP DATE "%d.%m.%y")
 
 set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}\"" )
 
