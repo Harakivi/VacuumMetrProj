@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
 
-if(NOT DEFINED ${github_action})
-set(github_action 0)
+if(NOT DEFINED job)
+set(job 0)
 endif()
 
-project(VacuumMetr VERSION 1.0.0.${github_action} LANGUAGES C CXX ASM)
+project(VacuumMetr VERSION 1.0.0.${job} LANGUAGES C CXX ASM)
 
 #############################################################
 #                          CMSIS                            #
