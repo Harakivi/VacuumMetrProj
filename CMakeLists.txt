@@ -44,7 +44,7 @@ get_target_property(TARGET_SOURCE_DIR ${TARGET} SOURCE_DIR)
 
 string(TIMESTAMP DATE "%d.%m.%Y")
 
-set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}\"" )
+set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}.${PROJECT_VERSION_TWEAK}\"" )
 
 set(DATE_INFO "#define DATE \"${DATE}\"" )
 
