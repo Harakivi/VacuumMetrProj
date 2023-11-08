@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
-project(VacuumMetr VERSION 0.1.0 LANGUAGES C CXX ASM)
+
+if(NOT DEFINED run_number)
+set(run_number 0)
+endif()
+
+project(VacuumMetr VERSION 1.0.0.${run_number} LANGUAGES C CXX ASM)
 
 #############################################################
 #                          CMSIS                            #
@@ -41,6 +46,16 @@ add_executable(${TARGET} ${SOURCE} ${TASKS_SOURCES} ${GAMES_SOURCES} ${LIBS_SOUR
 target_include_directories(${TARGET} PRIVATE Tasks Games libs Utilities/FreeRTOS/Source/include  Utilities/FreeRTOS/Source/portable/GCC/ARM_CM3 Project)
 
 get_target_property(TARGET_SOURCE_DIR ${TARGET} SOURCE_DIR)
+
+string(TIMESTAMP DATE "%d.%m.%y")
+
+set(VERSION_INFO "#define VERSION \"${PROJECT_VERSION}\"" )
+
+set(DATE_INFO "#define DATE \"${DATE}\"" )
+
+message("Build version = ${PROJECT_VERSION}\r\nBuild date = ${DATE}")
+
+file(WRITE ${TARGET_SOURCE_DIR}/libs/Version.h ${VERSION_INFO} "\r\n" ${DATE_INFO})
 
 target_link_libraries(${TARGET} CMSIS FreeRTOS)
 

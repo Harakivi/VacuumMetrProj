@@ -1,7 +1,6 @@
 #ifndef _BOARDCONFIG_
 #define _BOARDCONFIG_
 /*---------------------Common Defines------------------*/
-#define SOFTWARE_VERSION        {'V', build[11], '.',build[12], 0}
 #define MIN_VOLT_ON_BATTERY     6000 // 6.000 Вольт
 #define CHECK_BATT_VOLT         FALSE//Проверка напряжения на батарее
 #define TIMETOINACTIONSTANDBY   300000 //Время в милисекундах до перехода в режим Standby(300000 = 5 минут)

@@ -14,7 +14,7 @@ uint8_t SaveCongig(Config_Struct* _Config)
   FLASH->KEYR = FLASH_KEY2;
   
   //Проверяем разблокировался ли флэш
-  if(FLASH->CR & FLASH_CR_LOCK != 0)
+  if((FLASH->CR & FLASH_CR_LOCK) != 0)
   {
     //Если флэш заблокирован, то выходим с 0
     return 0;
@@ -30,7 +30,7 @@ uint8_t SaveCongig(Config_Struct* _Config)
   
   uint16_t timeout = 10000;
   //Ждём коца стирания
-  while(FLASH->SR & FLASH_SR_BSY == 0)
+  while((FLASH->SR & FLASH_SR_BSY) == 0)
   {
     timeout--;
     if(!timeout)
@@ -53,7 +53,7 @@ uint8_t SaveCongig(Config_Struct* _Config)
     configReg += 2;
     timeout = 10000;
     //Ждём коца записи
-    while(FLASH->SR & FLASH_SR_BSY == 0)
+    while((FLASH->SR & FLASH_SR_BSY) == 0)
     {
       timeout--;
       if(!timeout)
@@ -82,7 +82,7 @@ uint8_t SaveBright(uint16_t _Bright)
   FLASH->KEYR = FLASH_KEY2;
   
   //Проверяем разблокировался ли флэш
-  if(FLASH->CR & FLASH_CR_LOCK != 0)
+  if((FLASH->CR & FLASH_CR_LOCK) != 0)
   {
     //Если флэш заблокирован, то выходим с 0
     return 0;
@@ -98,7 +98,7 @@ uint8_t SaveBright(uint16_t _Bright)
   
   uint16_t timeout = 10000;
   //Ждём коца стирания
-  while(FLASH->SR & FLASH_SR_BSY == 0)
+  while((FLASH->SR & FLASH_SR_BSY) == 0)
   {
     timeout--;
     if(!timeout)
@@ -121,7 +121,7 @@ uint8_t SaveBright(uint16_t _Bright)
     configReg += 2;
     timeout = 10000;
     //Ждём коца записи
-    while(FLASH->SR & FLASH_SR_BSY == 0)
+    while((FLASH->SR & FLASH_SR_BSY) == 0)
     {
       timeout--;
       if(!timeout)
