@@ -63,4 +63,4 @@ target_link_options(${TARGET} PUBLIC -T ${TARGET_SOURCE_DIR}/libs/VacuumMetrProj
 
 add_custom_command(TARGET ${TARGET} POST_BUILD COMMAND ${CMAKE_OBJCOPY} ARGS -O binary ${TARGET} ${PROJECT_NAME}.bin)
 
-install(FILES build/${PROJECT_NAME}.bin DESTINATION build/install)
+install(FILES build/${PROJECT_NAME}.bin DESTINATION ./)
