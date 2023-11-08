@@ -71,7 +71,8 @@ void disp_LOGO()
   }
   VBUF_Clear();
   VBUF_Write_String(16, 10, "CarbSynch");
-  VBUF_Write_String(40, 20, (char*)BuildVersion);
+  char initVer[] = {'V', BuildVersion[0], '.',BuildVersion[2], 0};
+  VBUF_Write_String(30, 20, initVer);
   
   VBUF_Write_String(20, 40, "by Harakivi");
   DISP_Update();
